@@ -69,6 +69,7 @@ set nomodeline
 
 colorscheme obsidian
 
+" Plugin Management (vim-plug)
 call plug#begin('~/.vim/plugged')
 
 Plug 'nvie/vim-flake8'
@@ -80,7 +81,10 @@ Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
+" On-Event scripts
 
+" trim trailing whitespace on write
 autocmd BufWritePre * %s/\s\+$//e
+" lint Python files on write
 autocmd BufWritePre *.py call Flake8()
 
