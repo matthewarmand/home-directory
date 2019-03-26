@@ -106,5 +106,5 @@ alias ls='ls --color=auto'
 
 # Amway development workspace helper alii
 alias amway-vpn='sudo openconnect --protocol=gp --timestamp --user=aiuhdv7 --csd-wrapper /usr/lib/openconnect/hipreport.sh mfa-portal.amwayconnect.com'
-alias amway-rdp='xfreerdp /dynamic-resolution /u:"aiuhdv7" /v:USQV1643'
+alias amway-rdp='xfreerdp /dynamic-resolution /u:"aiuhdv7" /v:USQV1643 /gt:auto'
 
