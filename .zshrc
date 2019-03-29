@@ -103,8 +103,10 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias ls='ls --color=auto'
+alias kill-orphans='yay -Rsu'
 
 # Amway development workspace helper alii
 alias amway-vpn='sudo openconnect --protocol=gp --timestamp --user=aiuhdv7 --csd-wrapper /usr/lib/openconnect/hipreport.sh mfa-portal.amwayconnect.com'
 alias amway-rdp='xfreerdp /dynamic-resolution /u:"aiuhdv7" /v:USQV1643 /gt:auto'
+alias amway-teams='snap run teams-for-linux'
 
