@@ -1,20 +1,53 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+export JAVA_HOME=/usr/lib/jvm/default
+export PATH=$PATH:$JAVA_HOME
+
+# Add to Path packages managed by Cargo (Rust)
+export PATH=$PATH:/home/matt/.cargo/bin
+
+# Add to Path local bin directory (user scripts)
+export PATH=$PATH:/home/matt/bin
+
+# for realTimeAudioConfigQuickScan
+export SOUND_CARD_IRQ=38
+
+# for cli-visualizer
+export TERM=rxvt-256color
+
+# ssh
+export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias ls='ls --color=auto'
+alias kill-orphans='yay -Rsu'
+alias adios='sudo shutdown -h +0'
+alias pavucontrol='pavucontrol-qt'
+
+# Amway development workspace helpers
+alias amway-vpn='sudo openconnect --protocol=gp --timestamp --user=aiuhdv7 --csd-wrapper /usr/lib/openconnect/hipreport.sh mfa-portal.amwayconnect.com'
+alias amway-rdp='xfreerdp /dynamic-resolution /u:"aiuhdv7" /v:USQV1643 /gt:auto'
+alias amway-teams='snap run teams-for-linux'
+alias amway-cleanup='yay -R tomcat9 freerdp oracle-sqldeveloper; kill-orphans'
+
+source ~/development/amway/setup-env-los.sh
+
+# oh-my-zsh Configuration
+
 # Path to your oh-my-zsh installation.
   export ZSH="/home/matt/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="af-magic"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -52,7 +85,7 @@ HYPHEN_INSENSITIVE="true"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -83,30 +116,4 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-export JAVA_HOME=/usr/lib/jvm/default
-export PATH=$PATH:$JAVA_HOME
-
-# for realTimeAudioConfigQuickScan
-export SOUND_CARD_IRQ=38
-
-# ssh
-export SSH_KEY_PATH="~/.ssh/rsa_id"
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-alias ls='ls --color=auto'
-alias kill-orphans='yay -Rsu'
-
-# Amway development workspace helper alii
-alias amway-vpn='sudo openconnect --protocol=gp --timestamp --user=aiuhdv7 --csd-wrapper /usr/lib/openconnect/hipreport.sh mfa-portal.amwayconnect.com'
-alias amway-rdp='xfreerdp /dynamic-resolution /u:"aiuhdv7" /v:USQV1643 /gt:auto'
-alias amway-teams='snap run teams-for-linux'
 

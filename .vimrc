@@ -3,8 +3,29 @@
 " Must be first because it changes other settings
 set nocompatible
 
+" Plugin Management (vim-plug)
+call plug#begin('~/.vim/plugged')
+
+Plug 'nvie/vim-flake8'
+Plug 'jiangmiao/auto-pairs'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'dermusikman/sonicpi.vim'
+
+call plug#end()
+
+" SonicPi.vim configuration
+let g:sonicpi_command = 'sonic-pi-tool'
+let g:sonicpi_send = 'eval-stdin'
+let g:sonicpi_stop = 'stop'
+let g:vim_redraw = 1
+
+" Settings
 syntax on
 filetype indent plugin on
+set omnifunc=syntaxcomplete#Complete
 
 set shell=bash
 
@@ -13,9 +34,9 @@ set nowrap
 
 " tabstop settings... might want to make this filetype-specific
 set expandtab                  " tab key inserts spaces instead of tabs
-set tabstop=4                  " tab is 4 spaces
-set softtabstop=4              " when hitting <BS> pretend a tab is removed
-set shiftwidth=4               " number of spaces to use for autoindent
+set tabstop=2                  " tab is 2 spaces
+set softtabstop=2              " when hitting <BS> pretend a tab is removed
+set shiftwidth=2               " number of spaces to use for autoindent
 set smarttab                   " tab to next indent
 
 set backspace=indent,eol,start " allow backspacing over everything in insert
@@ -68,18 +89,6 @@ set showcmd
 set nomodeline
 
 colorscheme obsidian
-
-" Plugin Management (vim-plug)
-call plug#begin('~/.vim/plugged')
-
-Plug 'nvie/vim-flake8'
-Plug 'jiangmiao/auto-pairs'
-Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-
-call plug#end()
 
 " On-Event scripts
 
