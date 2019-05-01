@@ -2,5 +2,8 @@
 
 !.vimrc
 !.zshrc
+
+!.config/
+!.config/terminator
 !.config/terminator/config
 
