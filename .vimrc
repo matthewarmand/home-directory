@@ -32,13 +32,6 @@ set shell=bash
 set showmode
 set nowrap
 
-" tabstop settings... might want to make this filetype-specific
-set expandtab                  " tab key inserts spaces instead of tabs
-set tabstop=2                  " tab is 2 spaces
-set softtabstop=2              " when hitting <BS> pretend a tab is removed
-set shiftwidth=2               " number of spaces to use for autoindent
-set smarttab                   " tab to next indent
-
 set backspace=indent,eol,start " allow backspacing over everything in insert
 set autoindent                 " always autoindent on
 set copyindent                 " copy previous indentation on autoindent
@@ -87,6 +80,13 @@ set noerrorbells
 set showcmd
 
 set nomodeline
+
+" tabstop settings... might want to make this filetype-specific
+set expandtab                  " tab key inserts spaces instead of tabs
+set tabstop=2                  " tab is 2 spaces
+set softtabstop=2              " when hitting <BS> pretend a tab is removed
+set shiftwidth=2               " number of spaces to use for autoindent
+set smarttab                   " tab to next indent
 
 colorscheme obsidian
 
