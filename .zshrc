@@ -34,6 +34,8 @@ alias kill-orphans='yay -Rsu'
 alias adios='sudo shutdown -h +0'
 alias pavucontrol='pavucontrol-qt'
 
+alias code-workspace='nohup terminator -l codeworkspace &>/dev/null & sleep 2; exit'
+
 # Amway development workspace helpers
 alias amway-vpn='sudo openconnect --protocol=gp --timestamp --user=aiuhdv7 --csd-wrapper /usr/lib/openconnect/hipreport.sh mfa-portal.amwayconnect.com'
 alias amway-rdp='xfreerdp /dynamic-resolution /u:"aiuhdv7" /v:USQV1643 /gt:auto'
