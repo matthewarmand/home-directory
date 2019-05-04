@@ -12,6 +12,102 @@
     [[[window0]]]
       parent = ""
       type = Window
+  [[amwayworkspace]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = bd77c7ab-286a-413d-be9b-dd4c0e139afd
+      last_active_window = True
+      maximised = True
+      order = 0
+      parent = ""
+      position = 0:0
+      size = 1366, 703
+      title = matt@bragi: ~
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 153
+      ratio = 0.217948717949
+      type = VPaned
+    [[[child11]]]
+      order = 1
+      parent = child7
+      position = 140
+      ratio = 0.518518518519
+      type = VPaned
+    [[[child2]]]
+      order = 0
+      parent = child1
+      position = 1111
+      ratio = 0.813919413919
+      type = HPaned
+    [[[child5]]]
+      order = 1
+      parent = child1
+      position = 1111
+      ratio = 0.813919413919
+      type = HPaned
+    [[[child7]]]
+      order = 1
+      parent = child5
+      position = 277
+      ratio = 0.505474452555
+      type = VPaned
+    [[[child8]]]
+      order = 0
+      parent = child7
+      position = 141
+      ratio = 0.510869565217
+      type = VPaned
+    [[[terminal10]]]
+      command = env INIT_CMD="amway-teams" zsh
+      order = 1
+      parent = child8
+      profile = default
+      type = Terminal
+      uuid = 1d68c1c8-73bc-4be6-b5a9-f8119597437b
+    [[[terminal12]]]
+      command = ""
+      order = 0
+      parent = child11
+      profile = default
+      type = Terminal
+      uuid = 2a8231c6-22b8-4b3e-b21e-3ff5d8fed342
+    [[[terminal13]]]
+      command = ""
+      order = 1
+      parent = child11
+      profile = default
+      type = Terminal
+      uuid = e146f17e-4de9-458b-b2b7-241b98e86b8e
+    [[[terminal3]]]
+      command = env INIT_CMD="vis" zsh
+      order = 0
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = b5baa5ab-d409-4064-b4c8-615b9913e868
+    [[[terminal4]]]
+      command = env INIT_CMD="vis" zsh
+      order = 1
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = 19646a48-c0a7-498c-bda1-6c36e7615ff7
+    [[[terminal6]]]
+      order = 0
+      parent = child5
+      profile = default
+      type = Terminal
+      uuid = bd77c7ab-286a-413d-be9b-dd4c0e139afd
+    [[[terminal9]]]
+      command = env INIT_CMD="amway-vpn" zsh
+      order = 0
+      parent = child8
+      profile = default
+      type = Terminal
+      uuid = ce5c0193-dab2-4731-93c1-9a8787bc0185
   [[codeworkspace]]
     [[[child0]]]
       fullscreen = False
@@ -79,12 +175,14 @@
       type = Terminal
       uuid = e146f17e-4de9-458b-b2b7-241b98e86b8e
     [[[terminal3]]]
+      command = env INIT_CMD="vis" zsh
       order = 0
       parent = child2
       profile = default
       type = Terminal
       uuid = b5baa5ab-d409-4064-b4c8-615b9913e868
     [[[terminal4]]]
+      command = env INIT_CMD="vis" zsh
       order = 1
       parent = child2
       profile = default
