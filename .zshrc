@@ -123,6 +123,7 @@ source $ZSH/oh-my-zsh.sh
 # in terminator. Big thanks to URL below for this tip
 # https://amir.rachum.com/amp/blog/2015/11/28/terminator-multiple-custom-commands.html
 
+echo $INIT_CMD
 if [ ! -z "$INIT_CMD" ]; then
   OLD_IFS=$IFS
   setopt shwordsplit
