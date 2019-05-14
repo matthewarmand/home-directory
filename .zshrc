@@ -40,7 +40,6 @@ alias code-workspace='nohup terminator -l codeworkspace &>/dev/null & sleep 2; e
 alias amway-vpn='sudo openconnect --protocol=gp --timestamp --user=aiuhdv7 --csd-wrapper /usr/lib/openconnect/hipreport.sh mfa-portal.amwayconnect.com'
 alias amway-rdp='xfreerdp /dynamic-resolution /u:"aiuhdv7" /v:USQV1643 /gt:auto'
 alias amway-teams='snap run teams-for-linux'
-alias amway-workspace='nohup terminator -l amwayworkspace &>/dev/null & sleep 2; exit'
 alias amway-cleanup='yay -R tomcat9 freerdp oracle-sqldeveloper; kill-orphans'
 
 source ~/development/amway/setup-env-los.sh
@@ -118,21 +117,4 @@ source $ZSH/oh-my-zsh.sh
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-
-# Script to support custom shell initialization commands
-# in terminator. Big thanks to URL below for this tip
-# https://amir.rachum.com/amp/blog/2015/11/28/terminator-multiple-custom-commands.html
-
-echo $INIT_CMD
-if [ ! -z "$INIT_CMD" ]; then
-  OLD_IFS=$IFS
-  setopt shwordsplit
-  IFS=';'
-  for cmd in $INIT_CMD; do
-    print -s "$cmd"   # add to history
-    eval $cmd
-  done
-  unset INIT_CMD
-  IFS=$OLD_IFS
-fi
 

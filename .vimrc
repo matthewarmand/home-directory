@@ -36,7 +36,6 @@ set backspace=indent,eol,start " allow backspacing over everything in insert
 set autoindent                 " always autoindent on
 set copyindent                 " copy previous indentation on autoindent
 set number relativenumber      " show line numbers
-set ruler                      " show cursor position
 set showmatch                  " show matching parens
 set ignorecase                 " ignore case when searching
 set smartcase                  " ignore case if search is all lowercase
@@ -87,6 +86,7 @@ set tabstop=2                  " tab is 2 spaces
 set softtabstop=2              " when hitting <BS> pretend a tab is removed
 set shiftwidth=2               " number of spaces to use for autoindent
 set smarttab                   " tab to next indent
+set ruler                      " show cursor position
 
 colorscheme obsidian
 
