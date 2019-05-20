@@ -3,25 +3,6 @@
 " Must be first because it changes other settings
 set nocompatible
 
-" Plugin Management (vim-plug)
-call plug#begin('~/.vim/plugged')
-
-Plug 'nvie/vim-flake8'
-Plug 'jiangmiao/auto-pairs'
-Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'dermusikman/sonicpi.vim'
-
-call plug#end()
-
-" SonicPi.vim configuration
-let g:sonicpi_command = 'sonic-pi-tool'
-let g:sonicpi_send = 'eval-stdin'
-let g:sonicpi_stop = 'stop'
-let g:vim_redraw = 1
-
 " Settings
 syntax on
 filetype indent plugin on
@@ -89,6 +70,25 @@ set smarttab                   " tab to next indent
 set ruler                      " show cursor position
 
 colorscheme obsidian
+
+" Plugin Management (vim-plug)
+call plug#begin('~/.vim/plugged')
+
+Plug 'nvie/vim-flake8'
+Plug 'jiangmiao/auto-pairs'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'dermusikman/sonicpi.vim'
+
+call plug#end()
+
+" SonicPi.vim configuration
+let g:sonicpi_command = 'sonic-pi-tool'
+let g:sonicpi_send = 'eval-stdin'
+let g:sonicpi_stop = 'stop'
+let g:vim_redraw = 1
 
 " On-Event scripts
 
