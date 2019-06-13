@@ -29,9 +29,10 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias ls='ls --color=auto'
-alias kill-orphans='yay -Rsu'
 alias adios='sudo shutdown -h +0'
+alias git-root='cd $(git rev-parse --show-cdup)'
+alias kill-orphans='yay -Rsu'
+alias ls='ls --color=auto'
 alias pavucontrol='pavucontrol-qt'
 
 alias code-workspace='nohup terminator -l codeworkspace &>/dev/null & sleep 2; exit'
