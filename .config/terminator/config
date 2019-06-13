@@ -104,6 +104,60 @@
       profile = default
       type = Terminal
       uuid = ce5c0193-dab2-4731-93c1-9a8787bc0185
+  [[sonicpiworkspace]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = caf161b8-c9d0-4748-bc52-04b563560607
+      last_active_window = True
+      maximised = True
+      order = 0
+      parent = ""
+      position = 0:0
+      size = 1366, 703
+      title = matt@bragi: ~
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 117
+      ratio = 0.166666666667
+      type = VPaned
+    [[[child3]]]
+      order = 1
+      parent = child1
+      position = 847
+      ratio = 0.620512820513
+      type = HPaned
+    [[[child5]]]
+      order = 1
+      parent = child3
+      position = 292
+      ratio = 0.5
+      type = VPaned
+    [[[terminal2]]]
+      order = 0
+      parent = child1
+      profile = default
+      type = Terminal
+      uuid = bd77c7ab-286a-413d-be9b-dd4c0e139afd
+    [[[terminal4]]]
+      order = 0
+      parent = child3
+      profile = default
+      type = Terminal
+      uuid = caf161b8-c9d0-4748-bc52-04b563560607
+    [[[terminal6]]]
+      order = 0
+      parent = child5
+      profile = default
+      type = Terminal
+      uuid = 21ef9acc-4f10-480f-851d-11db6b70b331
+    [[[terminal7]]]
+      order = 1
+      parent = child5
+      profile = default
+      type = Terminal
+      uuid = e7480dec-6de8-42f6-87f8-cb809a2b2d32
 [plugins]
 [profiles]
   [[default]]
