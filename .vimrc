@@ -69,7 +69,7 @@ set shiftwidth=2               " number of spaces to use for autoindent
 set smarttab                   " tab to next indent
 set ruler                      " show cursor position
 
-colorscheme iceberg
+colorscheme iceberg            " from https://github.com/cocopon/iceberg.vim
 
 " Plugin Management (vim-plug)
 call plug#begin('~/.vim/plugged')
