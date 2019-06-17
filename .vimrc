@@ -69,7 +69,7 @@ set shiftwidth=2               " number of spaces to use for autoindent
 set smarttab                   " tab to next indent
 set ruler                      " show cursor position
 
-colorscheme obsidian
+colorscheme iceberg
 
 " Plugin Management (vim-plug)
 call plug#begin('~/.vim/plugged')
