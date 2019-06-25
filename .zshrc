@@ -31,7 +31,7 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 alias adios='sudo shutdown -h +0'
 alias git-root='cd $(git rev-parse --show-cdup)'
-alias kill-orphans='yay -Rsu'
+alias kill-orphans='yay -Rnsu $(yay -Qtdq)'
 alias ls='ls --color=auto'
 alias pavucontrol='pavucontrol-qt'
 
