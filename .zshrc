@@ -40,8 +40,7 @@ alias code-workspace='nohup terminator -l codeworkspace &>/dev/null & sleep 2; e
 # Amway development workspace helpers
 alias amway-vpn='sudo openconnect --protocol=gp --timestamp --user=aiuhdv7 --csd-wrapper /usr/lib/openconnect/hipreport.sh mfa-portal.amwayconnect.com'
 alias amway-rdp='xfreerdp /dynamic-resolution /u:"aiuhdv7" /v:USQV1643 /gt:auto'
-alias amway-teams='snap run teams-for-linux'
-alias amway-cleanup='yay -R tomcat9 freerdp oracle-sqldeveloper; kill-orphans'
+alias amway-cleanup='yay -Rsu jdk8 freerdp oracle-sqldeveloper'
 alias amway-format-services='mvn com.coveo:fmt-maven-plugin:format tidy:pom'
 
 source ~/development/amway/setup-env-los.sh
