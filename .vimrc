@@ -83,6 +83,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'dermusikman/sonicpi.vim'
 
 call plug#end()
+" vim-plug to update plugins: :PlugUpdate
 
 " SonicPi.vim configuration
 let g:sonicpi_command = 'sonic-pi-tool'
