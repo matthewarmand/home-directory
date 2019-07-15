@@ -8,3 +8,5 @@
 !.config/terminator
 !.config/terminator/config
 
+!.config/vis
+!.config/vis/config
