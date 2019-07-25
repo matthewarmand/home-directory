@@ -34,6 +34,7 @@ alias git-root='cd $(git rev-parse --show-cdup)'
 alias kill-orphans='yay -Rnsu $(yay -Qtdq)'
 alias ls='ls --color=auto'
 alias pavucontrol='pavucontrol-qt'
+alias tizonia='snap run tizonia'
 
 alias code-workspace='nohup terminator -l codeworkspace &>/dev/null & sleep 2; exit'
 
@@ -48,7 +49,7 @@ source ~/development/amway/setup-env-los.sh
 # oh-my-zsh Configuration
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/matt/.oh-my-zsh"
+export ZSH="/home/matt/.oh-my-zsh"
 
 ZSH_THEME="af-magic"
 
