@@ -91,6 +91,10 @@ let g:sonicpi_send = 'eval-stdin'
 let g:sonicpi_stop = 'stop'
 let g:vim_redraw = 1
 
+
+" Filetype-specific settings
+autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
+
 " On-Event scripts
 
 " trim trailing whitespace on write
