@@ -7,6 +7,10 @@ export PATH=$PATH:$JAVA_HOME
 # Add to Path local bin directory (user scripts)
 export PATH=$PATH:/home/matt/bin
 
+# For python-virtualenvwrapper
+export WORKON_HOME=/home/matt/.virtualenvs
+source /usr/bin/virtualenvwrapper_lazy.sh
+
 # for cli-visualizer
 export TERM=rxvt-256color
 
