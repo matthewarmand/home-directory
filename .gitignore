@@ -4,6 +4,9 @@
 !.zshrc
 !.jackdrc
 
+!.zshrc-machines/
+!.zshrc-machines/*
+
 !.config/
 !.config/terminator
 !.config/terminator/config

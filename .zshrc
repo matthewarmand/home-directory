@@ -4,14 +4,8 @@
 export JAVA_HOME=/usr/lib/jvm/default
 export PATH=$PATH:$JAVA_HOME
 
-# Add to Path packages managed by Cargo (Rust)
-export PATH=$PATH:/home/matt/.cargo/bin
-
 # Add to Path local bin directory (user scripts)
 export PATH=$PATH:/home/matt/bin
-
-# for realTimeAudioConfigQuickScan
-export SOUND_CARD_IRQ=38
 
 # for cli-visualizer
 export TERM=rxvt-256color
@@ -30,13 +24,15 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias adios='sudo shutdown -h +0'
+alias code-workspace='nohup terminator -l codeworkspace &>/dev/null & sleep 2; exit'
 alias git-root='cd $(git rev-parse --show-cdup)'
 alias kill-orphans='yay -Rnsu $(yay -Qtdq)'
 alias ls='ls --color=auto'
-alias pavucontrol='pavucontrol-qt'
 alias tizonia='snap run tizonia'
 
-alias code-workspace='nohup terminator -l codeworkspace &>/dev/null & sleep 2; exit'
+# run machine-specific configuration if it exists
+local filename=/home/matt/.zshrc-machines/$(uname -n).sh
+test -x $filename && source $filename
 
 # oh-my-zsh Configuration
 
@@ -91,7 +87,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+# Zsh Plugins are specified in scripts in /home/matt/.zshrc-machines/
 
 source $ZSH/oh-my-zsh.sh
 
