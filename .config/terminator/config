@@ -28,45 +28,38 @@
       maximised = True
       order = 0
       parent = ""
-      position = 0:0
-      size = 1366, 703
-      title = matt@bragi: ~
+      position = 0:444
+      size = 1600, 841
       type = Window
     [[[child1]]]
       order = 0
       parent = child0
-      position = 153
-      ratio = 0.217948717949
-      type = VPaned
-    [[[child11]]]
-      order = 1
-      parent = child7
-      position = 140
-      ratio = 0.518518518519
+      position = 183
+      ratio = 0.217857142857
       type = VPaned
     [[[child2]]]
       order = 0
       parent = child1
-      position = 1057
-      ratio = 0.774358974359
+      position = 1238
+      ratio = 0.774233896185
       type = HPaned
     [[[child5]]]
       order = 1
       parent = child1
-      position = 1057
-      ratio = 0.774358974359
+      position = 1074
+      ratio = 0.671669793621
       type = HPaned
     [[[child7]]]
       order = 1
       parent = child5
-      position = 277
-      ratio = 0.505474452555
+      position = 332
+      ratio = 0.506097560976
       type = VPaned
     [[[child8]]]
       order = 0
       parent = child7
-      position = 141
-      ratio = 0.510869565217
+      position = 169
+      ratio = 0.510574018127
       type = VPaned
     [[[terminal10]]]
       order = 1
@@ -74,18 +67,12 @@
       profile = default
       type = Terminal
       uuid = 1d68c1c8-73bc-4be6-b5a9-f8119597437b
-    [[[terminal12]]]
-      order = 0
-      parent = child11
+    [[[terminal11]]]
+      order = 1
+      parent = child7
       profile = default
       type = Terminal
       uuid = 2a8231c6-22b8-4b3e-b21e-3ff5d8fed342
-    [[[terminal13]]]
-      order = 1
-      parent = child11
-      profile = default
-      type = Terminal
-      uuid = e146f17e-4de9-458b-b2b7-241b98e86b8e
     [[[terminal3]]]
       order = 0
       parent = child2
