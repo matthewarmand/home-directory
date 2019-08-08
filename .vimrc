@@ -95,8 +95,8 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " SimpylFold config
 let g:SimpylFold_docstring_preview=1
-set foldlevel=99
-set nofoldenable
+set foldlevel=99                      " Max so we have granulatiry when folding
+set nofoldenable                      " No folds when file is opened
 
 " SonicPi.vim configuration
 let g:sonicpi_command = 'sonic-pi-tool'
