@@ -4,6 +4,7 @@
 set nocompatible
 
 " Settings
+let python_highlight_all=1
 syntax on
 filetype indent plugin on
 set omnifunc=syntaxcomplete#Complete
@@ -74,16 +75,28 @@ colorscheme iceberg            " from https://github.com/cocopon/iceberg.vim
 " Plugin Management (vim-plug)
 call plug#begin('~/.vim/plugged')
 
-Plug 'nvie/vim-flake8'
-Plug 'jiangmiao/auto-pairs'
-Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
 Plug 'dermusikman/sonicpi.vim'
+Plug 'mhinz/vim-signify'
+Plug 'nvie/vim-flake8'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tmhedberg/SimpylFold'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'Valloric/YouCompleteMe'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'vim-syntastic/syntastic'
 
 call plug#end()
 " vim-plug to update plugins: :PlugUpdate
+
+" YouCompleteMe config
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" SimpylFold config
+let g:SimpylFold_docstring_preview=1
+set foldlevel=99
+set nofoldenable
 
 " SonicPi.vim configuration
 let g:sonicpi_command = 'sonic-pi-tool'
@@ -91,9 +104,25 @@ let g:sonicpi_send = 'eval-stdin'
 let g:sonicpi_stop = 'stop'
 let g:vim_redraw = 1
 
+"python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
 
 " Filetype-specific settings
-autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
+au BufNewFile,BufRead *.py setlocal
+    \ tabstop=4
+    \ softtabstop=4
+    \ shiftwidth=4
+    \ textwidth=79
+    \ expandtab
+    \ autoindent
+    \ fileformat=unix
 
 " On-Event scripts
 
@@ -101,4 +130,3 @@ autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
 autocmd BufWritePre * %s/\s\+$//e
 " lint Python files on write
 autocmd BufWritePre *.py call Flake8()
-
