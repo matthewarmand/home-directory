@@ -1,9 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-export JAVA_HOME=/usr/lib/jvm/default
-export PATH=$PATH:$JAVA_HOME
-
 # Add to Path local bin directory (user scripts)
 export PATH=$PATH:/home/matt/bin
 
