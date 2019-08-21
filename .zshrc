@@ -27,10 +27,8 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 alias adios='sudo shutdown -h +0'
 alias code-workspace='nohup terminator -l codeworkspace &>/dev/null & sleep 2; exit'
 alias git-root='cd $(git rev-parse --show-cdup)'
-alias hg-root='cd $(hg root)'
 alias kill-orphans='yay -Rnsu $(yay -Qtdq)'
 alias ls='ls --color=auto'
-alias tizonia='snap run tizonia'
 
 # run machine-specific configuration if it exists
 local filename=/home/matt/.zshrc-machines/$(uname -n).sh
