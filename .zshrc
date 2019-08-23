@@ -30,6 +30,7 @@ alias git-root='cd $(git rev-parse --show-cdup)'
 alias hg-root='cd $(hg root)'
 alias kill-orphans='yay -Rnsu $(yay -Qtdq)'
 alias ls='ls --color=auto'
+alias pavucontrol=pavucontrol-qt
 alias tizonia='snap run tizonia'
 
 # run machine-specific configuration if it exists
