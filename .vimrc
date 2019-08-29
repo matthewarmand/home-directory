@@ -76,6 +76,7 @@ colorscheme iceberg            " from https://github.com/cocopon/iceberg.vim
 call plug#begin('~/.vim/plugged')
 
 Plug 'dermusikman/sonicpi.vim'
+Plug 'itspriddle/vim-shellcheck'
 Plug 'mhinz/vim-signify'
 Plug 'nvie/vim-flake8'
 Plug 'scrooloose/nerdcommenter'
@@ -128,5 +129,7 @@ au BufNewFile,BufRead *.py setlocal
 
 " trim trailing whitespace on write
 autocmd BufWritePre * %s/\s\+$//e
+" check shell scripts for errors
+autocmd BufWritePre *.sh :ShellCheck!
 " lint Python files on write
 autocmd BufWritePre *.py call Flake8()
