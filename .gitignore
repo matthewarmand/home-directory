@@ -13,3 +13,5 @@
 
 !.config/vis
 !.config/vis/config
+
+!.config/flake8

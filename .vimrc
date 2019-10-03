@@ -78,6 +78,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'dermusikman/sonicpi.vim'
 Plug 'itspriddle/vim-shellcheck'
 Plug 'mhinz/vim-signify'
+Plug 'nvie/vim-flake8'
 Plug 'scrooloose/nerdcommenter'
 Plug 'psf/black'
 Plug 'tmhedberg/SimpylFold'
@@ -133,3 +134,4 @@ autocmd BufWritePre * %s/\s\+$//e
 autocmd BufWritePre *.sh :ShellCheck!
 " lint Python files on write
 autocmd BufWritePre *.py execute ':Black'
+autocmd BufWritePre *.py call Flake8()
