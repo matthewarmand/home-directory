@@ -32,6 +32,16 @@ alias ls='ls --color=auto'
 alias pavucontrol=pavucontrol-qt
 alias tizonia='snap run tizonia'
 
+depends-on() {
+  if [[ -n "$1" ]]; then
+    local installed_packages
+    installed_packages=$(yay -Q | grep "$1")
+    if [[ -n "$installed_packages" ]]; then
+      echo "$installed_packages" | awk '{print $1}' | xargs yay -Qi | grep "Required By" | sed 's/Required By\s\+:\s//g' | sed 's/\b\s\+\b/\n/g' | grep -v "None" | sort -u
+    fi
+  fi
+}
+
 # run machine-specific configuration if it exists
 local filename=/home/matt/.zshrc-machines/$(uname -n).sh
 test -x $filename && source $filename
