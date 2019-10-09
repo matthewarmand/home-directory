@@ -15,3 +15,6 @@
 !.config/vis/config
 
 !.config/flake8
+
+!.config/autostart
+!.config/autostart/terminator.desktop
