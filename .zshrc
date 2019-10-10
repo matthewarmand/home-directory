@@ -37,7 +37,7 @@ depends-on() {
     local installed_packages
     installed_packages=$(yay -Q | grep "$1")
     if [[ -n "$installed_packages" ]]; then
-      echo "$installed_packages" | awk '{print $1}' | xargs yay -Qi | grep "Required By" | sed 's/Required By\s\+:\s//g' | sed 's/\b\s\+\b/\n/g' | grep -v "None" | sort -u
+      echo "$installed_packages" | awk '{print $1}' | xargs yay -Qi | grep "Required By" | sed 's/Required By\s\+:\s//g' | sed 's/\b\s\+\b/\n/g' | grep -Ev "$1|None" | sort -u
     fi
   fi
 }
