@@ -75,6 +75,7 @@ colorscheme iceberg            " from https://github.com/cocopon/iceberg.vim
 " Plugin Management (vim-plug)
 call plug#begin('~/.vim/plugged')
 
+Plug '/usr/share/fzf'
 Plug 'dermusikman/sonicpi.vim'
 Plug 'itspriddle/vim-shellcheck'
 Plug 'mhinz/vim-signify'

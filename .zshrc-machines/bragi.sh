@@ -9,5 +9,11 @@ export PATH=$PATH:/home/matt/.cargo/bin
 # for realTimeAudioConfigQuickScan
 export SOUND_CARD_IRQ=38
 
+export FZF_BASE=/usr/share/fzf
+
 # Specify plugins for zsh
-plugins=(git virtualenv)
+plugins=(
+  fzf
+  git
+  virtualenv
+)
