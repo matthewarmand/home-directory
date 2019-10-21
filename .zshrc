@@ -2,10 +2,10 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Add to Path local bin directory (user scripts)
-export PATH=$PATH:/home/matt/bin
+export PATH=$PATH:$HOME/bin
 
 # For python-virtualenvwrapper
-export WORKON_HOME=/home/matt/.virtualenvs
+export WORKON_HOME=$HOME/.virtualenvs
 source /usr/bin/virtualenvwrapper_lazy.sh
 
 # for cli-visualizer
@@ -43,13 +43,13 @@ depends-on() {
 }
 
 # run machine-specific configuration if it exists
-local filename=/home/matt/.zshrc-machines/$(uname -n).sh
+local filename=$HOME/.zshrc-machines/$(uname -n).sh
 test -x $filename && source $filename
 
 # oh-my-zsh Configuration
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/matt/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="af-magic"
 
@@ -99,7 +99,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-# Zsh Plugins are specified in scripts in /home/matt/.zshrc-machines/
+# Zsh Plugins are specified in scripts in $HOME/.zshrc-machines/
 
 source $ZSH/oh-my-zsh.sh
 
