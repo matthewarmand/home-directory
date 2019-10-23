@@ -27,7 +27,6 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 alias adios='sudo shutdown -h +0'
 alias code-workspace='nohup terminator -l codeworkspace &>/dev/null & sleep 2; exit'
 alias git-root='cd $(git rev-parse --show-cdup)'
-alias kill-orphans='yay -Rnsu $(yay -Qtdq)'
 alias ls='ls --color=auto'
 alias pavucontrol=pavucontrol-qt
 alias tizonia='snap run tizonia'
@@ -39,6 +38,14 @@ depends-on() {
     if [[ -n "$installed_packages" ]]; then
       echo "$installed_packages" | awk '{print $1}' | xargs yay -Qi | grep "Required By" | sed 's/Required By\s\+:\s//g' | sed 's/\b\s\+\b/\n/g' | grep -Ev "$1|None" | sort -u
     fi
+  fi
+}
+
+kill-orphans() {
+  local orphans
+  orphans="$(yay -Qtdq)"
+  if [[ -n $orphans ]]; then
+    yay -Rsnu $orphans
   fi
 }
 
