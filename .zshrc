@@ -18,6 +18,9 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 # Python
 export PYTHONDONTWRITEBYTECODE=1
 
+# Fuzzy Find
+export FZF_BASE=/usr/share/fzf
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -111,7 +114,12 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-# Zsh Plugins are specified in scripts in $HOME/.zshrc-machines/
+plugins=(
+  fzf
+  git
+  virtualenv
+)
+
 
 source $ZSH/oh-my-zsh.sh
 
