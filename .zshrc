@@ -52,6 +52,8 @@ kill-orphans() {
   fi
 }
 
+eval $(thefuck --alias)
+
 # run machine-specific configuration if it exists
 local filename=$HOME/.zshrc-machines/$(uname -n).sh
 test -x $filename && source $filename
