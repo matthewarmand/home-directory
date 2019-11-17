@@ -35,7 +35,6 @@ alias code-workspace='nohup terminator -l codeworkspace &>/dev/null & sleep 2; e
 alias git-root='cd $(git rev-parse --show-cdup)'
 alias ls='ls --color=auto'
 alias pavucontrol=pavucontrol-qt
-alias tizonia='snap run tizonia'
 
 depends-on() {
   if [[ -n "$1" ]]; then
