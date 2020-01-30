@@ -80,11 +80,8 @@ Plug 'dermusikman/sonicpi.vim'
 Plug 'itspriddle/vim-shellcheck'
 Plug 'mhinz/vim-signify'
 Plug 'nvie/vim-flake8'
-Plug 'scrooloose/nerdcommenter'
 Plug 'psf/black'
-Plug 'tmhedberg/SimpylFold'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
 Plug 'Valloric/YouCompleteMe'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'vim-syntastic/syntastic'
@@ -96,10 +93,7 @@ call plug#end()
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-" SimpylFold config
-let g:SimpylFold_docstring_preview=1
-set foldlevel=99                      " Max so we have granulatiry when folding
-set nofoldenable                      " No folds when file is opened
+set foldlevel=99          " Max so we have granularity when folding
 
 " SonicPi.vim configuration
 let g:sonicpi_command = 'sonic-pi-tool'
