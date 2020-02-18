@@ -1,11 +1,11 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export PATH=/home/matt/bin:/usr/local/bin:$PATH
 
 # Add to Path local bin directory (user scripts)
-export PATH=$PATH:$HOME/bin
+export PATH=$PATH:/home/matt/bin
 
 # For python-virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
+export WORKON_HOME=/home/matt/.virtualenvs
 source /usr/bin/virtualenvwrapper_lazy.sh
 
 # for cli-visualizer
@@ -57,7 +57,7 @@ kill-orphans() {
 eval $(thefuck --alias)
 
 # run machine-specific configuration if it exists
-local filename=$HOME/.zshrc-machines/$(uname -n).sh
+local filename=/home/matt/.zshrc-machines/$(uname -n).sh
 test -x $filename && source $filename
 
 # oh-my-zsh Configuration
@@ -65,7 +65,7 @@ test -x $filename && source $filename
 ZSH_DISABLE_COMPFIX=true
 
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="/home/matt/.oh-my-zsh"
 
 ZSH_THEME="af-magic"
 
