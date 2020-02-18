@@ -7,6 +7,9 @@
 !.zshrc-machines/
 !.zshrc-machines/*
 
+!bin/
+!bin/is-black-on
+
 !.config/
 !.config/terminator
 !.config/terminator/config

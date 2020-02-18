@@ -1,0 +1,3 @@
+#!/bin/bash -e
+
+grep "execute ':Black'" /home/matt/.vimrc | grep -Eq ^a && echo Yes || echo No
