@@ -38,7 +38,7 @@ alias vi=vim
 
 all-installed() {
   yay -Qe | awk '{print $1}' | while IFS=$'\n' read -r p; do
-    if yay -Qi "$p" | grep "Required By" | sed 's/Required By\s\+:\s//g' | grep -q "None" ; then
+    if yay -Qi "$p" | grep -Eq "Required By\s+:\sNone" ; then
       echo "$p"
     fi
   done
