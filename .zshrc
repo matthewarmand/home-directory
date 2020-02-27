@@ -33,8 +33,16 @@ export FZF_BASE=/usr/share/fzf
 alias adios='sudo shutdown -h +0'
 alias code-workspace='nohup terminator -l codeworkspace &>/dev/null & sleep 2; exit'
 alias git-root='cd $(git rev-parse --show-cdup)'
-alias ls='ls --color=auto'
 alias pavucontrol=pavucontrol-qt
+alias vi=vim
+
+all-installed() {
+  yay -Qe | awk '{print $1}' | while IFS=$'\n' read -r p; do
+    if yay -Qi "$p" | grep "Required By" | sed 's/Required By\s\+:\s//g' | grep -q "None" ; then
+      echo "$p"
+    fi
+  done
+}
 
 depends-on() {
   if [[ -n "$1" ]]; then
