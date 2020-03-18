@@ -126,7 +126,6 @@ HIST_STAMPS="yyyy-mm-dd"
 plugins=(
   fzf
   git
-  python
   virtualenv
 )
 
