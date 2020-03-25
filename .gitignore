@@ -13,9 +13,7 @@
 
 !.config/
 !.config/tilix
-!.config/tilix/tilix.dconf
-!.config/tilix/layouts
-!.config/tilix/layouts/*
+!.config/tilix/*
 
 !.config/vis
 !.config/vis/config
