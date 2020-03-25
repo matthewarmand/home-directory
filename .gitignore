@@ -27,3 +27,4 @@
 
 !.config/autostart
 !.config/autostart/terminator.desktop
+!.config/autostart/com.gexperts.Tilix.desktop
