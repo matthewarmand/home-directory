@@ -8,5 +8,3 @@ export PATH=$PATH:/home/matt/.cargo/bin
 
 # for realTimeAudioConfigQuickScan
 export SOUND_CARD_IRQ=38
-
-alias tizonia='snap run tizonia'

@@ -1,7 +1,5 @@
 #!/usr/bin/bash -e
 
-alias tizonia='source /home/matt/development/personal/docker-tizonia/docker-tizonia'
-
 open-jira-tabs() {
   if [[ ! -f "$1" ]]; then
     echo "Unable to find list of tickets in file ($1). Please specify."

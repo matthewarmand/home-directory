@@ -36,6 +36,7 @@ alias git-root='cd $(git rev-parse --show-cdup)'
 alias pavucontrol=pavucontrol-qt
 alias tilix-config-dump='dconf dump /com/gexperts/Tilix/ > /home/matt/.config/tilix/tilix.dconf'
 alias tilix-config-load='dconf load /com/gexperts/Tilix/ < /home/matt/.config/tilix/tilix.dconf'
+alias tizonia='source /home/matt/development/personal/docker-tizonia/docker-tizonia'
 alias vi=vim
 
 all-installed() {
