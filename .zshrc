@@ -31,9 +31,11 @@ export FZF_BASE=/usr/share/fzf
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias adios='sudo shutdown -h +0'
-alias code-workspace='nohup terminator -l codeworkspace &>/dev/null & sleep 2; exit'
+alias code-workspace='nohup tilix -s /home/matt/.config/tilix/layouts/code-workspace.json &>/dev/null & sleep 2; exit'
 alias git-root='cd $(git rev-parse --show-cdup)'
 alias pavucontrol=pavucontrol-qt
+alias tilix-config-dump='dconf dump /com/gexperts/Tilix/ > /home/matt/.config/tilix/tilix.dconf'
+alias tilix-config-load='dconf load /com/gexperts/Tilix/ < /home/matt/.config/tilix/tilix.dconf'
 alias vi=vim
 
 all-installed() {

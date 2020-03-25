@@ -15,6 +15,11 @@
 !.config/terminator
 !.config/terminator/config
 
+!.config/tilix
+!.config/tilix/tilix.dconf
+!.config/tilix/layouts
+!.config/tilix/layouts/*
+
 !.config/vis
 !.config/vis/config
 
