@@ -1,6 +1,6 @@
 #!/usr/bin/bash -e
 
-alias tizonia='source $HOME/development/personal/docker-tizonia/docker-tizonia'
+alias tizonia='source /home/matt/development/personal/docker-tizonia/docker-tizonia'
 
 open-jira-tabs() {
   if [[ ! -f "$1" ]]; then
@@ -16,7 +16,7 @@ open-jira-tabs() {
 
 mm-git-config() {
   orig_dir=$(pwd)
-  [[ -d "$1" ]] && base_dir="$1" || base_dir="$HOME/development/mm"
+  [[ -d "$1" ]] && base_dir="$1" || base_dir="/home/matt/development/mm"
   echo "Using $base_dir as base directory"
 
   find "$base_dir" -type d -name ".git" | while IFS=$'\n' read -r d; do

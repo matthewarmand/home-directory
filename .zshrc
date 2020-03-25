@@ -38,9 +38,7 @@ alias vi=vim
 
 all-installed() {
   yay -Qe | awk '{print $1}' | while IFS=$'\n' read -r p; do
-    if yay -Qi "$p" | grep -Eq "Required By\s+:\sNone" ; then
-      echo "$p"
-    fi
+    yay -Qi "$p" | grep -Eq "Required By\s+:\sNone" && echo "$p"
   done
 }
 
@@ -56,9 +54,9 @@ depends-on() {
 
 kill-orphans() {
   local orphans
-  orphans="$(yay -Qtdq)"
-  if [[ -n $orphans ]]; then
-    yay -Rsnu $orphans
+  orphans=$(yay -Qtdq)
+  if [[ -n "$orphans" ]]; then
+    yay -Rsnu "$orphans"
   fi
 }
 
