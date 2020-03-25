@@ -12,9 +12,6 @@
 !bin/is-black-on
 
 !.config/
-!.config/terminator
-!.config/terminator/config
-
 !.config/tilix
 !.config/tilix/tilix.dconf
 !.config/tilix/layouts
@@ -26,5 +23,4 @@
 !.config/flake8
 
 !.config/autostart
-!.config/autostart/terminator.desktop
 !.config/autostart/com.gexperts.Tilix.desktop
