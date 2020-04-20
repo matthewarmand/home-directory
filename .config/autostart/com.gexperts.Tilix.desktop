@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=Tilix
-Exec=tilix --maximize -s /home/matt/.config/tilix/code-workspace.json
-Terminal=false
-Type=Application
-Icon=com.gexperts.Tilix
