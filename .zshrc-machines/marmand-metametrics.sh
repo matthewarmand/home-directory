@@ -1,9 +1,5 @@
 #!/usr/bin/bash -e
 
-# For python-virtualenvwrapper
-export WORKON_HOME=/home/matt/.virtualenvs
-source /usr/bin/virtualenvwrapper_lazy.sh
-
 open-jira-tabs() {
   if [[ ! -f "$1" ]]; then
     echo "Unable to find list of tickets in file ($1). Please specify."
