@@ -71,6 +71,8 @@ set smarttab                   " tab to next indent
 set ruler                      " show cursor position
 
 colorscheme iceberg            " from https://github.com/cocopon/iceberg.vim
+" transparent background
+hi Normal guibg=NONE ctermbg=NONE
 
 " Plugin Management (vim-plug)
 call plug#begin('~/.vim/plugged')
