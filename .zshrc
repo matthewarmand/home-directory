@@ -28,6 +28,8 @@ export FZF_BASE=/usr/share/fzf
 
 alias adios='sudo shutdown -h +0'
 alias code-workspace='nohup terminator -l codeworkspace &>/dev/null & sleep 2; exit'
+alias foldingathome-credits="journalctl -u foldingathome | grep 'Final credit estimate' | awk '{print \$9}' | awk '{s+=\$1} END {print s}'"
+alias foldingathome-jobs='journalctl -u foldingathome | grep "Final credit estimate" | wc -l'
 alias git-root='cd $(git rev-parse --show-cdup)'
 alias pavucontrol=pavucontrol-qt
 alias tizonia='source /home/matt/development/personal/docker-tizonia/docker-tizonia'
