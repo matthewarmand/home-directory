@@ -73,6 +73,7 @@ set ruler                      " show cursor position
 colorscheme iceberg            " from https://github.com/cocopon/iceberg.vim
 " transparent background
 hi Normal guibg=NONE ctermbg=NONE
+hi EndOfBuffer guibg=NONE ctermbg=NONE
 
 " Plugin Management (vim-plug)
 call plug#begin('~/.vim/plugged')
