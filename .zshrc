@@ -31,6 +31,7 @@ alias code-workspace='nohup terminator -l codeworkspace &>/dev/null & sleep 2; e
 alias foldingathome-credits="journalctl -u foldingathome | grep 'Final credit estimate' | awk '{print \$9}' | awk '{s+=\$1} END {print s}'"
 alias foldingathome-jobs='journalctl -u foldingathome | grep "Final credit estimate" | wc -l'
 alias git-root='cd $(git rev-parse --show-cdup)'
+alias kill-orphans='yay -Qtdq && yay -Rns $(yay -Qtdq)'
 alias pavucontrol=pavucontrol-qt
 alias tizonia='source /home/matt/development/personal/docker-tizonia/docker-tizonia'
 alias vi=vim
@@ -48,14 +49,6 @@ depends-on() {
     if [[ -n "$installed_packages" ]]; then
       echo "$installed_packages" | awk '{print $1}' | xargs yay -Qi | grep "Required By" | sed 's/Required By\s\+:\s//g' | sed 's/\b\s\+\b/\n/g' | grep -Ev "$1|None" | sort -u
     fi
-  fi
-}
-
-kill-orphans() {
-  local orphans
-  orphans=$(yay -Qtdq)
-  if [[ -n "$orphans" ]]; then
-    yay -Rsnu "$orphans"
   fi
 }
 
