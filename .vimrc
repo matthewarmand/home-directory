@@ -79,12 +79,12 @@ hi EndOfBuffer guibg=NONE ctermbg=NONE
 call plug#begin('~/.vim/plugged')
 
 Plug '/usr/share/fzf'
-"Plug 'dermusikman/sonicpi.vim'
+Plug 'dermusikman/sonicpi.vim'
 Plug 'itspriddle/vim-shellcheck'
 Plug 'mhinz/vim-signify'
 Plug 'nvie/vim-flake8'
 Plug 'psf/black'
-"Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'Valloric/YouCompleteMe'
 Plug 'vim-scripts/indentpython.vim'
@@ -100,10 +100,10 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 set foldlevel=99          " Max so we have granularity when folding
 
 " SonicPi.vim configuration
-"let g:sonicpi_command = 'sonic-pi-tool'
-"let g:sonicpi_send = 'eval-stdin'
-"let g:sonicpi_stop = 'stop'
-"let g:vim_redraw = 1
+let g:sonicpi_command = 'sonic-pi-tool'
+let g:sonicpi_send = 'eval-stdin'
+let g:sonicpi_stop = 'stop'
+let g:vim_redraw = 1
 
 " Filetype-specific settings
 au BufNewFile,BufRead *.py setlocal
@@ -122,5 +122,5 @@ autocmd BufWritePre * %s/\s\+$//e
 " check shell scripts for errors
 autocmd BufWritePre *.sh :ShellCheck!
 " lint Python files on write
-"autocmd BufWritePre *.py execute ':Black'
+autocmd BufWritePre *.py execute ':Black'
 autocmd BufWritePre *.py call Flake8()
