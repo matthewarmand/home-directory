@@ -106,7 +106,7 @@ let g:sonicpi_stop = 'stop'
 let g:vim_redraw = 1
 
 " Filetype-specific settings
-au BufNewFile,BufRead *.py setlocal
+au BufNewFile,BufRead *.py,*.js setlocal
     \ tabstop=4
     \ softtabstop=4
     \ shiftwidth=4
