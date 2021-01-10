@@ -33,3 +33,16 @@ yay -Syu
 
 # Interactively resolve configuration files
 sudo pacdiff
+
+# Check for kernel upgrade; request restart
+if [ "$(uname -r)" != "$(yay -Q linux | awk '{print $2}' | sed 's/\.arch/-arch/')" ]; then
+  echo "Kernel has been upgraded; reboot now? [y/n] "
+  while true; do
+    read -r yn
+    case $yn in
+      [Yy]* ) reboot;;
+      [Nn]* ) break;;
+      * ) echo "Please answer y or n.";;
+    esac
+  done
+fi
