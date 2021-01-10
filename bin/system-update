@@ -1,0 +1,35 @@
+#!/bin/sh
+
+require_dependency() {
+  if ! command -v "$1" > /dev/null; then
+    echo "$1 is required"
+    exit 1
+  fi
+}
+
+# check for dependencies (for the moment just check for yay and pacdiff, could get more sophisticated later if necessary)
+require_dependency yay
+require_dependency pacdiff
+
+# Check news. This is inefficient and hacky right now.
+# If I can find a way to skip the confirmation if no news WHILE preserving the pretty print of the news, we'll change it
+if [ -n "$(yay -Pw)" ]; then
+  yay -Pw
+  echo "Check above news for relevant manual interventions. Ready to continue? [y] "
+  while true; do
+    read -r yn
+    case $yn in
+      [Yy]* ) break;;
+      * ) echo "Enter y when ready to continue.";;
+    esac
+  done
+fi
+
+# Full system update
+yay -Syu
+
+# Remove any orphaned packages
+(yay -Qtdq && yay -Rns "$(yay -Qtdq)") || true
+
+# Interactively resolve configuration files
+sudo pacdiff

@@ -10,6 +10,7 @@
 
 !bin/
 !bin/is-black-on
+!bin/system-update
 
 !.config/
 !.config/terminator
