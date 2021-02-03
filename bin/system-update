@@ -1,10 +1,14 @@
-#!/bin/sh
+#!/bin/bash
 
 require_dependency() {
   if ! command -v "$1" > /dev/null; then
     echo "$1 is required"
     exit 1
   fi
+}
+
+bold_message() {
+  echo -e "\033[1m$1\033[0m"
 }
 
 # check for dependencies (for the moment just check for yay and pacdiff, could get more sophisticated later if necessary)
@@ -18,7 +22,7 @@ require_dependency pacdiff
 if [ -n "$(yay -Pw)" ]; then
   yay -Pw
   echo
-  echo "Check above news for relevant manual interventions. Ready to continue? [y] "
+  bold_message "Check above news for relevant manual interventions. Ready to continue? [y] "
   while true; do
     read -r yn
     case $yn in
@@ -40,7 +44,7 @@ sudo pacdiff
 # Check for kernel upgrade; request restart
 if [ "$(uname -r)" != "$(yay -Q linux | awk '{print $2}' | sed 's/\.arch/-arch/')" ]; then
   echo
-  echo "Kernel has been upgraded; reboot now? [y/n] "
+  bold_message "Kernel has been upgraded; reboot now? [y/n] "
   while true; do
     read -r yn
     case $yn in
