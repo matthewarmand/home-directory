@@ -11,9 +11,10 @@ bold_message() {
   echo -e "\033[1m$1\033[0m"
 }
 
-# check for dependencies (for the moment just check for yay and pacdiff, could get more sophisticated later if necessary)
+# check for dependencies
 require_dependency yay
 require_dependency pacdiff
+require_dependency arch-audit
 
 # Check news. This is inefficient and hacky right now.
 # If I can find a way to skip the confirmation if no news WHILE preserving the pretty print of the news, we'll change it
@@ -31,6 +32,9 @@ if [ -n "$(yay -Pw)" ]; then
     esac
   done
 fi
+
+# Check security audit for fixed packages; this may make the upgrade more urgent/desirable
+arch-audit -u
 
 # Full system update
 yay -Syu
