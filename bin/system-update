@@ -34,7 +34,7 @@ if [ -n "$(yay -Pw)" ]; then
 fi
 
 # Check security audit for fixed packages; this may make the upgrade more urgent/desirable
-arch-audit -u
+arch-audit -uc
 
 # Full system update
 yay -Syu
