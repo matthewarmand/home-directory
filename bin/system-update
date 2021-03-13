@@ -54,6 +54,7 @@ for d in "$(yay -Pg | jq -r .buildDir)"/*/; do
   paccache_cmd="$paccache_cmd -c $d"
 done
 
+bold_message "Cleaning package caches..."
 $paccache_cmd
 
 # Check for kernel upgrade; request restart
