@@ -18,12 +18,10 @@ require_dependency paccache
 require_dependency pacdiff
 require_dependency yay
 
-# Check news. This is inefficient and hacky right now.
-# If I can find a way to skip the confirmation if no news WHILE preserving the pretty print of the news, we'll change it
-# Also, I'd love to smart-parse the news... we'll see how feasible that is another day
+# Check news. I'd love to smart-parse this... we'll see how feasible that is another day
 # This would scan for "manual intervention" blocks and ignore them if not installed. Prints all else
-if [ -n "$(yay -Pw)" ]; then
-  yay -Pw
+if news="$(script -q /dev/null -c 'yay -Pw')" && [ -n "$news" ]; then
+  echo "$news"
   echo
   bold_message "Check above news for relevant manual interventions. Ready to continue? [y] "
   while true; do
