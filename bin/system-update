@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 require_dependency() {
   if ! command -v "$1" > /dev/null; then
@@ -8,10 +8,11 @@ require_dependency() {
 }
 
 bold_message() {
+  echo
   echo -e "\033[1m$1\033[0m"
 }
 
-# check for dependencies
+# Check for dependencies
 require_dependency arch-audit
 require_dependency jq
 require_dependency paccache
@@ -22,7 +23,6 @@ require_dependency yay
 # This would scan for "manual intervention" blocks and ignore them if not installed. Prints all else
 if news="$(script -q /dev/null -c 'yay -Pw')" && [ -n "$news" ]; then
   echo "$news"
-  echo
   bold_message "Check above news for relevant manual interventions. Ready to continue? [y] "
   while true; do
     read -r yn
@@ -37,7 +37,9 @@ fi
 arch-audit -uc
 
 # Full system update
+trap "" SIGINT SIGTERM SIGTSTP
 yay -Syu
+trap - SIGINT SIGTERM SIGTSTP
 
 # Remove any orphaned packages
 (yay -Qtdq && yay -Rns "$(yay -Qtdq)") || true
@@ -55,7 +57,6 @@ $paccache_cmd
 
 # Check for kernel upgrade; request restart
 if [ "$(uname -r)" != "$(yay -Q linux | awk '{print $2}' | sed 's/\.arch/-arch/')" ]; then
-  echo
   bold_message "Kernel has been upgraded; reboot now? [y/n] "
   while true; do
     read -r yn
