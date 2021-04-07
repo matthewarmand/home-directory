@@ -7,9 +7,8 @@ require_dependency() {
   fi
 }
 
-bold_message() {
-  echo
-  echo -e "\033[1m$1\033[0m"
+message() {
+  echo -e "\033[1m\e[35m::\e[0m \033[1m$1\033[0m"
 }
 
 # Check for dependencies
@@ -23,7 +22,7 @@ require_dependency yay
 # This would scan for "manual intervention" blocks and ignore them if not installed. Prints all else
 if news="$(script -q /dev/null -c 'yay -Pw')" && [ -n "$news" ]; then
   echo "$news"
-  bold_message "Check above news for relevant manual interventions. Ready to continue? [y] "
+  message "Check above news for relevant manual interventions. Ready to continue? [y] "
   while true; do
     read -r yn
     case $yn in
@@ -52,12 +51,12 @@ paccache_cmd="paccache -r -k 3 -c $(grep CacheDir /etc/pacman.conf | sed 's/.*= 
 for d in "$(yay -Pg | jq -r .buildDir)"/*/; do
   paccache_cmd="$paccache_cmd -c $d"
 done
-bold_message "Cleaning package caches..."
+message "Cleaning package caches..."
 $paccache_cmd
 
 # Check for kernel upgrade; request restart
 if [ "$(uname -r)" != "$(yay -Q linux | awk '{print $2}' | sed 's/\.arch/-arch/')" ]; then
-  bold_message "Kernel has been upgraded; reboot now? [y/n] "
+  message "Kernel has been upgraded; reboot now? [y/n] "
   while true; do
     read -r yn
     case $yn in
