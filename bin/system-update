@@ -37,7 +37,7 @@ arch-audit -uc
 
 # Full system update
 trap "" SIGINT SIGTERM SIGTSTP
-yay -Syu
+yay -Syu --answerclean NotInstalled --answerdiff All --removemake
 trap - SIGINT SIGTERM SIGTSTP
 
 # Remove any orphaned packages
