@@ -115,8 +115,6 @@ HIST_STAMPS="yyyy-mm-dd"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   fzf
-  git
-  virtualenv
 )
 
 
