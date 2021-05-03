@@ -3,6 +3,9 @@
 # Do something like this for mysql dumps etc
 # docker run -it -v $(pwd):/code/`basename $PWD` -w /code/`basename $PWD` mysql:5.6 bash
 
+# https://stackoverflow.com/questions/46704572/git-error-encountered-7-files-that-should-have-been-pointers-but-werent
+alias fix-lfs='git lfs uninstall && git reset --hard && git lfs install && git pull'
+
 unused-text-keys() {
   grep -E '\"[a-zA-Z0-9\.]*\":' src/i18n/en-us.json | awk '{print $1}' | sed 's/[":]//g' | while IFS=$'\n' read -r k; do grep -rq "$k" --include="*.js" src || echo "$k"; done
 }
