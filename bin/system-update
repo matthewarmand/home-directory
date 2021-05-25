@@ -18,9 +18,9 @@ require_dependency paccache
 require_dependency pacdiff
 require_dependency yay
 
-# Check news. I'd love to smart-parse this... we'll see how feasible that is another day
-# This would scan for "manual intervention" blocks and ignore them if not installed. Prints all else
-if news="$(script -q /dev/null -c 'yay -Pw')" && [ -n "$news" ]; then
+message "Checking for relevant news..."
+# TODO? parse news for "manual intervention" blocks and ignore if not installed, print all else
+if news="$(SHELL=/usr/bin/bash script -q /dev/null -c 'yay -Pw')" && [ -n "$news" ]; then
   echo "$news"
   message "Check above news for relevant manual interventions. Ready to continue? [y] "
   while true; do
@@ -33,6 +33,7 @@ if news="$(script -q /dev/null -c 'yay -Pw')" && [ -n "$news" ]; then
 fi
 
 # Check security audit for fixed packages; this may make the upgrade more urgent/desirable
+message "Checking for available security fixes..."
 arch-audit -uc
 
 # Full system update
@@ -40,18 +41,17 @@ trap "" SIGINT SIGTERM SIGTSTP
 yay -Syu --answerclean NotInstalled --answerdiff All --removemake
 trap - SIGINT SIGTERM SIGTSTP
 
-# Remove any orphaned packages
+message "Removing orphaned packages..."
 (yay -Qtdq && yay -Rns "$(yay -Qtdq)") || true
 
-# Interactively resolve configuration files
+message "Merging configuration file updates..."
 sudo pacdiff
 
-# Clear pacman and yay caches, keeping last 3
+message "Cleaning package caches..."
 paccache_cmd="paccache -r -k 3 -c $(grep CacheDir /etc/pacman.conf | sed 's/.*= //')"
 for d in "$(yay -Pg | jq -r .buildDir)"/*/; do
   paccache_cmd="$paccache_cmd -c $d"
 done
-message "Cleaning package caches..."
 $paccache_cmd
 
 # Check for kernel upgrade; request restart
