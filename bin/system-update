@@ -42,7 +42,8 @@ yay -Syu --answerclean NotInstalled --answerdiff All --removemake
 trap - SIGINT SIGTERM SIGTSTP
 
 message "Removing orphaned packages..."
-(yay -Qtdq && yay -Rns "$(yay -Qtdq)") || true
+# shellcheck disable=SC2046 # double quoting breaks pass into -Rns
+(yay -Qtdq && yay -Rns $(yay -Qtdq)) || true
 
 message "Merging configuration file updates..."
 sudo pacdiff
