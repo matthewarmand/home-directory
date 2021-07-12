@@ -75,6 +75,9 @@ colorscheme iceberg            " from https://github.com/cocopon/iceberg.vim
 hi Normal guibg=NONE ctermbg=NONE
 hi EndOfBuffer guibg=NONE ctermbg=NONE
 
+" Search for highlighted text with //
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+
 " Plugin Management (vim-plug)
 call plug#begin('~/.vim/plugged')
 

@@ -23,21 +23,18 @@ open-jira-tabs() {
 }
 
 mm-git-config() {
-  orig_dir=$(pwd)
   [[ -d "$1" ]] && base_dir="$1" || base_dir="/home/matt/development/mm"
   echo "Using $base_dir as base directory"
 
   find "$base_dir" -type d -name ".git" | while IFS=$'\n' read -r d; do
-    cd "$(dirname "$d")"
-    git_config=$(git config -l)
+    dir="$(dirname "$d")"
+    git_config=$(GIT_DIR="$dir" git config -l)
     if echo "$git_config" | grep -q "metametrics" ; then
       if ! echo "$git_config" | grep -q "@lexile.com" ; then
-        git config --local --replace user.name "Matthew Armand"
-        git config --local --replace user.email marmand@lexile.com
-        echo "Updated config for $(pwd)"
+        GIT_DIR="$dir" git config --local --replace user.name "Matthew Armand"
+        GIT_DIR="$dir" git config --local --replace user.email marmand@lexile.com
+        echo "Updated config for $dir"
       fi
     fi
-    cd "$base_dir"
   done
-  cd "$orig_dir"
 }
