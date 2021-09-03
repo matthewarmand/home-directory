@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 require_dependency() {
-  if ! command -v "$1" > /dev/null; then
+  if ! command -v "$1" >/dev/null; then
     echo "$1 is required"
     exit 1
   fi
@@ -26,8 +26,8 @@ if news="$(SHELL=/usr/bin/bash script -q /dev/null -c 'yay -Pw')" && [ -n "$news
   while true; do
     read -r yn
     case $yn in
-      [Yy]* ) break;;
-      * ) echo "Enter y when ready to continue.";;
+      [Yy]*) break ;;
+      *) echo "Enter y when ready to continue." ;;
     esac
   done
 fi
@@ -60,9 +60,9 @@ if [ "$(uname -r)" != "$(yay -Q linux | awk '{print $2}' | sed 's/\.arch/-arch/'
   while true; do
     read -r yn
     case $yn in
-      [Yy]* ) reboot;;
-      [Nn]* ) break;;
-      * ) echo "Please answer y or n.";;
+      [Yy]*) reboot ;;
+      [Nn]*) break ;;
+      *) echo "Please answer y or n." ;;
     esac
   done
 fi
