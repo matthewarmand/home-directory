@@ -32,6 +32,7 @@ alias foldingathome-credits="journalctl -u foldingathome | grep 'Final credit es
 alias foldingathome-jobs='journalctl -u foldingathome | grep "Final credit estimate" | wc -l'
 alias git-root='cd $(git rev-parse --show-cdup)'
 alias kill-orphans='yay -Qtdq && yay -Rns $(yay -Qtdq)'
+alias latest-tag='git fetch && git describe --tags $(git rev-list --tags --max-count=1)'
 alias pavucontrol=pavucontrol-qt
 alias tizonia='source /home/matt/development/personal/docker-tizonia/docker-tizonia'
 alias vi=vim
