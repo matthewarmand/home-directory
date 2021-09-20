@@ -13,49 +13,36 @@ message() {
 
 # Check for dependencies
 require_dependency arch-audit
-require_dependency jq
 require_dependency paccache
 require_dependency pacdiff
-require_dependency yay
-
-message "Checking for relevant news..."
-# TODO? parse news for "manual intervention" blocks and ignore if not installed, print all else
-if news="$(SHELL=/usr/bin/bash script -q /dev/null -c 'yay -Pw')" && [ -n "$news" ]; then
-  echo "$news"
-  message "Check above news for relevant manual interventions. Ready to continue? [y] "
-  while true; do
-    read -r yn
-    case $yn in
-      [Yy]*) break ;;
-      *) echo "Enter y when ready to continue." ;;
-    esac
-  done
-fi
+require_dependency paru
 
 # Check security audit for fixed packages; this may make the upgrade more urgent/desirable
 message "Checking for available security fixes..."
 arch-audit -uc
 
 # Full system update
+message "Checking for relevant news..."
+# TODO experiment with --combinedupgrade?
 trap "" SIGINT SIGTERM SIGTSTP
-yay -Syu --answerclean NotInstalled --answerdiff All --removemake
+paru -Syu --newsonupgrade --review --removemake
 trap - SIGINT SIGTERM SIGTSTP
 
 message "Removing orphaned packages..."
-yay -Yc
+paru -c
 
 message "Merging configuration file updates..."
 sudo pacdiff
 
 message "Cleaning package caches..."
 paccache_cmd="paccache -r -k 3 -c $(grep CacheDir /etc/pacman.conf | sed 's/^.*= //')"
-for d in "$(yay -Pg | jq -r .buildDir)"/*/; do
+for d in "${XDG_CACHE_HOME:-$HOME/.cache}"/paru/clone/*/; do
   paccache_cmd="$paccache_cmd -c $d"
 done
 $paccache_cmd
 
 # Check for kernel upgrade; request restart
-if [ "$(uname -r)" != "$(yay -Q linux | awk '{print $2}' | sed 's/\.arch/-arch/')" ]; then
+if [ "$(uname -r)" != "$(paru -Q linux | awk '{print $2}' | sed 's/\.arch/-arch/')" ]; then
   message "Kernel has been upgraded; reboot now? [y/n] "
   while true; do
     read -r yn
