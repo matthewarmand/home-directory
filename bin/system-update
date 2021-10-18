@@ -23,7 +23,6 @@ arch-audit -uc
 
 # Full system update
 message "Checking for relevant news..."
-# TODO experiment with --combinedupgrade?
 trap "" SIGINT SIGTERM SIGTSTP
 paru -Syu --newsonupgrade --review --removemake
 trap - SIGINT SIGTERM SIGTSTP

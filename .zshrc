@@ -35,17 +35,17 @@ alias tizonia='source /home/matt/development/personal/docker-tizonia/docker-tizo
 alias vi=vim
 
 all-installed() {
-  yay -Qe | awk '{print $1}' | while IFS=$'\n' read -r p; do
-    yay -Qi "$p" | grep -Eq "Required By\s+:\sNone" && echo "$p"
+  paru -Qe | awk '{print $1}' | while IFS=$'\n' read -r p; do
+    paru -Qi "$p" | grep -Eq "Required By\s+:\sNone" && echo "$p"
   done
 }
 
 depends-on() {
   if [[ -n "$1" ]]; then
     local installed_packages
-    installed_packages=$(yay -Q | grep "$1")
+    installed_packages=$(paru -Q | grep "$1")
     if [[ -n "$installed_packages" ]]; then
-      echo "$installed_packages" | awk '{print $1}' | xargs yay -Qi | grep "Required By" | sed 's/Required By\s\+:\s//g' | sed 's/\b\s\+\b/\n/g' | grep -Ev "$1|None" | sort -u
+      echo "$installed_packages" | awk '{print $1}' | xargs paru -Qi | grep "Required By" | sed 's/Required By\s\+:\s//g' | sed 's/\b\s\+\b/\n/g' | grep -Ev "$1|None" | sort -u
     fi
   fi
 }
