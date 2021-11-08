@@ -14,6 +14,9 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 # Python
 export PYTHONDONTWRITEBYTECODE=1
 
+# Docker
+export DOCKER_BUILDKIT=1 # Use buildkit by default for docker, docker compose
+
 # Fuzzy Find
 export FZF_BASE=/usr/share/fzf
 
