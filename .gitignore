@@ -4,6 +4,7 @@
 !.vimrc
 !.zshrc
 !.zshenv
+!.flake8
 
 !.zshrc-machines/
 !.zshrc-machines/*
@@ -18,8 +19,6 @@
 
 !.config/vis
 !.config/vis/config
-
-!.config/flake8
 
 !.config/autostart
 !.config/autostart/terminator.desktop
