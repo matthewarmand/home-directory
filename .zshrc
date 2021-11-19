@@ -31,6 +31,7 @@ export FZF_BASE=/usr/share/fzf
 
 alias adios='sudo shutdown -h +0'
 alias code-workspace='nohup terminator -l codeworkspace &>/dev/null & sleep 2; exit'
+alias count-vulns='arch-audit -c | grep -hoe "CVE-[0-9]*-[0-9]*" | sort -u | wc -l'
 alias git-root='cd $(git rev-parse --show-cdup)'
 alias latest-tag='git fetch -q && git describe --tags $(git rev-list --tags --max-count=1)'
 alias pavucontrol=pavucontrol-qt
