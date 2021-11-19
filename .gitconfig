@@ -4,4 +4,6 @@
 [core]
 	editor = vim
 [pull]
-	rebase = false
+	rebase = true
+[advice]
+	detachedHead = false
