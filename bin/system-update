@@ -42,9 +42,12 @@ $paccache_cmd
 
 # Check for kernel upgrade; request restart
 if [ "$(uname -r)" != "$(paru -Q linux | awk '{print $2}' | sed 's/\.arch/-arch/')" ]; then
-  message "Kernel has been upgraded; reboot now? [y/n] "
+  message "Kernel has been upgraded; reboot now? [Y/n] "
   while true; do
     read -r yn
+    if [ -z "$yn" ]; then
+      yn='y'
+    fi
     case $yn in
       [Yy]*) reboot ;;
       [Nn]*) break ;;
