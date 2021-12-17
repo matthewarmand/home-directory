@@ -82,16 +82,13 @@ vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 call plug#begin('~/.vim/plugged')
 
 Plug '/usr/share/fzf'
-Plug 'dermusikman/sonicpi.vim'
 Plug 'itspriddle/vim-shellcheck'
 Plug 'mhinz/vim-signify'
 Plug 'nvie/vim-flake8'
-Plug 'psf/black'
-Plug 'rust-lang/rust.vim'
-Plug 'tpope/vim-fugitive'
+Plug 'psf/black', { 'branch': 'main' }
 Plug 'Valloric/YouCompleteMe'
 Plug 'vim-scripts/indentpython.vim'
-Plug 'vim-syntastic/syntastic'
+Plug 'z0mbix/vim-shfmt', {'for': 'sh'}
 
 call plug#end()
 " vim-plug to update plugins: :PlugUpdate
@@ -102,11 +99,10 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 set foldlevel=99          " Max so we have granularity when folding
 
-" SonicPi.vim configuration
-let g:sonicpi_command = 'sonic-pi-tool'
-let g:sonicpi_send = 'eval-stdin'
-let g:sonicpi_stop = 'stop'
 let g:vim_redraw = 1
+
+let g:shfmt_extra_args = '-i 2 -ci'
+let g:shfmt_fmt_on_save = 1
 
 " Filetype-specific settings
 au BufNewFile,BufRead *.py,*.js setlocal
@@ -122,8 +118,8 @@ au BufNewFile,BufRead *.py,*.js setlocal
 
 " trim trailing whitespace on write
 autocmd BufWritePre * %s/\s\+$//e
-" check shell scripts for errors
+" lint shell scripts on write
 autocmd BufWritePre *.sh :ShellCheck!
-" lint Python files on write
+" format and lint Python files on write
 autocmd BufWritePre *.py execute ':Black'
 autocmd BufWritePre *.py call Flake8()
