@@ -1,21 +1,8 @@
 #!/bin/bash -e
 
-require_dependency() {
-  if ! command -v "$1" >/dev/null; then
-    echo "$1 is required"
-    exit 1
-  fi
-}
-
 message() {
   echo -e "\033[1m\e[35m::\e[0m \033[1m$1\033[0m"
 }
-
-# Check for dependencies
-require_dependency arch-audit
-require_dependency paccache
-require_dependency pacdiff
-require_dependency paru
 
 # Check security audit for fixed packages; this may make the upgrade more urgent/desirable
 message "Checking for available security fixes..."
