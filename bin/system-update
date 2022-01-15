@@ -28,8 +28,10 @@ done
 $paccache_cmd
 
 # Check for kernel upgrade; request restart
-if [ "$(uname -r)" != "$(paru -Q linux | awk '{print $2}' | sed 's/\.arch/-arch/')" ]; then
-  message "Kernel has been upgraded; reboot now? [Y/n] "
+running_kernel=$(uname -r | sed -E 's/(\.0)?-arch/.arch/')
+installed_kernel=$(paru -Q linux | awk '{print $2}')
+if [ "$running_kernel" != "$installed_kernel" ]; then
+  message "Kernel has been upgraded from $running_kernel to $installed_kernel; reboot now? [Y/n] "
   while true; do
     read -r yn
     if [ -z "$yn" ]; then
