@@ -31,7 +31,7 @@ $paccache_cmd
 running_kernel=$(uname -r | sed -E 's/(\.0)?-arch/.arch/')
 installed_kernel=$(paru -Q linux | awk '{print $2}')
 if [ "$running_kernel" != "$installed_kernel" ]; then
-  message "Kernel has been upgraded from $running_kernel to $installed_kernel; reboot now? [Y/n] "
+  message "Kernel has been upgraded from \e[32m$running_kernel\e[0m\033[1m to \e[32m$installed_kernel\e[0m\033[1m; reboot now? [Y/n] "
   while true; do
     read -r yn
     if [ -z "$yn" ]; then
