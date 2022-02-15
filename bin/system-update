@@ -4,11 +4,9 @@ message() {
   echo -e "\033[1m\e[35m::\e[0m \033[1m$1\033[0m"
 }
 
-# Check security audit for fixed packages; this may make the upgrade more urgent/desirable
 message "Checking for available security fixes..."
 arch-audit -uc
 
-# Full system update
 message "Checking for relevant news..."
 trap "" SIGINT SIGTERM SIGTSTP
 paru -Syu --newsonupgrade --review --removemake
@@ -27,7 +25,6 @@ for d in "${XDG_CACHE_HOME:-$HOME/.cache}"/paru/clone/*/; do
 done
 $paccache_cmd
 
-# Check for kernel upgrade; request restart
 running_kernel=$(uname -r | sed -E 's/(\.0)?-arch/.arch/')
 installed_kernel=$(paru -Q linux | awk '{print $2}')
 if [ "$running_kernel" != "$installed_kernel" ]; then
@@ -40,7 +37,7 @@ if [ "$running_kernel" != "$installed_kernel" ]; then
     case $yn in
       [Yy]*) reboot ;;
       [Nn]*) break ;;
-      *) echo "Please answer y or n." ;;
+      *) echo -e "\e[31mPlease answer y or n.\e[0m" ;;
     esac
   done
 fi
