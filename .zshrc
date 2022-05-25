@@ -30,6 +30,7 @@ export FZF_BASE=/usr/share/fzf
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias adios='sudo shutdown -h +0'
+alias cal='cal -m'
 alias code-workspace='nohup terminator -l codeworkspace &>/dev/null & sleep 2; exit'
 alias count-vulns='arch-audit -c | grep -hoe "CVE-[0-9]*-[0-9]*" | sort -u | wc -l'
 alias git-root='cd $(git rev-parse --show-cdup)'
@@ -117,6 +118,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   fzf
+  timer
 )
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
