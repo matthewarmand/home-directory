@@ -20,5 +20,14 @@
 !.config/vis
 !.config/vis/config
 
+!.config/sway
+!.config/sway/config*
+
+!.config/i3status-rust
+!.config/i3status-rust/config.toml
+
+!.config/qt6ct
+!.config/qt6ct/qt6ct.conf
+
 !.config/autostart
 !.config/autostart/terminator.desktop

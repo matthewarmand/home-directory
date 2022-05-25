@@ -1,0 +1,16 @@
+# TODO pacman -S grim slurp swappy i3status-rust mako swaylock swayidle jq ttf-font-awesome xdg-desktop-portal-wlr qt6ct
+# TODO environment config:
+#   MOZ_ENABLE_WAYLAND=1
+#   XDG_CURRENT_DESKTOP=sway
+#   QT_QPA_PLATFORM=wayland
+#   QT_QPA_PLATFORMTHEME=qt6ct
+# Home desktop config for sway
+#
+# Parent config lives in ~/.config/sway/config
+#
+# Read `man 5 sway` for a complete reference.
+
+### Output configuration
+#
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+# TODO set $wallpaper /usr/share/wallpapers/dark-texture.jpg

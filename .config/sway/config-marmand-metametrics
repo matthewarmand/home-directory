@@ -1,0 +1,55 @@
+# Work box config for sway
+#
+# Parent config lives in ~/.config/sway/config
+#
+# Read `man 5 sway` for a complete reference.
+
+### Output configuration
+#
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+set $wallpaper /usr/share/wallpapers/dark-texture.jpg
+
+# Laptop Screen
+output eDP-1 {
+  resolution 2560x1440
+  position 2560,0
+  scale 1
+}
+
+# Monitors at the Golden Belt office
+output 'Samsung Electric Company LS27A70 HCPR500040' {
+  mode 3840x2160@30.000Hz
+  position 6400,0
+  scale 1
+}
+
+output 'Samsung Electric Company LS27A70 HCPR500038' {
+  mode 3840x2160@30.000Hz
+  position 10240,0
+  scale 1
+}
+### Input configuration
+#
+# Example configuration:
+#
+#   input "2:14:SynPS/2_Synaptics_TouchPad" {
+#       dwt enabled
+#       tap enabled
+#       natural_scroll enabled
+#       middle_emulation enabled
+#   }
+
+input "1267:32:Elan_Touchpad" {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+}
+
+#
+# Window-specific rules (floating, etc)
+#
+# Zoom hacks TODO probably remove... might just not use zoom app until they fix screen sharing
+# has started sharing, etc
+for_window [app_id="zoom" title="join\?action=join.*"] floating enable
+# "this meething has been ended", this might be too broad. We'll play with it
+for_window [app_id="zoom" title="Zoom"] floating enable

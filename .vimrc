@@ -114,6 +114,8 @@ au BufNewFile,BufRead *.py,*.js setlocal
     \ autoindent
     \ fileformat=unix
 
+au BufNewFile,BufRead /home/matt/.config/sway/* set syntax=i3config
+
 " On-Event scripts
 
 " trim trailing whitespace on write

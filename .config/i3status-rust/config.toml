@@ -1,0 +1,55 @@
+theme = "space-villain"
+icons = "awesome6"
+
+[[block]]
+block = "disk_space"
+path = "/"
+alias = "/"
+info_type = "available"
+unit = "GB"
+interval = 20
+warning = 20.0
+alert = 10.0
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{mem_used_percents}"
+format_swap = "{swap_used_percents}"
+
+[[block]]
+block = "cpu"
+interval = 1
+
+[[block]]
+block = "load"
+interval = 1
+format = "{1m}"
+
+[[block]]
+block = "sound"
+on_click = "pavucontrol-qt"
+show_volume_when_muted = true
+
+[[block]]
+block = "networkmanager"
+on_click = "terminator -e nmtui"
+interface_name_exclude = ["br\\-[0-9a-f]{12}", "docker\\d+"]
+
+[[block]]
+block = "time"
+interval = 5
+format = "%a %Y/%m/%d %R"
+
+[[block]]
+block = "backlight"
+minimum = 15
+maximum = 100
+cycle = [0, 20, 40, 60, 80, 100, 80, 60, 40, 20]
+invert_icons = true
+if_command = "test -e /sys/class/backlight/*"
+
+[[block]]
+block = "battery"
+format = "{percentage} {time}"
+if_command = "test -e /sys/class/power_supply/bat0"
