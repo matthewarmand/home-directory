@@ -16,7 +16,7 @@ message "Removing orphaned packages..."
 paru -c
 
 message "Merging configuration file updates..."
-sudo pacdiff
+pacdiff -s
 
 message "Cleaning package caches..."
 paccache_cmd="paccache -r -k 3 -c $(grep CacheDir /etc/pacman.conf | sed 's/^.*= //')"
