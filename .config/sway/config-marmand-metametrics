@@ -12,22 +12,26 @@ set $wallpaper /usr/share/wallpapers/dark-texture.jpg
 # Laptop Screen
 output eDP-1 {
   resolution 2560x1440
-  position 2560,0
+  position 0,2160
   scale 1
 }
 
 # Monitors at the Golden Belt office
 output 'Samsung Electric Company LS27A70 HCPR500040' {
   mode 3840x2160@30.000Hz
-  position 6400,0
+  position 1716,0
   scale 1
 }
 
 output 'Samsung Electric Company LS27A70 HCPR500038' {
   mode 3840x2160@30.000Hz
-  position 10240,0
+  position 5556,0
   scale 1
 }
+
+#  Home monitor setup
+# TODO
+
 ### Input configuration
 #
 # Example configuration:
@@ -53,3 +57,7 @@ input "1267:32:Elan_Touchpad" {
 for_window [app_id="zoom" title="join\?action=join.*"] floating enable
 # "this meething has been ended", this might be too broad. We'll play with it
 for_window [app_id="zoom" title="Zoom"] floating enable
+
+### Key bindings
+    bindsym XF86MonBrightnessUp exec light -A "5%"
+    bindsym XF86MonBrightnessDown exec light -U "5%"

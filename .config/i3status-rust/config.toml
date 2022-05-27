@@ -43,9 +43,9 @@ format = "%a %Y/%m/%d %R"
 
 [[block]]
 block = "backlight"
-minimum = 15
+minimum = 10
 maximum = 100
-cycle = [0, 20, 40, 60, 80, 100, 80, 60, 40, 20]
+step_width = 5
 invert_icons = true
 if_command = "test -e /sys/class/backlight/*"
 

@@ -61,6 +61,8 @@ exec swayidle -w \
 #       middle_emulation enabled
 #   }
 
+input * xkb_numlock enable
+
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
@@ -90,6 +92,12 @@ exec swayidle -w \
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+    # Media Buttons (hoping these are univeral enough they work on laptop and external keyboard)
+    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ "+5%"
+    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ "-5%"
+    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    # TODO play/pause for keyboard layout at home (use wev)
 #
 # Moving around:
 #
