@@ -24,7 +24,6 @@ set smartcase                  " ignore case if search is all lowercase
 set scrolloff=4                " keep 4 lines of edges of screen
 set hlsearch                   " highlight search terms
 set incsearch                  " show search matches as you type
-set gdefault                   " search/replace globally by default
 set nolist                     " show whitespace by default
 set mouse=a                    " enable mouse if terminal supports
 set paste
@@ -81,14 +80,13 @@ vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 " Plugin Management (vim-plug)
 call plug#begin('~/.vim/plugged')
 
-Plug '/usr/share/fzf'
-Plug 'itspriddle/vim-shellcheck'
+Plug 'itspriddle/vim-shellcheck', { 'for': ['sh', 'bash'] }
 Plug 'mhinz/vim-signify'
-Plug 'nvie/vim-flake8'
-Plug 'psf/black', { 'branch': 'main' }
-Plug 'Valloric/YouCompleteMe'
-Plug 'vim-scripts/indentpython.vim'
-Plug 'z0mbix/vim-shfmt', {'for': 'sh'}
+Plug 'nvie/vim-flake8', { 'for': 'python' }
+Plug 'prettier/vim-prettier', { 'do': 'npm install --production', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
+Plug 'z0mbix/vim-shfmt', { 'for': ['sh', 'bash', 'zsh'] }
 
 call plug#end()
 " vim-plug to update plugins: :PlugUpdate
@@ -114,7 +112,7 @@ au BufNewFile,BufRead *.py,*.js setlocal
     \ autoindent
     \ fileformat=unix
 
-au BufNewFile,BufRead /home/matt/.config/sway/* set syntax=i3config
+au BufNewFile,BufRead $HOME/.config/sway/* set syntax=i3config
 
 " On-Event scripts
 
