@@ -8,7 +8,7 @@ export PATH=$PATH:/home/matt/bin
 export TERM=rxvt-256color
 
 # ssh
-export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="/home/matt/.ssh/rsa_id"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # Python
@@ -36,7 +36,6 @@ alias count-vulns='arch-audit -c | grep -hoe "CVE-[0-9]*-[0-9]*" | sort -u | wc 
 alias git-root='cd $(git rev-parse --show-cdup)'
 alias latest-tag='git fetch -q && git describe --tags $(git rev-list --tags --max-count=1)'
 alias pavucontrol=pavucontrol-qt
-alias tizonia='source /home/matt/development/personal/docker-tizonia/docker-tizonia'
 alias vi=vim
 
 all-installed() {
@@ -55,11 +54,11 @@ depends-on() {
   fi
 }
 
-eval $(thefuck --alias)
+eval "$(thefuck --alias)"
 
 # run machine-specific configuration if it exists
-local filename=/home/matt/.zshrc-machines/$(uname -n).sh
-test -x $filename && source $filename
+filename=/home/matt/.zshrc-machines/$(uname -n).sh
+test -x "$filename" && source "$filename"
 
 # oh-my-zsh Configuration
 
@@ -123,7 +122,7 @@ plugins=(
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
-  mkdir $ZSH_CACHE_DIR
+  mkdir "$ZSH_CACHE_DIR"
 fi
 
 source $ZSH/oh-my-zsh.sh
