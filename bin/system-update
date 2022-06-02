@@ -1,16 +1,14 @@
-#!/bin/bash -e
+#!/bin/sh -e
 
 message() {
-  echo -e "\033[1m\e[35m::\e[0m \033[1m$1\033[0m"
+  printf "\033[1m\e[35m::\e[0m \033[1m%s\033[0m\n" "$1"
 }
 
 message "Checking for available security fixes..."
 arch-audit -uc
 
 message "Checking for relevant news..."
-trap "" SIGINT SIGTERM SIGTSTP
 paru -Syu --newsonupgrade --review --removemake
-trap - SIGINT SIGTERM SIGTSTP
 
 message "Removing orphaned packages..."
 paru -c
@@ -28,7 +26,7 @@ $paccache_cmd
 running_kernel=$(uname -r | sed -E 's/(\.0)?-arch/.arch/')
 installed_kernel=$(paru -Q linux | awk '{print $2}')
 if [ "$running_kernel" != "$installed_kernel" ]; then
-  message "Kernel has been upgraded from \e[32m$running_kernel\e[0m\033[1m to \e[32m$installed_kernel\e[0m\033[1m; reboot now? [Y/n] "
+  message "$(printf "Kernel has been upgraded from \e[32m%s\e[0m\033[1m to \e[32m%s\e[0m\033[1m; reboot now? [Y/n] " "$running_kernel" "$installed_kernel")"
   while true; do
     read -r yn
     if [ -z "$yn" ]; then
@@ -37,7 +35,7 @@ if [ "$running_kernel" != "$installed_kernel" ]; then
     case $yn in
       [Yy]*) reboot ;;
       [Nn]*) break ;;
-      *) echo -e "\e[31mPlease answer y or n.\e[0m" ;;
+      *) printf "\e[31mPlease answer y or n.\e[0m\n" ;;
     esac
   done
 fi
