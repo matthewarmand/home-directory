@@ -52,4 +52,4 @@ if_command = "test -e /sys/class/backlight/*"
 [[block]]
 block = "battery"
 format = "{percentage} {time}"
-if_command = "test -e /sys/class/power_supply/bat0"
+if_command = "test -e /sys/class/power_supply/BAT0"
