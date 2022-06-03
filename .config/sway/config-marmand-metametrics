@@ -30,7 +30,11 @@ output 'Samsung Electric Company LS27A70 HCPR500038' {
 }
 
 #  Home monitor setup
-# TODO
+output 'Unknown PX275h 0x00000000' {
+  mode 2560x1440@59.951Hz
+  position 640,720
+  scale 1
+}
 
 ### Input configuration
 #
