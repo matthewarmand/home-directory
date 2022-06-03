@@ -13,4 +13,4 @@
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-# TODO set $wallpaper /usr/share/wallpapers/dark-texture.jpg
+set $wallpaper /usr/share/wallpapers/redmoon.jpg
