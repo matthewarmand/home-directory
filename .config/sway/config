@@ -215,6 +215,7 @@ bindsym $mod+r mode "resize"
 #
 for_window [title=".+[Ss]haring (Indicator|your screen)"] floating enable, move to scratchpad
 for_window [title="Picture-in-Picture"] floating enable
+for_window [shell="xwayland"] title_format "%title (%shell)"
 
 #
 # My Helper Shortcuts
