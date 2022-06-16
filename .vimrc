@@ -9,7 +9,7 @@ syntax on
 filetype indent plugin on
 set omnifunc=syntaxcomplete#Complete
 
-set shell=zsh
+set shell=/usr/bin/zsh
 
 set showmode
 set nowrap
