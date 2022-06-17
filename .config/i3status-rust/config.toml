@@ -37,11 +37,6 @@ on_click = "terminator -e nmtui"
 interface_name_exclude = ["br\\-[0-9a-f]{12}", "docker\\d+"]
 
 [[block]]
-block = "time"
-interval = 5
-format = "%a %Y/%m/%d %R"
-
-[[block]]
 block = "backlight"
 minimum = 10
 maximum = 100
@@ -53,3 +48,8 @@ if_command = "test -e /sys/class/backlight/*"
 block = "battery"
 format = "{percentage} {time}"
 if_command = "test -e /sys/class/power_supply/BAT0"
+
+[[block]]
+block = "time"
+interval = 5
+format = "%a %Y/%m/%d %R"
