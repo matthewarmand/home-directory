@@ -1,4 +1,3 @@
-
 " Use vim settings rather than vi
 " Must be first because it changes other settings
 set nocompatible
@@ -100,26 +99,40 @@ set foldlevel=99          " Max so we have granularity when folding
 let g:vim_redraw = 1
 
 let g:shfmt_extra_args = '-i 2 -ci'
-let g:shfmt_fmt_on_save = 1
 
 " Filetype-specific settings
-au BufNewFile,BufRead *.py,*.js setlocal
-    \ tabstop=4
-    \ softtabstop=4
-    \ shiftwidth=4
-    \ textwidth=79
-    \ expandtab
-    \ autoindent
-    \ fileformat=unix
+augroup filetype_tab_settings
+  au BufNewFile,BufRead *.py,*.js setlocal
+      \ tabstop=4
+      \ softtabstop=4
+      \ shiftwidth=4
+      \ textwidth=79
+      \ expandtab
+      \ autoindent
+      \ fileformat=unix
+augroup END
 
-au BufNewFile,BufRead $HOME/.config/sway/* set syntax=i3config
+augroup swayconfig
+  autocmd!
+  au BufNewFile,BufRead $HOME/.config/sway/* set syntax=i3config
+augroup END
 
 " On-Event scripts
 
 " trim trailing whitespace on write
-autocmd BufWritePre * %s/\s\+$//e
-" lint shell scripts on write
-autocmd BufWritePre *.sh :ShellCheck!
+augroup trim_whitespace
+  autocmd!
+  autocmd BufWritePre * %s/\s\+$//e
+augroup END
+" format and lint shell scripts on write
+augroup filetype_shell
+  autocmd!
+  autocmd FileType sh,bash autocmd BufWritePre <buffer> Shfmt
+  autocmd FileType sh,bash autocmd BufWritePre <buffer> execute ':ShellCheck!'
+augroup END
 " format and lint Python files on write
-autocmd BufWritePre *.py execute ':Black'
-autocmd BufWritePre *.py call Flake8()
+augroup filetype_python
+  autocmd!
+  autocmd FileType python autocmd BufWritePre <buffer> execute ':Black'
+  autocmd FileType python autocmd BufWritePre <buffer> call Flake8()
+augroup END
