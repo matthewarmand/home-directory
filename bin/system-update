@@ -20,7 +20,7 @@ message "Merging configuration file updates..."
 pacdiff -s
 
 message "Cleaning package caches..."
-paccache_cmd="paccache -r -k 3 -c $(grep CacheDir /etc/pacman.conf | sed 's/^.*= //')"
+paccache_cmd="paccache -r -k 3 -c $(pacman-conf CacheDir)"
 for d in "${XDG_CACHE_HOME:-$HOME/.cache}"/paru/clone/*/; do
   paccache_cmd="$paccache_cmd -c $d"
 done
