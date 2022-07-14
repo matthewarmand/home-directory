@@ -54,6 +54,10 @@ depends-on() {
   fi
 }
 
+git-set-origin() {
+  git remote set-url origin "$(git remote get-url $1)"
+}
+
 eval "$(thefuck --alias)"
 
 # run machine-specific configuration if it exists
