@@ -20,11 +20,13 @@ message "Merging configuration file updates..."
 pacdiff -s
 
 message "Cleaning package caches..."
-paccache_cmd="paccache -r -k 3 -c $(pacman-conf CacheDir)"
+paccache_args="-r -c $(pacman-conf CacheDir)"
 for d in "${XDG_CACHE_HOME:-$HOME/.cache}"/paru/clone/*/; do
-  paccache_cmd="$paccache_cmd -c $d"
+  paccache_args="$paccache_args -c $d"
 done
-$paccache_cmd
+eval "paccache -k 3 $paccache_args"
+message "Purging uninstalled package caches..."
+eval "paccache -k 0 -u $paccache_args"
 
 running_kernel=$(uname -r | sed -E 's/(\.0)?-arch/.arch/')
 installed_kernel=$(paru -Q linux | awk '{print $2}')
