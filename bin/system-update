@@ -17,7 +17,7 @@ message "Removing orphaned packages..."
 paru -c
 
 message "Merging configuration file updates..."
-pacdiff -s
+pacdiff -b -s
 
 message "Cleaning package caches..."
 paccache_args="-r -c $(pacman-conf CacheDir)"
