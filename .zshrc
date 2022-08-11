@@ -54,6 +54,15 @@ depends-on() {
   fi
 }
 
+purge-uninstalled-cache() {
+  mode="${1:-d}"
+  paccache_args="-$mode -c $(pacman-conf CacheDir)"
+  for d in "${XDG_CACHE_HOME:-$HOME/.cache}"/paru/clone/*/; do
+    paccache_args="$paccache_args -c $d"
+  done
+  eval "paccache -k 0 -u $paccache_args"
+}
+
 git-set-origin() {
   git remote set-url origin "$(git remote get-url "$1")"
 }
