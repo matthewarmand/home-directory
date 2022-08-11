@@ -1,8 +1,3 @@
-" Use vim settings rather than vi
-" Must be first because it changes other settings
-set nocompatible
-
-" Settings
 let python_highlight_all=1
 syntax on
 filetype indent plugin on
@@ -77,7 +72,7 @@ hi EndOfBuffer guibg=NONE ctermbg=NONE
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 " Plugin Management (vim-plug)
-call plug#begin('~/.vim/plugged')
+call plug#begin('/home/matt/.vim/plugged')
 
 Plug 'itspriddle/vim-shellcheck', { 'for': ['sh', 'bash'] }
 Plug 'mhinz/vim-signify'
