@@ -55,7 +55,7 @@ depends-on() {
 }
 
 git-set-origin() {
-  git remote set-url origin "$(git remote get-url $1)"
+  git remote set-url origin "$(git remote get-url "$1")"
 }
 
 eval "$(thefuck --alias)"
