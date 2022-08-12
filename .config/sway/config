@@ -16,7 +16,7 @@ set $right l
 # Your preferred terminal emulator
 set $term terminator
 # Your preferred application launcher
-set $menu j4-dmenu-desktop --dmenu="dmenu -i -m $(swaymsg -t get_outputs | jq 'map(.focused) | index(true)')" --term=$term
+set $menu wofi -iGS drun -t $term
 
 include "~/.config/sway/config-$(uname -n)"
 
