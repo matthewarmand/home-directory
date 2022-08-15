@@ -11,7 +11,7 @@ set $wallpaper /usr/share/wallpapers/dark-texture.jpg
 
 # Laptop Screen
 output eDP-1 {
-  resolution 2560x1440
+  mode 2560x1440@60.012Hz
   position 0,2160
   scale 1
 }
