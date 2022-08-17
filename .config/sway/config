@@ -214,8 +214,9 @@ bindsym $mod+r mode "resize"
 # Window-specific rules (floating, etc)
 #
 for_window [title=".+[Ss]haring (Indicator|your screen)"] floating enable, move to scratchpad
-for_window [title="Picture-in-Picture"] floating enable
+for_window [title="^Picture-in-Picture$"] floating enable, sticky enable, border none, inhibit_idle open
 for_window [shell="xwayland"] title_format "%title (%shell)"
+for_window [class="^.*" app_id="^.*"] inhibit_idle fullscreen
 
 #
 # My Helper Shortcuts
