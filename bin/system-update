@@ -10,9 +10,6 @@ arch-audit -uc
 message "Checking for relevant news..."
 paru -Syu --newsonupgrade --review --removemake
 
-message "Updating vim plugins from git..."
-vim +PlugUpdate +qall
-
 message "Removing orphaned packages..."
 paru -c
 

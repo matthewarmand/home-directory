@@ -71,19 +71,35 @@ hi EndOfBuffer guibg=NONE ctermbg=NONE
 " Search for highlighted text with //
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
-" Plugin Management (vim-plug)
-call plug#begin('/home/matt/.vim/plugged')
+let g:ale_fixers = {
+\  '*': ['remove_trailing_lines', 'trim_whitespace'],
+\  'python': ['black'],
+\  'sh': ['shfmt'],
+\}
+let g:ale_sh_shfmt_options = '-i 2 -ci'
 
-Plug 'itspriddle/vim-shellcheck', { 'for': ['sh', 'bash'] }
-Plug 'mhinz/vim-signify'
-Plug 'nvie/vim-flake8', { 'for': 'python' }
-Plug 'prettier/vim-prettier', { 'do': 'npm install --production', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
-Plug 'z0mbix/vim-shfmt', { 'for': ['sh', 'bash', 'zsh'] }
+let g:ale_linters = {
+\  'python': ['flake8'],
+\  'sh': ['shellcheck'],
+\  'dockerfile': ['hadolint'],
+\}
+let g:ale_dockerfile_hadolint_options = '--ignore DL3006 --ignore DL3008' " this won't work until this gets released: https://github.com/dense-analysis/ale/pull/4353
 
-call plug#end()
-" vim-plug to update plugins: :PlugUpdate
+let g:ale_fix_on_save = 0
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_enter = 0
+let g:ale_open_list = 1
+" let g:ale_completion_enable = 1 at some point we can replace YCM with this
+
+augroup alefixprewrite
+  autocmd!
+  au BufWritePre * ALEFix
+augroup END
+
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " YouCompleteMe config
 let g:ycm_autoclose_preview_window_after_completion=1
@@ -93,10 +109,9 @@ set foldlevel=99          " Max so we have granularity when folding
 
 let g:vim_redraw = 1
 
-let g:shfmt_extra_args = '-i 2 -ci'
-
 " Filetype-specific settings
 augroup filetype_tab_settings
+  autocmd!
   au BufNewFile,BufRead *.py,*.js setlocal
       \ tabstop=4
       \ softtabstop=4
@@ -110,24 +125,4 @@ augroup END
 augroup swayconfig
   autocmd!
   au BufNewFile,BufRead $HOME/.config/sway/* set syntax=i3config
-augroup END
-
-" On-Event scripts
-
-" trim trailing whitespace on write
-augroup trim_whitespace
-  autocmd!
-  autocmd BufWritePre * %s/\s\+$//e
-augroup END
-" format and lint shell scripts on write
-augroup filetype_shell
-  autocmd!
-  autocmd FileType sh,bash autocmd BufWritePre <buffer> Shfmt
-  autocmd FileType sh,bash autocmd BufWritePre <buffer> execute ':ShellCheck!'
-augroup END
-" format and lint Python files on write
-augroup filetype_python
-  autocmd!
-  autocmd FileType python autocmd BufWritePre <buffer> execute ':Black'
-  autocmd FileType python autocmd BufWritePre <buffer> call Flake8()
 augroup END
