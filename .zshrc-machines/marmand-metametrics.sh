@@ -38,5 +38,3 @@ mm-git-config() {
     fi
   done
 }
-
-source /usr/share/nvm/init-nvm.sh

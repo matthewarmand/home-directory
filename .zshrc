@@ -67,8 +67,6 @@ git-set-origin() {
   git remote set-url origin "$(git remote get-url "$1")"
 }
 
-eval "$(thefuck --alias)"
-
 # run machine-specific configuration if it exists
 filename=/home/matt/.zshrc-machines/$(uname -n).sh
 test -x "$filename" && source "$filename"
@@ -163,5 +161,4 @@ if [ "$(tty)" = /dev/tty1 ]; then
     QT_QPA_PLATFORM=wayland \
     QT_QPA_PLATFORMTHEME=qt5ct \
     /usr/bin/sway
-
 fi
