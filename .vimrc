@@ -54,6 +54,7 @@ set noerrorbells
 set showcmd
 
 set nomodeline
+set updatetime=100            " decrease async update time
 
 " tabstop settings... might want to make this filetype-specific
 set expandtab                  " tab key inserts spaces instead of tabs
@@ -84,6 +85,12 @@ let g:ale_linters = {
 \  'dockerfile': ['hadolint'],
 \}
 let g:ale_dockerfile_hadolint_options = '--ignore DL3006 --ignore DL3008' " this won't work until this gets released: https://github.com/dense-analysis/ale/pull/4353
+
+augroup filetype_env_settings
+  autocmd!
+  au BufNewFile,BufRead .env* let b:ale_sh_shellcheck_options = '--exclude SC2034'
+  au BufNewFile,BufRead .env.tmpl setlocal syntax=sh
+augroup END
 
 let g:ale_fix_on_save = 0
 let g:ale_lint_on_save = 1
@@ -124,5 +131,5 @@ augroup END
 
 augroup swayconfig
   autocmd!
-  au BufNewFile,BufRead $HOME/.config/sway/* set syntax=i3config
+  au BufNewFile,BufRead $HOME/.config/sway/* setlocal syntax=i3config
 augroup END
