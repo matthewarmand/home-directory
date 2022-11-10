@@ -62,6 +62,7 @@ set shiftwidth=2               " number of spaces to use for autoindent
 set smarttab                   " tab to next indent
 set ruler                      " show cursor position
 
+set background=dark
 colorscheme iceberg            " from https://github.com/cocopon/iceberg.vim
 " transparent background
 hi Normal guibg=NONE ctermbg=NONE
