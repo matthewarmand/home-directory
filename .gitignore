@@ -37,3 +37,7 @@
 !.local/share/
 !.local/share/applications/
 !.local/share/applications/firefoxdeveloperedition.desktop
+
+!.vim/
+!.vim/colors/
+!.vim/colors/iceberg.vim
