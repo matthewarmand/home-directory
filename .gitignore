@@ -18,6 +18,8 @@
 
 !.config/vis
 !.config/vis/config
+!.config/vis/colors/
+!.config/vis/colors/rainbow
 
 !.config/sway
 !.config/sway/config*
