@@ -1,7 +1,5 @@
-let python_highlight_all=1
 syntax on
 filetype indent plugin on
-set omnifunc=syntaxcomplete#Complete
 
 set shell=/usr/bin/zsh
 
@@ -99,7 +97,12 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_enter = 0
 let g:ale_open_list = 1
-" let g:ale_completion_enable = 1 at some point we can replace YCM with this
+
+" autocomplete
+let g:ale_completion_enable = 1
+set completeopt+=preview
+set completeopt+=menuone
+set completeopt+=noinsert
 
 augroup alefixprewrite
   autocmd!
@@ -108,10 +111,6 @@ augroup END
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
-
-" YouCompleteMe config
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 set foldlevel=99          " Max so we have granularity when folding
 
