@@ -1,3 +1,4 @@
+" required-arch-packages :: vim vim-ale vim-gitgutter vim-fugitive flake8 python-black hadolint-bin shellcheck shfmt
 syntax on
 filetype indent plugin on
 

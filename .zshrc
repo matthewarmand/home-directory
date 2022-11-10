@@ -1,3 +1,4 @@
+# required-arch-packages :: zsh arch-audit pacman-contrib fzf git
 # If you come from bash you might have to change your $PATH.
 # export PATH=/home/matt/bin:/usr/local/bin:$PATH
 
