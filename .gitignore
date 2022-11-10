@@ -30,3 +30,8 @@
 
 !.config/qt5ct
 !.config/qt5ct/qt5ct.conf
+
+!.local/
+!.local/share/
+!.local/share/applications/
+!.local/share/applications/firefoxdeveloperedition.desktop

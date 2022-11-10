@@ -156,8 +156,7 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 if [ "$(tty)" = /dev/tty1 ]; then
-  env MOZ_ENABLE_WAYLAND=1 \
-    XDG_CURRENT_DESKTOP=sway \
+  env XDG_CURRENT_DESKTOP=sway \
     QT_QPA_PLATFORM=wayland \
     QT_QPA_PLATFORMTHEME=qt5ct \
     /usr/bin/sway
