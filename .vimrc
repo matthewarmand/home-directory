@@ -85,6 +85,7 @@ let g:ale_linters = {
 \  'dockerfile': ['hadolint'],
 \}
 let g:ale_dockerfile_hadolint_options = '--ignore DL3006 --ignore DL3008' " this won't work until this gets released: https://github.com/dense-analysis/ale/pull/4353
+let g:ale_python_flake8_options = '--append-config /home/matt/.flake8'
 
 augroup filetype_env_settings
   autocmd!
