@@ -1,4 +1,4 @@
-" required-arch-packages :: vim vim-ale vim-gitgutter vim-fugitive flake8 python-black hadolint-bin shellcheck shfmt
+" required-arch-packages :: vim vim-ale vim-gitgutter vim-fugitive flake8 python-black docker shellcheck shfmt
 syntax on
 filetype indent plugin on
 
@@ -84,6 +84,7 @@ let g:ale_linters = {
 \  'sh': ['shellcheck'],
 \  'dockerfile': ['hadolint'],
 \}
+let g:ale_dockerfile_hadolint_use_docker = 'always'
 let g:ale_dockerfile_hadolint_options = '--ignore DL3006 --ignore DL3008' " this won't work until this gets released: https://github.com/dense-analysis/ale/pull/4353
 let g:ale_python_flake8_options = '--append-config /home/matt/.flake8'
 

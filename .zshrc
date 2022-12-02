@@ -1,4 +1,4 @@
-# required-arch-packages :: zsh arch-audit pacman-contrib fzf git
+# required-arch-packages :: zsh arch-audit pacman-contrib fzf
 # If you come from bash you might have to change your $PATH.
 # export PATH=/home/matt/bin:/usr/local/bin:$PATH
 
@@ -160,9 +160,12 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-if [ "$(tty)" = /dev/tty1 ]; then
+init-sway() {
   env XDG_CURRENT_DESKTOP=sway \
     QT_QPA_PLATFORM=wayland \
     QT_QPA_PLATFORMTHEME=qt5ct \
     /usr/bin/sway
+}
+if [ "$(tty)" = /dev/tty1 ]; then
+  init-sway
 fi
