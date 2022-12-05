@@ -6,6 +6,7 @@
 !.zshrc
 !.zshenv
 !.flake8
+!.bootstrap.sh
 
 !.zshrc-machines/
 !.zshrc-machines/*
