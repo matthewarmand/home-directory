@@ -36,7 +36,7 @@ output * {
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Idle configuration
-set $lock_command "swaylock -Ffei $wallpaper && (playerctl -s pause || true)"
+set $lock_command "source ~/.config/sway/scripts/pause-and-lock.sh $wallpaper"
 #
 # Example configuration:
 #

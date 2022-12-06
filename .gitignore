@@ -26,6 +26,9 @@
 !.config/sway
 !.config/sway/config*
 
+!.config/sway/scripts/
+!.config/sway/scripts/*
+
 !.config/i3status-rust
 !.config/i3status-rust/config.toml
 
