@@ -35,3 +35,16 @@ mm_git_config() {
     fi
   done
 }
+
+master_since_tag() {
+  if main_sha=$(git rev-parse --verify -q main); then
+    main_branch=main
+  elif main_sha=$(git rev-parse --verify -q master); then
+    main_branch=master
+  else
+    echo "Can't figure out default branch, i'm confused"
+    exit 1
+  fi
+  latest_tag="$(git describe --tags "$(git rev-list --tags --max-count=1)")"
+  git log "$latest_tag".."$main_sha" | grep "Merge branch" | grep "into '$main_branch'" | awk '{print $3}' | sed "s/'//g" | grep -Ev "^release[s]*/$latest_tag$"
+}
