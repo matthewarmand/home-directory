@@ -46,10 +46,9 @@ all-installed() {
 }
 
 depends-on() {
-  if [[ -n "$1" ]]; then
-    local installed_packages
+  if [ -n "$1" ]; then
     installed_packages=$(paru -Q | grep "$1")
-    if [[ -n "$installed_packages" ]]; then
+    if [ -n "$installed_packages" ]; then
       echo "$installed_packages" | awk '{print $1}' | xargs paru -Qi | grep "Required By" | sed 's/Required By\s\+:\s//g' | sed 's/\b\s\+\b/\n/g' | grep -Ev "$1|None" | sort -u
     fi
   fi
