@@ -1,4 +1,4 @@
-" required-arch-packages :: vim vim-ale vim-gitgutter vim-fugitive flake8 python-black docker shellcheck shfmt
+" required-arch-packages :: vim vim-ale vim-gitgutter vim-fugitive flake8 python-black python-lsp-server docker shellcheck shfmt
 syntax on
 filetype indent plugin on
 
@@ -19,7 +19,6 @@ set hlsearch                   " highlight search terms
 set incsearch                  " show search matches as you type
 set nolist                     " show whitespace by default
 set mouse=a                    " enable mouse if terminal supports
-set paste
 
 set fileformats="unix,dos,mac"
 
@@ -80,7 +79,7 @@ let g:ale_fixers = {
 let g:ale_sh_shfmt_options = '-i 2 -ci'
 
 let g:ale_linters = {
-\  'python': ['flake8'],
+\  'python': ['flake8', 'pylsp'],
 \  'sh': ['shellcheck'],
 \  'dockerfile': ['hadolint'],
 \}
@@ -104,7 +103,7 @@ let g:ale_lint_on_enter = 0
 let g:ale_open_list = 1
 
 " autocomplete
-let g:ale_completion_enable = 1
+let g:ale_completion_enabled = 1
 set completeopt+=preview
 set completeopt+=menuone
 set completeopt+=noinsert
