@@ -96,8 +96,8 @@ input type:keyboard xkb_numlock enabled
     bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ "+5%"
     bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ "-5%"
     bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-    bindsym XF86AudioPlay exec "playerctl play-pause -s || true"
-    bindsym $mod+XF86AudioPlay exec "playerctl play-pause -as || true"
+    bindsym XF86AudioPlay exec playerctl play-pause -s || true
+    bindsym $mod+XF86AudioPlay exec playerctl play-pause -as || true
 #
 # Moving around:
 #
@@ -234,7 +234,8 @@ for_window [class="^.*" app_id="^.*"] inhibit_idle fullscreen
 # My Helper Shortcuts
 #
 bindsym $mod+Alt+l exec $lock_command
-bindsym $mod+Alt+s exec 'grim -g "$(slurp)" - | swappy -f -'
+bindsym $mod+Alt+s exec grim -g "$(slurp)" - | swappy -f -
+bindsym $mod+Alt+Shift+s exec grim -o "$(swaymsg -t get_outputs | jq -r '.[] | select(.focused==true) | .name')" - | swappy -f -
 
 #
 # Status Bar:
