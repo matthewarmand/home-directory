@@ -11,7 +11,7 @@ cd ~ && git clone git@github.com:matthewarmand/home-directory.git . && git confi
 ## Bootstrapping
 
 To set this up on a new machine (or to update one with needed baseline packages),
-run the `.bootstrap.sh` script in this directory:
+run the [`.bootstrap.sh`](.bootstrap.sh) script in this directory:
 
 ```shell
 source ~/.bootstrap.sh
