@@ -79,15 +79,24 @@ let g:ale_fixers = {
 let g:ale_sh_shfmt_options = '-i 2 -ci'
 
 let g:ale_linters = {
-\  'python': ['flake8', 'pylsp'],
+\  'python': ['pylsp'],
 \  'sh': ['shellcheck'],
 \  'dockerfile': ['hadolint'],
 \}
 let g:ale_dockerfile_hadolint_use_docker = 'always'
 let g:ale_dockerfile_hadolint_options = '--ignore DL3006 --ignore DL3008' " this won't work until this gets released: https://github.com/dense-analysis/ale/pull/4353
-let g:ale_python_flake8_options = '--append-config /home/matt/.flake8'
-let g:ale_python_flake8_use_global = 1
+let g:ale_use_global_executables = 1
 let g:ale_python_black_use_global = 1
+let g:ale_python_pylsp_config = {
+\  'pylsp': {
+\    'configurationSources': ['flake8'],
+\    'plugins': {
+\      'flake8': {
+\        'config': '/home/matt/.config/flake8',
+\      }
+\    }
+\  }
+\}
 
 augroup filetype_env_settings
   autocmd!

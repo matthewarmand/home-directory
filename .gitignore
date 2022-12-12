@@ -5,7 +5,6 @@
 !.vimrc
 !.zshrc
 !.zshenv
-!.flake8
 !.bootstrap.sh
 
 !.zshrc-machines/
@@ -17,6 +16,8 @@
 !.config/
 !.config/terminator
 !.config/terminator/config
+
+!.config/flake8
 
 !.config/vis
 !.config/vis/config
