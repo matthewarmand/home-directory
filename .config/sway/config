@@ -25,9 +25,7 @@ include "~/.config/sway/config-$(uname -n)"
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # set $wallpaper /usr/share/wallpapers/dark-texture.jpg
-output * {
-  bg $wallpaper fill
-}
+output * bg $wallpaper fill
 
 #
 # Example configuration:
