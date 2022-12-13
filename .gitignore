@@ -5,13 +5,13 @@
 !.vimrc
 !.zshrc
 !.zshenv
-!.bootstrap.sh
 
 !.zshrc-machines/
 !.zshrc-machines/*
 
 !bin/
 !bin/system-update
+!bin/.bootstrap.sh
 
 !.config/
 !.config/terminator
