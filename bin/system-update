@@ -10,6 +10,11 @@ arch-audit -uc
 message "Checking for relevant news..."
 paru -Syu --newsonupgrade --review --removemake
 
+message "Updating Oh My Zsh..."
+if omz_output=$(SHELL=zsh script -q /dev/null -c "omz update --unattended") && echo "$omz_output" | grep -q "has been updated"; then
+  zsh -c "omz changelog"
+fi
+
 message "Removing orphaned packages..."
 paru -c
 
