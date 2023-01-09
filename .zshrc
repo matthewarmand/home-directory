@@ -63,6 +63,13 @@ purge-uninstalled-cache() {
   eval "paccache -k 0 -u $paccache_args"
 }
 
+git-fork() {
+  origin_url=$(git remote show -n origin | grep 'Fetch URL' | sed 's/^.*Fetch URL:\s\+//')
+  git remote add upstream "$origin_url"
+  my_url=$(echo "$origin_url" | sed 's/:.*\//:matthewarmand\//')
+  git remote add my "$my_url"
+}
+
 git-set-origin() {
   git remote set-url origin "$(git remote get-url "$1")"
 }
