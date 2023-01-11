@@ -11,7 +11,7 @@ message "Checking for relevant news..."
 paru -Syu --newsonupgrade --review --removemake
 
 message "Updating Oh My Zsh..."
-if omz_output=$(SHELL=zsh script -q /dev/null -c "omz update --unattended") && echo "$omz_output" | grep -q "has been updated"; then
+if (zsh -c "omz update --unattended") | grep -q "has been updated"; then
   zsh -c "omz changelog"
 fi
 
