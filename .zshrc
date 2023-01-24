@@ -74,10 +74,6 @@ git-set-origin() {
   git remote set-url origin "$(git remote get-url "$1")"
 }
 
-what-owns() {
-  paru -Qi "$(paru -Ql | grep -E "$(which "$1")$" | awk '{print $1}')"
-}
-
 # run machine-specific configuration if it exists
 filename=/home/matt/.zshrc-machines/$(uname -n).sh
 test -x "$filename" && source "$filename"
