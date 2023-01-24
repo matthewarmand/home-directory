@@ -3,7 +3,18 @@
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #
 # Read `man 5 sway` for a complete reference.
-# required-arch-packages :: sway wofi terminator qt5ct qt6ct xdg-desktop-portal-wlr swaylock swayidle swaybg mako i3status-rust networkmanager network-manager-applet qpwgraph pavucontrol-qt playerctl pipewire ttf-font-awesome
+# required-arch-package :: mako
+# required-arch-package :: network-manager-applet
+# required-arch-package :: networkmanager
+# required-arch-package :: pavucontrol-qt
+# required-arch-package :: pipewire
+# required-arch-package :: qpwgraph
+# required-arch-package :: sway
+# required-arch-package :: swaybg
+# required-arch-package :: swayidle
+# required-arch-package :: terminator
+# required-arch-package :: wofi
+# required-arch-package :: xdg-desktop-portal-wlr
 
 ### Variables
 #

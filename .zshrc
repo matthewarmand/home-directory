@@ -1,4 +1,7 @@
-# required-arch-packages :: zsh arch-audit pacman-contrib fzf
+# required-arch-package :: arch-audit
+# required-arch-package :: fzf
+# required-arch-package :: pacman-contrib
+# required-arch-package :: zsh
 # If you come from bash you might have to change your $PATH.
 # export PATH=/home/matt/bin:/usr/local/bin:$PATH
 

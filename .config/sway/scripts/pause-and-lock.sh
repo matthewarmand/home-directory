@@ -1,4 +1,6 @@
 #!/bin/sh -e
+# required-arch-package :: playerctl
+# required-arch-package :: swaylock
 
 if [ "$(playerctl -p spotify status 2>/dev/null)" = "Playing" ]; then
   paused_player="true"

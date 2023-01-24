@@ -1,4 +1,12 @@
-" required-arch-packages :: vim vim-ale vim-gitgutter vim-fugitive flake8 python-black python-lsp-server docker shellcheck shfmt
+" required-arch-package :: docker
+" required-arch-package :: python-black
+" required-arch-package :: python-lsp-server
+" required-arch-package :: shellcheck
+" required-arch-package :: shfmt
+" required-arch-package :: vim
+" required-arch-package :: vim-ale
+" required-arch-package :: vim-fugitive
+" required-arch-package :: vim-gitgutter
 syntax on
 filetype indent plugin on
 

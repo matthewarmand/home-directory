@@ -20,9 +20,17 @@ if ! command -v paru >/dev/null; then
   (
     cd ~/.cache/paru/clone/paru-bin/ || exit 1
     makepkg -sric
-    sudo pacman -U
   )
 fi
 
 # shellcheck disable=SC2046 # quotes break feeding this list of packages into paru
-paru -S --needed -q $(git --git-dir ~/.git/ ls-files | grep -v '.bootstrap.sh\|.zshenv' | sed 's/^/\/home\/matt\//g' | xargs grep 'required-arch-packages ::' | awk -F'::' '{print $2}' | tr '\n' ' ')
+paru -S --needed -q \
+  $(
+    git --git-dir ~/.git/ ls-files |
+      grep -v '.bootstrap.sh\|.zshenv' |
+      sed 's/^/\/home\/matt\//g' |
+      xargs grep 'required-arch-package ::' |
+      awk -F'::' '{print $2}' |
+      sort -u |
+      tr '\n' ' '
+  )

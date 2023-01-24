@@ -1,3 +1,5 @@
+# required-arch-package :: i3status-rust
+# required-arch-package :: ttf-font-awesome
 theme = "space-villain"
 icons = "awesome6"
 
