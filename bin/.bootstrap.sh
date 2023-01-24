@@ -9,6 +9,14 @@ if ! command -v git >/dev/null; then
   sudo pacman -S git
 fi
 
+if [ ! -d ~/.git/ ]; then
+  git clone git@github.com:matthewarmand/home-directory.git ~
+fi
+
+if [ "$(git --git-dir ~/.git/ config --local --get oh-my-zsh.hide-info)" -ne 1 ]; then
+  git --git-dir ~/.git/ config --local oh-my-zsh.hide-info 1
+fi
+
 if [ ! -d ~/.oh-my-zsh/ ]; then
   mkdir -p ~/.oh-my-zsh/
   git clone git@github.com:ohmyzsh/ohmyzsh.git ~/.oh-my-zsh/
