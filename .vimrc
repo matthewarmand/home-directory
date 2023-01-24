@@ -7,6 +7,7 @@
 " required-arch-package :: vim-ale
 " required-arch-package :: vim-fugitive
 " required-arch-package :: vim-gitgutter
+" required-arch-package :: yamllint
 syntax on
 filetype indent plugin on
 
@@ -90,7 +91,9 @@ let g:ale_linters = {
 \  'python': ['pylsp'],
 \  'sh': ['shellcheck'],
 \  'dockerfile': ['hadolint'],
+\  'yaml': ['yamllint'],
 \}
+let g:ale_yaml_yamllint_options = '-d "{extends: default, rules: {line-length: {level: warning}}}"'
 let g:ale_dockerfile_hadolint_use_docker = 'always'
 let g:ale_dockerfile_hadolint_options = '--ignore DL3006 --ignore DL3008' " this won't work until this gets released: https://github.com/dense-analysis/ale/pull/4353
 let g:ale_use_global_executables = 1
