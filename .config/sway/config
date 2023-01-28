@@ -4,7 +4,6 @@
 #
 # Read `man 5 sway` for a complete reference.
 # required-arch-package :: mako
-# required-arch-package :: network-manager-applet
 # required-arch-package :: networkmanager
 # required-arch-package :: pavucontrol-qt
 # required-arch-package :: pipewire
@@ -267,7 +266,6 @@ bar {
 
 # Autostart applications
 exec mako
-exec nm-applet
 exec QT_QPA_PLATFORMTHEME=qt6ct qpwgraph -m
 exec terminator -p default -l codeworkspace
 
