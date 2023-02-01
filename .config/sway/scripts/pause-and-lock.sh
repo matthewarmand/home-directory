@@ -2,11 +2,11 @@
 # required-arch-package :: playerctl
 # required-arch-package :: swaylock
 
+lock_cmd="swaylock -Fei $1"
 if [ "$(playerctl -p spotify status 2>/dev/null)" = "Playing" ]; then
-  paused_player="true"
   playerctl -p spotify pause
-fi
-swaylock -Fei "$1"
-if [ "$paused_player" = "true" ]; then
+  eval "$lock_cmd"
   playerctl -p spotify play
+else
+  eval "$lock_cmd -f"
 fi
