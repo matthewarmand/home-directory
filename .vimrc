@@ -105,7 +105,10 @@ let g:ale_python_pylsp_config = {
 \      'flake8': {
 \        'enabled': 'true',
 \        'config': '/home/matt/.config/flake8',
-\      }
+\      },
+\      'pylint': {
+\        'enabled': 'true',
+\      },
 \    }
 \  }
 \}

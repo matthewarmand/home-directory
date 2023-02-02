@@ -78,7 +78,7 @@ git-set-origin() {
 }
 
 # run machine-specific configuration if it exists
-filename=/home/matt/.zshrc-machines/$(uname -n).sh
+filename=/home/matt/.config/zshrc-machines/$(uname -n).sh
 test -x "$filename" && source "$filename"
 
 # oh-my-zsh Configuration
