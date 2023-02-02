@@ -1,13 +1,13 @@
 *
 
-!README.md
 !.vimrc
-!.zshrc
 !.zshenv
+!.zshrc
+!README.md
 
 !bin/
-!bin/system-update
 !bin/.bootstrap.sh
+!bin/system-update
 
 !.config/
 !.config/flake8
