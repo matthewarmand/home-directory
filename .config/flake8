@@ -1,5 +1,5 @@
 # required-arch-package :: flake8
 [flake8]
-ignore = E203,E501
+ignore = E203,E501,W503
 max-line-length = 88
 max-complexity = 18
