@@ -103,6 +103,7 @@ let g:ale_python_pylsp_config = {
 \    'configurationSources': ['flake8'],
 \    'plugins': {
 \      'flake8': {
+\        'enabled': 'true',
 \        'config': '/home/matt/.config/flake8',
 \      }
 \    }
