@@ -16,6 +16,11 @@ fi
 if [ "$(git --git-dir ~/.git/ config --local --get oh-my-zsh.hide-info)" -ne 1 ]; then
   git --git-dir ~/.git/ config --local oh-my-zsh.hide-info 1
 fi
+git config --global advice.detachedHead false
+git config --global core.editor vim
+git config --global init.defaultBranch main
+git config --global pull.rebase true
+git config --global push.autoSetupRemote true
 
 if [ ! -d ~/.oh-my-zsh/ ]; then
   mkdir -p ~/.oh-my-zsh/
