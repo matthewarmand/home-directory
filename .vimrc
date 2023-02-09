@@ -108,6 +108,7 @@ let g:ale_python_pylsp_config = {
 \      },
 \      'pylint': {
 \        'enabled': 'true',
+\        'args': ['--disable=import-error'],
 \      },
 \    }
 \  }
