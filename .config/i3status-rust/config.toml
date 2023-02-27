@@ -1,23 +1,22 @@
 # required-arch-package :: i3status-rust
 # required-arch-package :: ttf-font-awesome
+[theme]
 theme = "space-villain"
+[icons]
 icons = "awesome6"
 
 [[block]]
 block = "disk_space"
 path = "/"
-alias = "/"
 info_type = "available"
-unit = "GB"
+alert_unit = "GB"
 interval = 20
 warning = 20.0
 alert = 10.0
 
 [[block]]
 block = "memory"
-display_type = "memory"
-format_mem = "{mem_used_percents}"
-format_swap = "{swap_used_percents}"
+format = " $icon $mem_used_percents.eng(w:1) "
 
 [[block]]
 block = "cpu"
@@ -26,17 +25,23 @@ interval = 1
 [[block]]
 block = "load"
 interval = 1
-format = "{1m}"
+format = " $icon 1min avg: $1m.eng(w:4) "
 
 [[block]]
 block = "sound"
-on_click = "pavucontrol-qt"
 show_volume_when_muted = true
+[[block.click]]
+button = "left"
+action = "pavucontrol-qt"
 
 [[block]]
-block = "networkmanager"
-on_click = "terminator -e nmtui"
-interface_name_exclude = ["br\\-[0-9a-f]{12}", "docker\\d+"]
+block = "net"
+# TODO add ssid when this is fixed: https://github.com/greshake/i3status-rust/issues/1607
+# format = " $icon $ssid ^icon_net_down $speed_down.eng(prefix:K) ^icon_net_up $speed_up.eng(prefix:K) "
+format = " $icon ^icon_net_down $speed_down.eng(prefix:K) ^icon_net_up $speed_up.eng(prefix:K) "
+[[block.click]]
+button = "left"
+action = "terminator -e nmtui"
 
 [[block]]
 block = "backlight"
@@ -54,4 +59,4 @@ if_command = "test -e /sys/class/power_supply/BAT0"
 [[block]]
 block = "time"
 interval = 5
-format = "%a %Y/%m/%d %R"
+format = " $icon $timestamp.datetime(f:'%a %Y-%m-%d %R') "
