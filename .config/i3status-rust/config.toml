@@ -32,7 +32,7 @@ block = "sound"
 show_volume_when_muted = true
 [[block.click]]
 button = "left"
-action = "pavucontrol-qt"
+cmd = "pavucontrol-qt"
 
 [[block]]
 block = "net"
@@ -41,7 +41,7 @@ block = "net"
 format = " $icon ^icon_net_down $speed_down.eng(prefix:K) ^icon_net_up $speed_up.eng(prefix:K) "
 [[block.click]]
 button = "left"
-action = "terminator -e nmtui"
+cmd = "terminator -e nmtui"
 
 [[block]]
 block = "backlight"
