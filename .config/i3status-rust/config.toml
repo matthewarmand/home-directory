@@ -53,7 +53,7 @@ if_command = "test -e /sys/class/backlight/*"
 
 [[block]]
 block = "battery"
-format = "{percentage} {time}"
+format = "$icon {$percentage} {$time}"
 if_command = "test -e /sys/class/power_supply/BAT0"
 
 [[block]]
