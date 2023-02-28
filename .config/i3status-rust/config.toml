@@ -6,6 +6,10 @@ theme = "space-villain"
 icons = "awesome6"
 
 [[block]]
+block = "music"
+format = " $icon {$title - $artist $play $next|}"
+
+[[block]]
 block = "disk_space"
 path = "/"
 info_type = "available"
