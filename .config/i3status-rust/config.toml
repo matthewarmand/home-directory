@@ -41,9 +41,7 @@ cmd = "pavucontrol-qt"
 
 [[block]]
 block = "net"
-# TODO add ssid when this is fixed: https://github.com/greshake/i3status-rust/issues/1607
-# format = " $icon $ssid ^icon_net_down $speed_down.eng(prefix:K) ^icon_net_up $speed_up.eng(prefix:K) "
-format = " $icon ^icon_net_down $speed_down.eng(prefix:K) ^icon_net_up $speed_up.eng(prefix:K) "
+format = " $icon {$ssid |} ^icon_net_down $speed_down.eng(prefix:K) ^icon_net_up $speed_up.eng(prefix:K) "
 [[block.click]]
 button = "left"
 cmd = "terminator -e nmtui"
