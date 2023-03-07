@@ -158,6 +158,13 @@ augroup filetype_tab_settings
       \ fileformat=unix
 augroup END
 
+augroup journal_md_wrap
+  autocmd!
+  au BufNewFile,BufRead /home/matt/journal/**/*.md setlocal
+      \ wrap
+      \ linebreak
+augroup END
+
 augroup swayconfig
   autocmd!
   au BufNewFile,BufRead */sway/config* setlocal syntax=swayconfig
