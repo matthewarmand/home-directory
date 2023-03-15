@@ -95,7 +95,7 @@ let g:ale_linters = {
 \}
 let g:ale_yaml_yamllint_options = '-d "{extends: default, rules: {line-length: {level: warning}}}"'
 let g:ale_dockerfile_hadolint_use_docker = 'always'
-let g:ale_dockerfile_hadolint_options = '--ignore DL3006 --ignore DL3008' " this won't work until this gets released: https://github.com/dense-analysis/ale/pull/4353
+let g:ale_dockerfile_hadolint_options = '--ignore DL3006 --ignore DL3008'
 let g:ale_use_global_executables = 1
 let g:ale_python_black_use_global = 1
 let g:ale_python_pylsp_config = {
