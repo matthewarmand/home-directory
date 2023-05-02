@@ -33,13 +33,6 @@ interval = 1
 format = " $icon 1min avg: $1m.eng(w:4) "
 
 [[block]]
-block = "sound"
-show_volume_when_muted = true
-[[block.click]]
-button = "left"
-cmd = "pavucontrol-qt"
-
-[[block]]
 block = "net"
 format = " $icon {$ssid |} ^icon_net_down $speed_down.eng(prefix:K) ^icon_net_up $speed_up.eng(prefix:K) "
 [[block.click]]
@@ -58,6 +51,13 @@ if_command = "test -e /sys/class/backlight/*"
 block = "battery"
 format = "$icon {$percentage} {$time}"
 if_command = "test -e /sys/class/power_supply/BAT0"
+
+[[block]]
+block = "sound"
+show_volume_when_muted = true
+[[block.click]]
+button = "left"
+cmd = "pavucontrol-qt"
 
 [[block]]
 block = "time"
