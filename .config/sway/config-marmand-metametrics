@@ -44,7 +44,8 @@ input "1267:32:Elan_Touchpad" {
 # has started sharing, etc
 for_window [app_id="zoom" title="join\?action=join.*"] floating enable
 # "this meething has been ended", this might be too broad. We'll play with it
-for_window [app_id="zoom" title="Zoom"] floating enable
+for_window [app_id="zoom" title="^as_toolbar$"] floating enable
+for_window [app_id="zoom" title="^zoom$"] floating enable
 
 ### Key bindings
     bindsym XF86MonBrightnessUp exec light -A "5%"
