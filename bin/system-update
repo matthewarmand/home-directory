@@ -28,16 +28,17 @@ eval "paccache $paccache_args"
 running_kernel=$(uname -r | sed -E 's/(\.0)?-arch/.arch/')
 installed_kernel=$(paru -Q linux | awk '{print $2}')
 if [ "$running_kernel" != "$installed_kernel" ]; then
-  message "$(printf "Kernel has been upgraded from \e[32m%s\e[0m\033[1m to \e[32m%s\e[0m\033[1m; reboot now? [Y/n] " "$running_kernel" "$installed_kernel")"
+  message "$(printf "Kernel has been updated from \e[32m%s\e[0m\033[1m to \e[32m%s\e[0m\033[1m; (R)eboot, (S)hutdown, or (Q)uit now? [R/s/q] " "$running_kernel" "$installed_kernel")"
   while true; do
-    read -r yn
-    if [ -z "$yn" ]; then
-      yn='y'
+    read -r rsq
+    if [ -z "$rsq" ]; then
+      rsq='r'
     fi
-    case $yn in
-      [Yy]*) reboot ;;
-      [Nn]*) break ;;
-      *) printf "\e[31mPlease answer y or n.\e[0m\n" ;;
+    case $rsq in
+      [Rr]*) reboot ;;
+      [Ss]*) shutdown -h +0 ;;
+      [Qq]*) break ;;
+      *) printf "\e[31mPlease answer r, s, or q.\e[0m\n" ;;
     esac
   done
 fi
