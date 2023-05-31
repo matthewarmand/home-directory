@@ -5,9 +5,10 @@ if [ "$(id -u)" -eq 0 ]; then
   exit 1
 fi
 
-if ! command -v git >/dev/null; then
-  sudo pacman -S git
-fi
+sudo pacman -S --needed -q \
+  base \
+  base-devel \
+  git
 
 if [ ! -d ~/.git/ ]; then
   git clone git@github.com:matthewarmand/home-directory.git ~
