@@ -6,7 +6,7 @@
 !README.md
 
 !bin/
-!bin/.bootstrap.sh
+!bin/bootstrap.sh
 !bin/system-update
 
 !.config/
