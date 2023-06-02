@@ -6,8 +6,6 @@
 
 ### Output configuration
 #
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-set $wallpaper /usr/share/wallpapers/dark-texture.jpg
 
 # Laptop Screen
 output eDP-1 mode 2560x1440@60.012Hz pos 0 2160 scale 1

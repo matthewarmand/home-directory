@@ -1,4 +1,6 @@
 # required-arch-package :: i3status-rust
+# required-arch-package :: networkmanager
+# required-arch-package :: pavucontrol-qt
 # required-arch-package :: ttf-font-awesome
 [theme]
 theme = "space-villain"
