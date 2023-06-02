@@ -163,5 +163,5 @@ augroup END
 
 augroup swayconfig
   autocmd!
-  au BufNewFile,BufRead */sway/config* setlocal syntax=swayconfig
+  au BufNewFile,BufRead */sway/**/config* setlocal syntax=swayconfig
 augroup END

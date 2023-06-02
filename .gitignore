@@ -22,6 +22,8 @@
 !.config/qt6ct/qt6ct.conf
 !.config/sway/
 !.config/sway/config*
+!.config/sway/machines/
+!.config/sway/machines/config-*
 !.config/sway/scripts/
 !.config/sway/scripts/*
 !.config/terminator/

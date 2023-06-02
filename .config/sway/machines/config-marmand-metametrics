@@ -46,5 +46,5 @@ for_window [app_id="zoom" title="^as_toolbar$"] floating enable
 for_window [app_id="zoom" title="^zoom$"] floating enable
 
 ### Key bindings
-    bindsym XF86MonBrightnessUp exec light -A "5%"
-    bindsym XF86MonBrightnessDown exec light -U "5%"
+bindsym XF86MonBrightnessUp exec light -A "5%"
+bindsym XF86MonBrightnessDown exec light -U "5%"

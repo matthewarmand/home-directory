@@ -29,7 +29,7 @@ set $term terminator
 # Your preferred application launcher
 set $menu wofi -iGS drun -t $term
 
-include "~/.config/sway/config-$(uname -n)"
+include "~/.config/sway/machines/config-$(uname -n)"
 
 ### Output configuration
 #
