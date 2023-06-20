@@ -221,7 +221,7 @@ bindsym $mod+r mode "resize"
 # Window-specific rules (floating, etc)
 #
 for_window [app_id="firefoxdeveloperedition" title=".+[Ss]haring (Indicator|your screen)"] floating enable, border none, inhibit_idle open, move to scratchpad
-for_window [app_id="firefoxdeveloperedition" title="^Picture-in-Picture$"] floating enable, sticky enable, border none, inhibit_idle open
+for_window [app_id="firefoxdeveloperedition" title="^Picture-in-Picture$"] floating enable, sticky enable, border none, inhibit_idle visible
 for_window [shell="xwayland"] title_format "%title (%shell)"
 for_window [class="^.*" app_id="^.*"] inhibit_idle fullscreen
 for_window [app_id="yad"] floating enable, sticky enable
