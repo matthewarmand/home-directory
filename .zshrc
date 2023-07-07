@@ -59,12 +59,11 @@ depends-on() {
 }
 
 purge-uninstalled-cache() {
-  mode="${1:-d}"
-  paccache_args="-$mode -c $(pacman-conf CacheDir)"
+  package_dirs="-c $(pacman-conf CacheDir)"
   for d in "${XDG_CACHE_HOME:-$HOME/.cache}"/paru/clone/*/; do
-    paccache_args="$paccache_args -c $d"
+    package_dirs="$package_dirs -c $d"
   done
-  eval "paccache -k 0 -u $paccache_args"
+  eval "paccache -${1:-d} -k 0 -u $package_dirs"
 }
 
 git-fork() {
