@@ -37,6 +37,7 @@ alias adios='sudo shutdown -h +0'
 alias cal='cal -m'
 alias code-workspace='nohup terminator -l codeworkspace &>/dev/null & sleep 2; exit'
 alias count-vulns="arch-audit -f %c | sed 's/, /\n/g' | sort -u | wc -l"
+alias docker-here="docker run -it -v $(pwd):/code/`basename $PWD` -w /code/`basename $PWD`"
 alias git-root='cd $(git rev-parse --show-cdup)'
 alias journal-today='mkdir -p /home/matt/journal/$(date +%Y/%m/) && vim /home/matt/journal/$(date +%Y/%m/%d).md'
 alias latest-tag='git fetch -q && git describe --tags $(git rev-list --tags --max-count=1)'
