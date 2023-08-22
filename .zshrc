@@ -41,7 +41,6 @@ alias docker-here='docker run -it -v $(pwd):/code/`basename $PWD` -w /code/`base
 alias git-root='cd $(git rev-parse --show-cdup)'
 alias journal-today='mkdir -p /home/matt/journal/$(date +%Y/%m/) && vim /home/matt/journal/$(date +%Y/%m/%d).md'
 alias latest-tag='git fetch -q && git describe --tags $(git rev-list --tags --max-count=1)'
-alias pavucontrol=pavucontrol-qt
 alias vi=vim
 
 all-installed() {
@@ -169,7 +168,6 @@ source $ZSH/oh-my-zsh.sh
 init-sway() {
   env XDG_CURRENT_DESKTOP=sway \
     QT_QPA_PLATFORM=wayland \
-    QT_QPA_PLATFORMTHEME=qt5ct \
     /usr/bin/sway
 }
 if [ "$(tty)" = /dev/tty1 ]; then

@@ -1,6 +1,6 @@
 # required-arch-package :: i3status-rust
 # required-arch-package :: networkmanager
-# required-arch-package :: pavucontrol-qt
+# required-arch-package :: pavucontrol
 # required-arch-package :: ttf-font-awesome
 [theme]
 theme = "space-villain"
@@ -59,7 +59,7 @@ block = "sound"
 show_volume_when_muted = true
 [[block.click]]
 button = "left"
-cmd = "pavucontrol-qt"
+cmd = "pavucontrol"
 
 [[block]]
 block = "time"

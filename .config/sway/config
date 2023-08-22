@@ -6,7 +6,6 @@
 # required-arch-package :: grim
 # required-arch-package :: mako
 # required-arch-package :: pipewire
-# required-arch-package :: qpwgraph
 # required-arch-package :: slurp
 # required-arch-package :: swappy
 # required-arch-package :: sway
@@ -255,7 +254,6 @@ bar {
 
 # Autostart applications
 exec mako
-exec QT_QPA_PLATFORMTHEME=qt6ct qpwgraph -m
 exec terminator -p default -l codeworkspace
 
 include /etc/sway/config.d/*
