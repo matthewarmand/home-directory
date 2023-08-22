@@ -162,10 +162,15 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 init-sway() {
+  if [ -f ~/exited-sway ]; then
+    rm ~/exited-sway
+  fi
+
   env XDG_CURRENT_DESKTOP=sway \
     QT_QPA_PLATFORM=wayland \
     /usr/bin/sway
 }
-if [ "$(tty)" = /dev/tty1 ]; then
+
+if [ "$(tty)" = /dev/tty1 ] && [ ! -f ~/exited-sway ]; then
   init-sway
 fi
