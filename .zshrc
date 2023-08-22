@@ -168,6 +168,7 @@ init-sway() {
 
   env XDG_CURRENT_DESKTOP=sway \
     QT_QPA_PLATFORM=wayland \
+    QT_QPA_PLATFORMTHEME=qt6ct \
     /usr/bin/sway
 }
 
