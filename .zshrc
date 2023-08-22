@@ -50,11 +50,8 @@ all-installed() {
 }
 
 depends-on() {
-  if [ -n "$1" ]; then
-    installed_packages=$(paru -Q | grep "$1")
-    if [ -n "$installed_packages" ]; then
-      echo "$installed_packages" | awk '{print $1}' | xargs paru -Qi | grep "Required By" | sed 's/Required By\s\+:\s//g' | sed 's/\b\s\+\b/\n/g' | grep -Ev "$1|None" | sort -u
-    fi
+  if [ -n "$1" ] && installed_packages=$(paru -Q | grep "$1") && [ -n "$installed_packages" ]; then
+    echo "$installed_packages" | awk '{print $1}' | xargs paru -Qi | grep "Required By" | sed 's/Required By\s\+:\s//g' | sed 's/\b\s\+\b/\n/g' | grep -Ev "$1|None" | sort -u
   fi
 }
 
@@ -69,8 +66,7 @@ purge-uninstalled-cache() {
 git-fork() {
   origin_url=$(git remote show -n origin | grep 'Fetch URL' | sed 's/^.*Fetch URL:\s\+//')
   git remote add upstream "$origin_url"
-  my_url=$(echo "$origin_url" | sed 's/:.*\//:matthewarmand\//')
-  git remote add my "$my_url"
+  git remote add my "$(echo "$origin_url" | sed 's/:.*\//:matthewarmand\//')"
 }
 
 git-set-origin() {
