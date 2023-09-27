@@ -9,13 +9,13 @@ session=$BW_SESSION
 
 status=$(bw status --session="$session" | jq -r '.status')
 if [ "$status" = 'unauthenticated' ]; then
-  pieces=$(yad --form --field=Email --field=Password:H --field=MFA)
+  pieces=$(yad --form --field=Email --field=Password:H --field=MFA --title "Bitwarden Login")
   email=$(echo "pieces" | awk -F'|' '{print $1}')
   password=$(echo "$pieces" | awk -F'|' '{print $2}')
   mfa=$(echo "$pieces" | awk -F'|' '{print $3}')
   session=$(bw login --raw "$email" --method 0 --password "$password" --code "$mfa")
 elif [ "$status" = 'locked' ]; then
-  pieces=$(yad --form --field=Password:H)
+  pieces=$(yad --form --field=Password:H --title "Bitwarden Unlock")
   password=$(echo "$pieces" | awk -F'|' '{print $1}')
   session=$(bw unlock --raw "$password")
 fi
