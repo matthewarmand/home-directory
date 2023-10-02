@@ -28,17 +28,13 @@ eval "paccache -r -k 3 $package_dirs"
 running_kernel=$(uname -r | sed -E 's/(\.0)?-arch/.arch/')
 installed_kernel=$(paru -Q linux | awk '{print $2}')
 if [ "$running_kernel" != "$installed_kernel" ]; then
-  message "$(printf "Kernel has been updated from \e[32m%s\e[0m\033[1m to \e[32m%s\e[0m\033[1m; (R)eboot, (S)hutdown, or (Q)uit now? [R/s/q] " "$running_kernel" "$installed_kernel")"
-  while true; do
-    read -r rsq
-    if [ -z "$rsq" ]; then
-      rsq='r'
-    fi
-    case $rsq in
-      [Rr]*) reboot ;;
-      [Ss]*) shutdown -h +0 ;;
-      [Qq]*) break ;;
-      *) printf "\e[31mPlease answer r, s, or q.\e[0m\n" ;;
-    esac
-  done
+  message "$(printf "Kernel has been updated from \e[32m%s\e[0m\033[1m to \e[32m%s\e[0m\033[1m. Enter R to reboot (default), S to shutdown, or anything else to exit." "$running_kernel" "$installed_kernel")"
+  read -r answer
+  if [ -z "$answer" ]; then
+    answer='r'
+  fi
+  case $answer in
+    [Rr]*) reboot ;;
+    [Ss]*) shutdown -h +0 ;;
+  esac
 fi
