@@ -7,12 +7,15 @@
 # required-arch-package :: mako
 # required-arch-package :: pipewire
 # required-arch-package :: qpwgraph
+# required-arch-package :: rbw
+# required-arch-package :: rofi-rbw
 # required-arch-package :: slurp
 # required-arch-package :: swappy
 # required-arch-package :: sway
 # required-arch-package :: swaybg
 # required-arch-package :: terminator
 # required-arch-package :: wofi
+# required-arch-package :: wtype
 # required-arch-package :: xdg-desktop-portal-wlr
 
 ### Variables
@@ -75,7 +78,8 @@ input type:keyboard xkb_numlock enabled
     bindsym $mod+d exec $menu
 
     # Search bitwarden vault
-    bindsym $mod+p exec source ~/.config/sway/scripts/wlbw.sh
+    set $rbw_locked_message "rbw vault is locked, unlock and try again"
+    bindsym $mod+p exec rbw unlocked && rofi-rbw --action copy --target password --clear-after 15 || $term -T $rbw_locked_message -e "rbw unlock"
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -228,6 +232,7 @@ for_window [app_id="firefoxdeveloperedition" title="^Picture-in-Picture$"] float
 for_window [shell="xwayland"] title_format "%title (%shell)"
 for_window [class="^.*" app_id="^.*"] inhibit_idle fullscreen
 for_window [app_id="yad"] floating enable, sticky enable
+for_window [app_id="terminator" title=$rbw_locked_message] floating enable, sticky enable
 
 #
 # My Helper Shortcuts
