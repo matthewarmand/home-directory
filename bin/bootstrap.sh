@@ -25,6 +25,8 @@ git config --global push.autoSetupRemote true
 
 xdg-settings set default-web-browser firefoxdeveloperedition.desktop
 
+rbw config set pinentry pinentry-qt
+
 if [ ! -d ~/.oh-my-zsh/ ]; then
   mkdir -p ~/.oh-my-zsh/
   git clone git@github.com:ohmyzsh/ohmyzsh.git ~/.oh-my-zsh/

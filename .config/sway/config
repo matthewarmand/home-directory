@@ -4,9 +4,11 @@
 #
 # Read `man 5 sway` for a complete reference.
 # required-arch-package :: grim
+# required-arch-package :: kwayland5
 # required-arch-package :: mako
 # required-arch-package :: pipewire
 # required-arch-package :: qpwgraph
+# required-arch-package :: qt5-x11extras
 # required-arch-package :: rbw
 # required-arch-package :: rofi-rbw
 # required-arch-package :: slurp
@@ -78,8 +80,7 @@ input type:keyboard xkb_numlock enabled
     bindsym $mod+d exec $menu
 
     # Search bitwarden vault
-    set $rbw_locked_message "rbw vault is locked, unlock and try again"
-    bindsym $mod+p exec rbw unlocked && rofi-rbw --action copy --target password --clear-after 15 || $term -T $rbw_locked_message -e "rbw unlock"
+    bindsym $mod+p exec rofi-rbw --action copy --target password --clear-after 15
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -232,7 +233,6 @@ for_window [app_id="firefoxdeveloperedition" title="^Picture-in-Picture$"] float
 for_window [shell="xwayland"] title_format "%title (%shell)"
 for_window [class="^.*" app_id="^.*"] inhibit_idle fullscreen
 for_window [app_id="yad"] floating enable, sticky enable
-for_window [app_id="terminator" title=$rbw_locked_message] floating enable, sticky enable
 
 #
 # My Helper Shortcuts
