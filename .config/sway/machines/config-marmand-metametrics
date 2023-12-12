@@ -8,12 +8,12 @@
 #
 
 # Laptop Screen
-output eDP-1 mode 2560x1440@60.012Hz pos 0 2160 scale 1
+output eDP-1 mode 2560x1440@60.012Hz pos 684 2160 scale 1
 
 # Monitors at the Golden Belt office
-output 'Samsung Electric Company LS27A70 HCPR500040' mode 3840x2160@30.000Hz pos 1716 0 scale 1
+output 'Samsung Electric Company LS27A70 HCPR500040' mode 3840x2160@30.000Hz pos 0 0 scale 1
 
-output 'Samsung Electric Company LS27A70 HCPR500038' mode 3840x2160@30.000Hz pos 5556 0 scale 1
+output 'Samsung Electric Company LS27A70 HCPR500038' mode 3840x2160@30.000Hz pos 3840 0 scale 1
 
 #  Home monitor setup
 output 'WAM PX275h Unknown' mode 2560x1440@59.951Hz pos 640 720 scale 1
