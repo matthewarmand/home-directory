@@ -9,7 +9,7 @@ if ! pgrep swayidle; then
   lock_command="source ~/.config/sway/scripts/pause-and-lock.sh"
   swayidle -w \
     timeout 295 "swaynag -t warning -m 'Machine will idle-lock in 5 seconds' &" \
-    timeout 300 "pkill swaynag; $lock_command" \
+    timeout 300 "$lock_command" \
     timeout 7200 "systemctl suspend" \
     before-sleep "$lock_command" &
 else
