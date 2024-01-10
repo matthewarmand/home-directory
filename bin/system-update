@@ -4,8 +4,25 @@ message() {
   printf "\033[1m\e[35m::\e[0m \033[1m%s\033[0m\n" "$1"
 }
 
+read_with_default() {
+  read -r answer
+  if [ -z "$answer" ]; then
+    answer="$1"
+  fi
+  echo "$answer"
+}
+
 message "Checking for relevant news..."
-paru -Syu --newsonupgrade --review --removemake
+if paru -Pw; then
+  message "Enter Y to continue (default), or anything else to exit."
+  case $(read_with_default 'y') in
+    [Yy]*) true ;;
+    *) exit 0 ;;
+  esac
+fi
+# Upgrade keyring first. -Sy only safe if immediately followed by -Su
+paru -Sy --needed --noconfirm archlinux-keyring
+paru -Su --review --removemake
 
 message "Updating Oh My Zsh..."
 if (zsh -c "omz update --unattended") | grep -q "has been updated"; then
@@ -29,11 +46,7 @@ running_kernel=$(uname -r | sed -E 's/(\.0)?-arch/.arch/')
 installed_kernel=$(paru -Q linux | awk '{print $2}')
 if [ "$running_kernel" != "$installed_kernel" ]; then
   message "$(printf "Kernel has been updated from \e[32m%s\e[0m\033[1m to \e[32m%s\e[0m\033[1m. Enter R to reboot (default), S to shutdown, or anything else to exit." "$running_kernel" "$installed_kernel")"
-  read -r answer
-  if [ -z "$answer" ]; then
-    answer='r'
-  fi
-  case $answer in
+  case $(read_with_default 'r') in
     [Rr]*) reboot ;;
     [Ss]*) shutdown -h +0 ;;
   esac
