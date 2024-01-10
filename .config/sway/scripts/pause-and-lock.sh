@@ -2,9 +2,9 @@
 # required-arch-package :: playerctl
 # required-arch-package :: swaylock
 
+pkill swaynag || true
 if ! pgrep swaylock; then
   lock_cmd="swaylock -Fei /usr/share/wallpapers/wallpaper.jpg"
-  pkill swaynag || true
   if [ "$(playerctl -p spotify status 2>/dev/null)" = "Playing" ]; then
     playerctl -p spotify pause
     eval "$lock_cmd"
