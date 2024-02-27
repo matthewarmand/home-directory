@@ -20,6 +20,7 @@
 !.config/qt5ct/qt5ct.conf
 !.config/qt6ct/
 !.config/qt6ct/qt6ct.conf
+!.config/spotify-launcher.conf
 !.config/sway/
 !.config/sway/config*
 !.config/sway/machines/
@@ -39,6 +40,8 @@
 !.local/share/
 !.local/share/applications/
 !.local/share/applications/firefoxdeveloperedition.desktop
+!.local/share/applications/discord.desktop
+
 
 !.vim/
 !.vim/colors/
