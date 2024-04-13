@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ -n "$(pgrep swayidle)" ]; then
+  pkill swayidle
+else
+  . /home/matt/.config/sway/scripts/idle.sh
+fi
+pkill -SIGRTMIN+4 i3status-rs

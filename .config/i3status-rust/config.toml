@@ -55,6 +55,16 @@ format = "$icon {$percentage} {$time}"
 if_command = "test -e /sys/class/power_supply/BAT0"
 
 [[block]]
+block = "custom"
+json = true
+interval = "once"
+signal = 4
+command = ". /home/matt/.config/sway/scripts/idle-check.sh"
+[[block.click]]
+button = "left"
+cmd = ". /home/matt/bin/idle-toggle"
+
+[[block]]
 block = "sound"
 show_volume_when_muted = true
 [[block.click]]

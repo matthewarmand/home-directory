@@ -7,6 +7,7 @@
 
 !bin/
 !bin/bootstrap.sh
+!bin/idle-toggle
 !bin/system-update
 
 !.config/
