@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if pgrep swayidle; then
+if pgrep swayidle >/dev/null; then
   icon="toggle_on"
 else
   icon="toggle_off"
