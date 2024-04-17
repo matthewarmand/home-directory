@@ -29,7 +29,6 @@ mm_git_config() {
   find "$base_dir" -type d -name ".git" -not -path "*/venv/*" | while IFS="$(printf '\n')" read -r d; do
     git_config=$(GIT_DIR="$d" git config -l)
     if echo "$git_config" | grep -q "metametrics" && ! echo "$git_config" | grep -q "@lexile.com"; then
-      GIT_DIR="$d" git config --local --replace user.name "Matthew Armand"
       GIT_DIR="$d" git config --local --replace user.email marmand@lexile.com
       echo "Updated config for $(dirname "$d")"
     fi
