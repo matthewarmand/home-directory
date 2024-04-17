@@ -16,7 +16,7 @@ output 'Samsung Electric Company LS27A70 HCPR500040' mode 3840x2160@30.000Hz pos
 output 'Samsung Electric Company LS27A70 HCPR500038' mode 3840x2160@30.000Hz pos 3840 0 scale 1
 
 #  Home monitor setup
-output 'WAM PX275h Unknown' mode 2560x1440@59.951Hz pos 2100 720 scale 1
+output 'Unknown Unknown Unknown' mode 2560x1440@59.951Hz pos 2100 720 scale 1
 
 ### Input configuration
 #
