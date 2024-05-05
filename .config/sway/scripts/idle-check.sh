@@ -5,4 +5,9 @@ if pgrep swayidle >/dev/null; then
 else
   icon="toggle_off"
 fi
-echo "{\"text\": \"Idle-Lock\", \"icon\": \"$icon\"}"
+echo """
+  {
+    \"text\": \"Idle-Lock\",
+    \"icon\": \"$icon\"
+  }
+"""
