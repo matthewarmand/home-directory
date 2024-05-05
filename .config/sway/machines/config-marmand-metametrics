@@ -30,9 +30,9 @@ output 'Unknown Unknown Unknown' mode 2560x1440@59.951Hz pos 2100 720 scale 1
 #   }
 
 input "1267:32:Elan_Touchpad" {
-    dwt enabled
-    tap enabled
-    natural_scroll enabled
+  dwt enabled
+  tap enabled
+  natural_scroll enabled
 }
 
 ### Key bindings
