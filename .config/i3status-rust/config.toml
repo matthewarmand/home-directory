@@ -1,6 +1,7 @@
 # required-arch-package :: i3status-rust
 # required-arch-package :: networkmanager
 # required-arch-package :: pavucontrol
+# required-arch-package :: socranop
 # required-arch-package :: ttf-font-awesome
 [theme]
 theme = "space-villain"
@@ -70,6 +71,22 @@ show_volume_when_muted = true
 [[block.click]]
 button = "left"
 cmd = "pavucontrol"
+
+[[block]]
+block = "custom"
+json = true
+interval = "once"
+signal = 5
+command = ". /home/matt/.config/sway/scripts/socranop-check.sh"
+if_command = "lsusb -d 05fc:0031 >/dev/null"
+[block.icons_overrides]
+icon = "\uf1de"
+[[block.click]]
+button = "left"
+cmd = "socranop-gui; pkill -SIGRTMIN+5 i3status-rs"
+[[block.click]]
+button = "right"
+cmd = ". /home/matt/.config/sway/scripts/socranop-cycle.sh"
 
 [[block]]
 block = "time"
