@@ -4,11 +4,9 @@
 #
 # Read `man 5 sway` for a complete reference.
 # required-arch-package :: grim
-# required-arch-package :: kwayland5
 # required-arch-package :: mako
 # required-arch-package :: pipewire
 # required-arch-package :: qpwgraph
-# required-arch-package :: qt5-x11extras
 # required-arch-package :: rbw
 # required-arch-package :: rofi-rbw
 # required-arch-package :: slurp

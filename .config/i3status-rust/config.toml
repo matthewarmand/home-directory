@@ -11,7 +11,7 @@ icons = "awesome6"
 [[block]]
 block = "music"
 player = "spotify"
-format = " $icon {$title - $artist $play $next|}"
+format = " $icon {$title - $artist $play $next|} "
 
 [[block]]
 block = "disk_space"
@@ -52,7 +52,7 @@ if_command = "test -e /sys/class/backlight/*"
 
 [[block]]
 block = "battery"
-format = "$icon {$percentage} {$time}"
+format = " $icon {$percentage} {$time} "
 if_command = "test -e /sys/class/power_supply/BAT0"
 
 [[block]]
