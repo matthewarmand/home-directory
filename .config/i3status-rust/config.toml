@@ -89,6 +89,19 @@ button = "right"
 cmd = ". /home/matt/.config/sway/scripts/socranop-cycle.sh"
 
 [[block]]
+block = "toggle"
+format = " $icon "
+command_on = "makoctl mode -a do-not-disturb >/dev/null"
+command_off = "makoctl mode -r do-not-disturb >/dev/null"
+command_state = "makoctl mode | grep do-not-disturb"
+icon_on = "bell-slash"
+icon_off = "bell"
+state_on = "warning"
+[block.icons_overrides]
+bell-slash = "\uf1f6"
+bell = "\uf0f3"
+
+[[block]]
 block = "time"
 interval = 5
 format = " $icon $timestamp.datetime(f:'%a %Y-%m-%d %R') "
