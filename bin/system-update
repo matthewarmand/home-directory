@@ -35,10 +35,13 @@ fi
 reboot_msg=""
 message "Updating firmware..."
 fwupdmgr refresh || true
-if fwupdmgr get-updates --filter "needs-reboot"; then                              # TODO check this works. Might use --json and jq
-  reboot_msg="${reboot_msg}Firmware updates were applied that require a reboot.\n" # TODO pull from response?
+# TODO don't have any supported devices on kvasir, work box will have to flesh this out.
+# I want this jq to sort out total updates vs reboot-needed updates somehow, so we can skip update call
+# if there's nothing, but also add names or something to the reboot message if there are some.
+if fwupdmgr get-updates --filter "needs-reboot" --json | jq --exit-status "select(.Devices|length>0)"; then
+  reboot_msg="${reboot_msg}Firmware updates were applied that require a reboot.\n"
 fi
-fwupdmgr update # TODO maybe skip the upload step? probably skip reboot check, handled below
+fwupdmgr update --no-reboot-check || true
 
 message "Removing orphaned packages..."
 paru -c
