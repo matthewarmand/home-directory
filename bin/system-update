@@ -1,5 +1,8 @@
 #!/bin/sh -e
 
+# required-arch-package :: fwupd
+# required-arch-package :: udisks2
+
 message() {
   printf "\033[1m\e[35m::\e[0m \033[1m%s\033[0m\n" "$1"
 }
@@ -29,6 +32,14 @@ if (zsh -c "omz update --unattended") | grep -q "has been updated"; then
   zsh -c "omz changelog"
 fi
 
+reboot_msg=""
+message "Updating firmware..."
+fwupdmgr refresh || true
+if fwupdmgr get-updates --filter "needs-reboot"; then                              # TODO check this works. Might use --json and jq
+  reboot_msg="${reboot_msg}Firmware updates were applied that require a reboot.\n" # TODO pull from response?
+fi
+fwupdmgr update # TODO maybe skip the upload step? probably skip reboot check, handled below
+
 message "Removing orphaned packages..."
 paru -c
 
@@ -45,7 +56,11 @@ eval "paccache -r -k 3 $package_dirs"
 running_kernel=$(uname -r | sed -E 's/(\.0)?-/./')
 installed_kernel=$(paru -Q linux | awk '{print $2}')
 if [ "$running_kernel" != "$installed_kernel" ]; then
-  message "$(printf "Kernel has been updated from \e[32m%s\e[0m\033[1m to \e[32m%s\e[0m\033[1m. Enter R to reboot (default), S to shutdown, or anything else to exit." "$running_kernel" "$installed_kernel")"
+  reboot_msg="${reboot_msg}$(printf "Kernel has been updated from \e[32m%s\e[0m\033[1m to \e[32m%s\e[0m\033[1m.\n" "$running_kernel" "$installed_kernel")"
+fi
+
+if [ -n "$reboot_msg" ]; then
+  message "${reboot_msg}Enter R to reboot (default), S to shutdown, or anything else to exit."
   case $(read_with_default 'r') in
     [Rr]*) reboot ;;
     [Ss]*) shutdown -h +0 ;;
