@@ -35,13 +35,12 @@ fi
 reboot_msg=""
 message "Updating firmware..."
 fwupdmgr refresh || true
-# TODO don't have any supported devices on kvasir, work box will have to flesh this out.
-# I want this jq to sort out total updates vs reboot-needed updates somehow, so we can skip update call
-# if there's nothing, but also add names or something to the reboot message if there are some.
-if fwupdmgr get-updates --filter "needs-reboot" --json | jq --exit-status "select(.Devices|length>0)"; then
-  reboot_msg="${reboot_msg}Firmware updates were applied that require a reboot.\n"
+if rebootable_updates=$(fwupdmgr get-updates --filter "needs-reboot" 2>/dev/null); then
+  reboot_msg="${reboot_msg}Firmware updates were applied that require a reboot:\n${rebootable_updates}\n"
 fi
-fwupdmgr update --no-reboot-check || true
+if fwupdmgr get-updates --json | jq --exit-status "select(.Devices|length>0)"; then
+  fwupdmgr update --no-reboot-check
+fi
 
 message "Removing orphaned packages..."
 paru -c
@@ -59,7 +58,7 @@ eval "paccache -r -k 3 $package_dirs"
 running_kernel=$(uname -r | sed -E 's/(\.0)?-/./')
 installed_kernel=$(paru -Q linux | awk '{print $2}')
 if [ "$running_kernel" != "$installed_kernel" ]; then
-  reboot_msg="${reboot_msg}$(printf "Kernel has been updated from \e[32m%s\e[0m\033[1m to \e[32m%s\e[0m\033[1m.\n" "$running_kernel" "$installed_kernel")"
+  reboot_msg="$(printf "Kernel has been updated from \e[32m%s\e[0m\033[1m to \e[32m%s\e[0m\033[1m.\n" "$running_kernel" "$installed_kernel")${reboot_msg}"
 fi
 
 if [ -n "$reboot_msg" ]; then
