@@ -48,7 +48,9 @@ eval "paccache -r -k 3 $package_dirs"
 # This may require reboots, and has its own interaction for it. If no reboot required here, proceed to kernel check
 message "Updating firmware..."
 fwupdmgr refresh || true
-fwupdmgr update
+if fwupdmgr get-updates --json | jq --exit-status "select(.Devices|length>0)"; then
+  fwupdmgr update
+fi
 
 running_kernel=$(uname -r | sed -E 's/(\.0)?-/./')
 installed_kernel=$(paru -Q linux | awk '{print $2}')
