@@ -1,13 +1,8 @@
 #!/bin/sh
 
 if pgrep swayidle >/dev/null; then
-  icon="toggle_on"
+  icon="lock"
 else
-  icon="toggle_off"
+  icon="lock-open"
 fi
-echo """
-  {
-    \"text\": \"Idle-Lock\",
-    \"icon\": \"$icon\"
-  }
-"""
+echo "{\"icon\": \"$icon\"}"
