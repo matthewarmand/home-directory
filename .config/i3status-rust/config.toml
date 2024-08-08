@@ -73,7 +73,7 @@ if_command = "lsusb -d 05fc:0031 >/dev/null"
 icon = "\uf1de"
 [[block.click]]
 button = "left"
-cmd = "socranop-gui; pkill -SIGRTMIN+5 i3status-rs"
+cmd = "pkill -SIGRTMIN+5 i3status-rs"
 [[block.click]]
 button = "right"
 cmd = ". /home/matt/.config/sway/scripts/socranop-cycle.sh"
