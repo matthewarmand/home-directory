@@ -4,6 +4,8 @@
 #
 # Read `man 5 sway` for a complete reference.
 # required-arch-package :: grim
+# required-arch-package :: kguiaddons
+# required-arch-package :: kwindowsystem
 # required-arch-package :: mako
 # required-arch-package :: pipewire
 # required-arch-package :: qpwgraph
