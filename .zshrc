@@ -136,6 +136,7 @@ HIST_STAMPS="yyyy-mm-dd"
 plugins=(
   fzf
   timer
+  web-search
 )
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
