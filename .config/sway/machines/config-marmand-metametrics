@@ -38,3 +38,12 @@ input "1267:32:Elan_Touchpad" {
 ### Key bindings
 bindsym XF86MonBrightnessUp exec brightnessctl s 5%+
 bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
+
+#
+# Window-specific rules (floating, etc)
+#
+# (Still not using zoom because it sucks and doesn't work but here's a baseline for when we try again)
+for_window [app_id="Zoom Workplace" title="menu window"] floating enable, inhibit_idle visible
+for_window [app_id="Zoom Workplace" title="sub menu window"] floating enable, inhibit_idle visible
+for_window [app_id="Zoom Workplace" title="zoom_linux_float_message_reminder"] floating enable, sticky enable, inhibit_idle visible
+for_window [app_id="Zoom Workplace" title="meeting_topbar_popup"] floating enable, sticky enable, inhibit_idle visible
