@@ -1,10 +1,10 @@
 " required-arch-package :: docker
 " required-arch-package :: python-black
-" required-arch-package :: python-lsp-server
+" required-arch-package :: ruff
 " required-arch-package :: shellcheck
 " required-arch-package :: shfmt
 " required-arch-package :: vim
-" required-arch-package :: vim-ale
+" required-arch-package :: vim-ale-git
 " required-arch-package :: vim-fugitive
 " required-arch-package :: vim-gitgutter
 " required-arch-package :: yamllint
@@ -88,7 +88,7 @@ let g:ale_fixers = {
 let g:ale_sh_shfmt_options = '-i 2 -ci'
 
 let g:ale_linters = {
-\  'python': ['pylsp'],
+\  'python': ['ruff'],
 \  'sh': ['shellcheck'],
 \  'dockerfile': ['hadolint'],
 \  'yaml': ['yamllint'],
@@ -98,17 +98,6 @@ let g:ale_dockerfile_hadolint_use_docker = 'always'
 let g:ale_dockerfile_hadolint_options = '--ignore DL3006 --ignore DL3008'
 let g:ale_use_global_executables = 1
 let g:ale_python_black_use_global = 1
-let g:ale_python_pylsp_config = {
-\  'pylsp': {
-\    'configurationSources': ['flake8'],
-\    'plugins': {
-\      'pylint': {
-\        'enabled': 'true',
-\        'args': ['--disable=import-error'],
-\      },
-\    }
-\  }
-\}
 
 augroup filetype_env_settings
   autocmd!
@@ -122,7 +111,7 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_enter = 0
 let g:ale_open_list = 1
-let g:ale_echo_msg_format = '[%linter%][%severity%] %s'
+let g:ale_echo_msg_format = '[%linter%] [%severity%] %s'
 
 " autocomplete
 let g:ale_completion_enabled = 1

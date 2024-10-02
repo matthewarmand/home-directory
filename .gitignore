@@ -11,14 +11,12 @@
 !bin/system-update
 
 !.config/
-!.config/flake8
 !.config/i3status-rust/
 !.config/i3status-rust/config.toml
 !.config/mako/
 !.config/mako/config
 !.config/paru/
 !.config/paru/paru.conf
-!.config/pylintrc
 !.config/qt5ct/
 !.config/qt5ct/qt5ct.conf
 !.config/qt6ct/
