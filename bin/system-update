@@ -48,7 +48,7 @@ eval "paccache -r -k 3 $package_dirs"
 # This may require reboots, and has its own interaction for it. If no reboot required here, proceed to kernel check
 message "Updating firmware..."
 fwupdmgr refresh || true
-if fwupdmgr get-updates --json | jq --exit-status "select(.Devices|length>0)"; then
+if fwupdmgr get-updates --json | jq --exit-status "select(.Devices|length>0)" >/dev/null; then
   fwupdmgr update
 fi
 
