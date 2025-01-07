@@ -8,12 +8,12 @@
 #
 
 # Laptop Screen
-output eDP-1 mode 2560x1440@60.012Hz pos 684 2160 scale 1
+output eDP-1 mode 1920x1200@60.003Hz pos 1200 2160 scale 1
 
 # Monitors at the Golden Belt office
-output 'Samsung Electric Company LS27A70 HCPR500040' mode 3840x2160@30.000Hz pos 0 0 scale 1
-
-output 'Samsung Electric Company LS27A70 HCPR500038' mode 3840x2160@30.000Hz pos 3840 0 scale 1
+# my desk
+output 'Samsung Electric Company LS27A70 HCPR500040' mode 3840x2160@30.000Hz pos 660 0 scale 1
+output 'Samsung Electric Company LS27A70 HCPR500038' mode 3840x2160@30.000Hz pos 4500 0 scale 1
 
 #  Home monitor setup
 output 'WAM PX275h Unknown' mode 2560x1440@59.951Hz pos 2100 720 scale 1
@@ -29,7 +29,7 @@ output 'WAM PX275h Unknown' mode 2560x1440@59.951Hz pos 2100 720 scale 1
 #       middle_emulation enabled
 #   }
 
-input "1267:32:Elan_Touchpad" {
+input "1739:52839:SYNA8018:00_06CB:CE67_Touchpad" {
   dwt enabled
   tap enabled
   natural_scroll enabled
