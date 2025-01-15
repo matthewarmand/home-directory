@@ -10,7 +10,7 @@ icons = "awesome6"
 
 [[block]]
 block = "music"
-format = " $icon {$combo $volume $play $next|} "
+format = " $icon {$combo|} {$volume|} {$play|} {$next|} "
 [[block.click]]
 button = "up"
 action = "volume_up"
