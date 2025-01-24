@@ -28,8 +28,8 @@ paru -Sy --needed --noconfirm archlinux-keyring
 paru -Su --review --removemake
 
 message "Updating Oh My Zsh..."
-if (zsh -c "omz update --unattended") | grep -q "has been updated"; then
-  zsh -c "omz changelog"
+if "$ZSH/tools/upgrade.sh" | grep -q "has been updated"; then
+  "$ZSH/tools/changelog.sh"
 fi
 
 message "Removing orphaned packages..."
