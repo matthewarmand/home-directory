@@ -22,6 +22,8 @@
 !.config/qt6ct/
 !.config/qt6ct/qt6ct.conf
 !.config/spotify-launcher.conf
+!.config/swappy/
+!.config/swappy/config
 !.config/sway/
 !.config/sway/config*
 !.config/sway/machines/
