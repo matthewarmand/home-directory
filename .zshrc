@@ -20,6 +20,7 @@ export PYTHONDONTWRITEBYTECODE=1
 
 # Docker
 export DOCKER_BUILDKIT=1 # Use buildkit by default for docker, docker compose
+export COMPOSE_BAKE=true
 
 # Fuzzy Find
 export FZF_BASE=/usr/share/fzf
