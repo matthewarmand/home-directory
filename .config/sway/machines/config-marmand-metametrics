@@ -8,21 +8,12 @@
 #
 
 # Laptop Screen
-# put back when all monitors are working again
-# output eDP-1 mode 1920x1200@60.003Hz pos 4880 2560 scale 1
-output eDP-1 mode 1920x1200@60.003Hz pos 3440 2560 scale 1
-
-#  Home monitor setup
-#  Necessary for now because dock has trouble with both monitors
-output 'WAM PX275h Unknown' disable
+output eDP-1 mode 1920x1200@60.003Hz pos 4880 2560 scale 1
 
 # Monitors at the Golden Belt office
 # my desk
-# put back when all monitors are working again
-# output 'Samsung Electric Company LS27A70 HCPR500040' mode 3840x2160@30.000Hz pos 4340 400 scale 1
-# output 'Samsung Electric Company LS27A70 HCPR500038' mode 3840x2160@30.000Hz pos 8180 400 scale 1
-output 'Samsung Electric Company LS27A70 HCPR500040' mode 3840x2160@30.000Hz pos 2900 400 scale 1
-output 'Samsung Electric Company LS27A70 HCPR500038' mode 3840x2160@30.000Hz pos 6740 400 scale 1
+output 'Samsung Electric Company LS27A70 HCPR500040' mode 3840x2160@30.000Hz pos 4340 400 scale 1
+output 'Samsung Electric Company LS27A70 HCPR500038' mode 3840x2160@30.000Hz pos 8180 400 scale 1
 
 ### Input configuration
 #
