@@ -244,6 +244,7 @@ bindsym $mod+Alt+l exec ~/.config/sway/scripts/pause-and-lock.sh
 bindsym $mod+Alt+s exec grim -g "$(slurp)" - | swappy -f -
 bindsym $mod+Alt+Shift+s exec sleep 3 && grim -o "$(swaymsg -t get_outputs | jq -r '.[] | select(.focused==true) | .name')" - | swappy -f -
 bindsym $mod+Alt+n exec makoctl dismiss -a
+bindsym $mod+Alt+Shift+n exec makoctl reload
 
 #
 # Status Bar:
