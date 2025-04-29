@@ -44,7 +44,7 @@
 !.local/share/applications/
 !.local/share/applications/discord.desktop
 !.local/share/applications/firefoxdeveloperedition.desktop
-
+!.local/share/applications/jellyfin-tui.desktop
 
 !.vim/
 !.vim/colors/

@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Jellyfin TUI
+GenericName=Music Player
+Exec=/usr/bin/kitty jellyfin-tui
+Categories=Audio;Music;Player;AudioVideo;
