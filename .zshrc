@@ -21,6 +21,7 @@ export PYTHONDONTWRITEBYTECODE=1
 # Docker
 export DOCKER_BUILDKIT=1 # Use buildkit by default for docker, docker compose
 export COMPOSE_BAKE=true
+export COMPOSE_REMOVE_ORPHANS=1
 
 # Fuzzy Find
 export FZF_BASE=/usr/share/fzf
@@ -80,7 +81,7 @@ git-set-origin() {
 # run machine-specific configuration if it exists
 filename=/home/matt/.config/zshrc-machines/$(uname -n).sh
 test -x "$filename" && "$filename"
-test -f /home/matt/.env && /home/matt/.env
+test -f /home/matt/.env && source /home/matt/.env
 
 # oh-my-zsh Configuration
 
