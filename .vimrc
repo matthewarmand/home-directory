@@ -146,7 +146,7 @@ augroup END
 
 augroup journal_md_wrap
   autocmd!
-  au BufNewFile,BufRead /home/matt/journal/**/*.md setlocal
+  au BufNewFile,BufRead /home/matt/journal/**/*.md, /home/matt/writing/**/*.nwd setlocal
       \ wrap
       \ linebreak
 augroup END
