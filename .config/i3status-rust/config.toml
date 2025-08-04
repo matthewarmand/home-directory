@@ -1,8 +1,8 @@
 # required-arch-package :: i3status-rust
 # required-arch-package :: networkmanager
+# required-arch-package :: otf-font-awesome
 # required-arch-package :: pavucontrol
 # required-arch-package :: socranop
-# required-arch-package :: ttf-font-awesome
 [theme]
 theme = "space-villain"
 [icons]
