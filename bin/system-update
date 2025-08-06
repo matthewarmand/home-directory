@@ -1,5 +1,6 @@
 #!/bin/sh -e
 
+# required-arch-package :: archlinux-contrib
 # required-arch-package :: fwupd
 # required-arch-package :: udisks2
 
@@ -45,7 +46,7 @@ for d in "${XDG_CACHE_HOME:-$HOME/.cache}"/paru/clone/*/; do
 done
 eval "paccache -r -k 3 $package_dirs"
 
-# This may require reboots, and has its own interaction for it. If no reboot required here, proceed to kernel check
+# This may require reboots, and has its own interaction for it. If no reboot required here, proceed to kernel and service checks
 message "Updating firmware..."
 fwupdmgr refresh || true
 if fwupdmgr get-updates --json | jq --exit-status "select(.Devices|length>0)" >/dev/null; then
@@ -59,5 +60,17 @@ if [ "$running_kernel" != "$installed_kernel" ]; then
   case $(read_with_default 'r') in
     [Rr]*) reboot ;;
     [Ss]*) shutdown -h +0 ;;
+  esac
+fi
+
+message "Checking for services which require a restart..."
+services=$(sudo checkservices -F -P -R 2>/dev/null | grep ".service" | cut -f2 -d "'")
+if [ -n "${services}" ]; then
+  message "Found services requiring restart:"
+  echo "$services"
+  message "Enter R (default) to restart services, or anything else to quit."
+  # shellcheck disable=SC2086 # passing to systemctl restart works better without quotes
+  case $(read_with_default 'r') in
+    [Rr]*) sudo systemctl restart ${services} ;;
   esac
 fi
