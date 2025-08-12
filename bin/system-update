@@ -63,12 +63,10 @@ if [ "$running_kernel" != "$installed_kernel" ]; then
   esac
 fi
 
-message "Checking for services which require a restart..."
 services=$(sudo checkservices -F -P -R 2>/dev/null | grep ".service" | cut -f2 -d "'")
 if [ -n "${services}" ]; then
-  message "Found services requiring restart:"
+  message "Found services requiring restart. Enter R (default) to restart services, or anything else to quit."
   echo "$services"
-  message "Enter R (default) to restart services, or anything else to quit."
   # shellcheck disable=SC2086 # passing to systemctl restart works better without quotes
   case $(read_with_default 'r') in
     [Rr]*) sudo systemctl restart ${services} ;;
