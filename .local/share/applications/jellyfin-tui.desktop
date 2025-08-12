@@ -2,5 +2,7 @@
 Type=Application
 Name=Jellyfin TUI
 GenericName=Music Player
+Comment=Modern music streaming client for the terminal.
 Exec=/usr/bin/kitty jellyfin-tui
-Categories=Audio;Music;Player;AudioVideo;
+Categories=Audio;AudioVideo;Player;ConsoleOnly;
+Keywords=streaming;music;jellyfin;
