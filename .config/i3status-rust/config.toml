@@ -117,5 +117,5 @@ bell = "\uf0f3"
 
 [[block]]
 block = "time"
-interval = 5
+interval = 1
 format = " $icon $timestamp.datetime(f:'%a %Y-%m-%d %R') "
