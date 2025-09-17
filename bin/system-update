@@ -53,22 +53,16 @@ if fwupdmgr get-updates --json | jq --exit-status "select(.Devices|length>0)" >/
   fwupdmgr update
 fi
 
+message "Checking for upgraded kernel..."
 running_kernel=$(uname -r | sed -E 's/(\.0)?-/./')
 installed_kernel=$(paru -Q linux | awk '{print $2}')
 if [ "$running_kernel" != "$installed_kernel" ]; then
-  message "$(printf "Kernel has been updated from \e[32m%s\e[0m\033[1m to \e[32m%s\e[0m\033[1m. Enter R to reboot (default), S to shutdown, or anything else to exit.\n" "$running_kernel" "$installed_kernel")"
+  message "$(printf "Kernel has been updated from \e[32m%s\e[0m\033[1m to \e[32m%s\e[0m\033[1m. Enter R to reboot (default), S to shutdown, or anything else to continue.\n" "$running_kernel" "$installed_kernel")"
   case $(read_with_default 'r') in
     [Rr]*) reboot ;;
     [Ss]*) shutdown -h +0 ;;
   esac
 fi
 
-services=$(sudo checkservices -F -P -R 2>/dev/null | grep ".service" | cut -f2 -d "'")
-if [ -n "${services}" ]; then
-  message "Found services requiring restart. Enter R (default) to restart services, or anything else to quit."
-  echo "$services"
-  # shellcheck disable=SC2086 # passing to systemctl restart works better without quotes
-  case $(read_with_default 'r') in
-    [Rr]*) sudo systemctl restart ${services} ;;
-  esac
-fi
+message "Checking for services that need to be restarted..."
+sudo checkservices -F -P -r -s
