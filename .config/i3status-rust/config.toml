@@ -47,6 +47,19 @@ interval = 1
 format = " $icon 1min avg: $1m.eng(w:4) "
 
 [[block]]
+block = "toggle"
+format = " $icon VPN "
+if_command = "nmcli con show ProtonVPN-GA"
+command_on = "nmcli con up ProtonVPN-GA"
+command_off = "nmcli con down ProtonVPN-GA"
+command_state = "nmcli -f GENERAL.STATE con show ProtonVPN-GA | grep activated"
+icon_on = "lock"
+icon_off = "lock-open"
+[block.icons_overrides]
+lock = "\uf023"
+lock-open = "\uf3c1"
+
+[[block]]
 block = "net"
 format = " $icon {$ssid |} ^icon_net_down $speed_down.eng(prefix:K) ^icon_net_up $speed_up.eng(prefix:K) "
 [[block.click]]
@@ -72,6 +85,12 @@ show_volume_when_muted = true
 [[block.click]]
 button = "left"
 cmd = "pavucontrol"
+
+[[block]]
+block = "bluetooth"
+mac = "00:1B:66:C0:8A:6A"
+format = " $icon $name{ $percentage|} "
+disconnected_format = " $available{$icon{ $name|}}| "
 
 [[block]]
 block = "custom"
