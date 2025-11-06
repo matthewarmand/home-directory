@@ -65,4 +65,4 @@ if [ "$running_kernel" != "$installed_kernel" ]; then
 fi
 
 message "Checking for services that need to be restarted..."
-sudo checkservices -F -P -r -s
+sudo checkservices -F -P -r -s -u -m
