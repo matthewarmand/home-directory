@@ -1,0 +1,16 @@
+---
+servers:
+  - name: Home Server
+    url: https://jellyfin.heylookmatt.com
+    username: matt
+    password_file: /home/matt/.config/jellyfin-tui/.axs
+
+swap_play_pause: true
+
+keymap:
+  # disable temporary queue functionality
+  ctrl-enter: null
+  ctrl-e: null
+  e: null
+  Shift-e: null
+  Shift-enter: QueueAppend

@@ -13,6 +13,8 @@
 !.config/
 !.config/i3status-rust/
 !.config/i3status-rust/config.toml
+!.config/jellyfin-tui/
+!.config/jellyfin-tui/config.yaml
 !.config/mako/
 !.config/mako/config
 !.config/novelwriter/
