@@ -88,16 +88,16 @@ let g:ale_fixers = {
 let g:ale_sh_shfmt_options = '-i 2 -ci'
 
 let g:ale_linters = {
+\  'dockerfile': ['hadolint'],
 \  'python': ['ruff'],
 \  'sh': ['shellcheck'],
-\  'dockerfile': ['hadolint'],
 \  'yaml': ['yamllint'],
 \}
-let g:ale_yaml_yamllint_options = '-d "{extends: default, rules: {line-length: disable}}"'
-let g:ale_dockerfile_hadolint_use_docker = 'always'
-let g:ale_dockerfile_hadolint_options = '--ignore DL3006 --ignore DL3008'
 let g:ale_use_global_executables = 1
+let g:ale_dockerfile_hadolint_options = '--ignore DL3006 --ignore DL3008'
+let g:ale_dockerfile_hadolint_use_docker = 'always'
 let g:ale_python_black_use_global = 1
+let g:ale_yaml_yamllint_options = '-d "{extends: default, rules: {line-length: disable}}"'
 
 augroup filetype_env_settings
   autocmd!
@@ -149,6 +149,13 @@ augroup journal_md_wrap
   au BufNewFile,BufRead /home/matt/journal/**/*.md,/home/matt/writing/**/*.nwd setlocal
       \ wrap
       \ linebreak
+augroup END
+
+augroup dockerfile_ms
+  autocmd!
+  au BufNewFile,BufRead Dockerfile* setlocal
+        \ syntax=dockerfile
+        \ filetype=dockerfile
 augroup END
 
 augroup swayconfig
