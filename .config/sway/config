@@ -8,7 +8,6 @@
 # required-arch-package :: kwindowsystem
 # required-arch-package :: mako
 # required-arch-package :: pipewire
-# required-arch-package :: qpwgraph
 # required-arch-package :: rbw
 # required-arch-package :: rofi-rbw
 # required-arch-package :: slurp
@@ -267,7 +266,6 @@ bar {
 
 # Autostart applications
 exec mako
-exec qpwgraph -m
 exec terminator -p default -l codeworkspace
 
 include /etc/sway/config.d/*
