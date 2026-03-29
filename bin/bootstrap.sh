@@ -23,8 +23,6 @@ git config --global init.defaultBranch main
 git config --global pull.rebase true
 git config --global push.autoSetupRemote true
 
-xdg-settings set default-web-browser firefoxdeveloperedition.desktop
-
 rbw config set pinentry pinentry-qt
 
 if [ ! -d ~/.oh-my-zsh/ ]; then
