@@ -5,7 +5,7 @@
 # 5 seconds before locking.
 # required-arch-package :: swayidle
 
-lock_command="source ~/.config/sway/scripts/pause-and-lock.sh"
+lock_command="source ~/.config/sway/scripts/pause-and-lock.sh &"
 if ! pgrep swayidle; then
   swayidle -w \
     timeout 295 "swaynag -t warning -m 'Machine will idle-lock in 5 seconds' &" \
