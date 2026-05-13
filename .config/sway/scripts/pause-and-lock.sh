@@ -12,7 +12,11 @@ if ! pgrep swaylock; then
       now_playing="$now_playing $player"
     fi
   done
-  swaylock -Fei /usr/share/wallpapers/wallpaper.jpg
+  cmd='swaylock -Fei /usr/share/wallpapers/wallpaper.png'
+  if [ -f "$HOME/.config/swaylock/config-$(uname -n)" ]; then
+    cmd="$cmd --config ~/.config/swaylock/config-$(uname -n)"
+  fi
+  eval "$cmd"
   if [ -n "$now_playing" ]; then
     for player in $now_playing; do
       playerctl -p "$player" play

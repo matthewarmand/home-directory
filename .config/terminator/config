@@ -1,13 +1,8 @@
 [global_config]
   handle_size = 1
-  title_transmit_fg_color = "#babdb6"
-  title_transmit_bg_color = "#a40000"
-  title_receive_fg_color = "#d3d7cf"
-  title_receive_bg_color = "#a40000"
-  title_inactive_fg_color = "#D8DEE9"
-  title_inactive_bg_color = "#4C566A"
   inactive_color_offset = 0.9
 [keybindings]
+  help = ""
 [profiles]
   [[default]]
     background_darkness = 0.8
@@ -17,6 +12,26 @@
     cursor_color_default = False
     scrollbar_position = hidden
     scrollback_infinite = True
+    title_transmit_fg_color = "#babdb6"
+    title_transmit_bg_color = "#a40000"
+    title_receive_fg_color = "#d3d7cf"
+    title_receive_bg_color = "#a40000"
+    title_inactive_fg_color = "#D8DEE9"
+    title_inactive_bg_color = "#4C566A"
+  [[marmand-metametrics]]
+    background_darkness = 0.8
+    background_type = transparent
+    cursor_fg_color = "#000000"
+    cursor_bg_color = "#aaaaaa"
+    cursor_color_default = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    title_transmit_fg_color = "#babdb6"
+    title_transmit_bg_color = "#3100ff"
+    title_receive_fg_color = "#d3d7cf"
+    title_receive_bg_color = "#3100ff"
+    title_inactive_fg_color = "#D8DEE9"
+    title_inactive_bg_color = "#4C566A"
 [layouts]
   [[default]]
     [[[child1]]]

@@ -37,6 +37,7 @@ export FZF_BASE=/usr/share/fzf
 
 alias adios='sudo shutdown -h +0'
 alias cal='cal -m'
+alias terminator='terminator -p $(grep -q "\[\[$(uname -n)\]\]" /home/matt/.config/terminator/config && echo "$(uname -n)" || echo "default")'
 alias code-workspace='nohup terminator -l codeworkspace &>/dev/null & sleep 2; exit'
 alias count-vulns="arch-audit -f %c | sed 's/, /\n/g' | sort -u | wc -l"
 alias dcrun='docker compose run --rm'

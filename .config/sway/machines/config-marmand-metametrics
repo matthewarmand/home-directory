@@ -32,6 +32,11 @@ input "1739:52839:SYNA8018:00_06CB:CE67_Touchpad" {
   natural_scroll enabled
 }
 
+### Colors
+set $focused_workspace_border "#32323200"
+set $focused_workspace_background "#3100FF"
+set $focused_workspace_text "#ffffff"
+
 ### Key bindings
 bindsym XF86MonBrightnessUp exec brightnessctl s 5%+
 bindsym XF86MonBrightnessDown exec brightnessctl s 5%-

@@ -33,6 +33,8 @@
 !.config/sway/machines/config-*
 !.config/sway/scripts/
 !.config/sway/scripts/*
+!.config/swaylock/
+!.config/swaylock/config-*
 !.config/terminator/
 !.config/terminator/config
 !.config/vis/

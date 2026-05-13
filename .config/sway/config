@@ -29,11 +29,20 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term terminator
+set $term terminator -p $(grep -q "\[\[$(uname -n)\]\]" ~/.config/terminator/config && echo "$(uname -n)" || echo "default")
 # Your preferred application launcher
 set $menu wofi -iGS drun -t $term
 
+# Default colors
+set $focused_workspace_border "#4c7899"
+set $focused_workspace_background "#285577"
+set $focused_workspace_text "#ffffff"
+
+# Any machine-specific config overrides
 include "~/.config/sway/machines/config-$(uname -n)"
+
+# Colors
+client.focused $focused_workspace_border $focused_workspace_background $focused_workspace_text
 
 ### Output configuration
 #
@@ -41,7 +50,7 @@ include "~/.config/sway/machines/config-$(uname -n)"
 output 'Dell Inc. AW3423DWF 91ZG2S3' mode 3440x1440@59.973Hz pos 0 1440 scale 1
 output 'WAM PX275h Unknown' mode 2560x1440@59.951Hz pos 3440 1080 scale 1 transform 270
 
-output * bg /usr/share/wallpapers/wallpaper.jpg fill
+output * bg /usr/share/wallpapers/wallpaper.png fill
 
 #
 # Example configuration:
@@ -259,13 +268,15 @@ bar {
 
   colors {
     statusline #ffffff
-    background #323232
+    background #32323222
     inactive_workspace #32323200 #32323200 #5c5c5c
+    focused_workspace $focused_workspace_border $focused_workspace_background $focused_workspace_text
   }
 }
 
 # Autostart applications
 exec mako
-exec terminator -p default -l codeworkspace
+exec makoctl mode -a $(uname -n)
+exec terminator -l codeworkspace -p $(grep -q "\[\[$(uname -n)\]\]" ~/.config/terminator/config && echo "$(uname -n)" || echo "default")
 
 include /etc/sway/config.d/*
