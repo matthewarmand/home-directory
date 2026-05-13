@@ -4,9 +4,9 @@
 " required-arch-package :: shellcheck
 " required-arch-package :: shfmt
 " required-arch-package :: vim
-" required-arch-package :: vim-ale-git
-" required-arch-package :: vim-fugitive
-" required-arch-package :: vim-gitgutter
+" required-arch-package :: vim-ale
+" required-arch-package :: vim-fugitive-git
+" required-arch-package :: vim-gitgutter-git
 " required-arch-package :: yamllint
 syntax on
 filetype indent plugin on
@@ -146,9 +146,22 @@ augroup END
 
 augroup journal_md_wrap
   autocmd!
-  au BufNewFile,BufRead /home/matt/journal/**/*.md,/home/matt/writing/**/*.nwd setlocal
+  au BufNewFile,BufRead /home/matt/journal/**/*,/home/matt/writing/**/* setlocal
       \ wrap
       \ linebreak
+  if expand('%:p') =~# '/home/matt/writing'
+    let g:word_count=wordcount().words
+    function WordCount()
+      if has_key(wordcount(), 'visual_words')
+        let g:word_count=wordcount().visual_words.'/'.wordcount().words
+      else
+        let g:word_count=wordcount().cursor_words.'/'.wordcount().words
+      endif
+      return g:word_count
+    endfunction
+    set statusline+=\ w:%{WordCount()},
+    set laststatus=2
+  endif
 augroup END
 
 augroup dockerfile_ms

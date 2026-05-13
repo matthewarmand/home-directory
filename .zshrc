@@ -78,6 +78,16 @@ git-set-origin() {
   git remote set-url origin "$(git remote get-url "$1")"
 }
 
+odtgrep() {
+  [ "$1" ] || {echo "grep for what?" ; return 1 ; }
+  find ${2:-.} -type f -name "*.od*" | while read i ; do
+    unzip -ca "$i" 2>/dev/null | grep -iq "$*"
+    if [ $? -eq 0 ]; then
+      echo "string found in $i" | nl
+    fi
+  done
+}
+
 # run machine-specific configuration if it exists
 filename=/home/matt/.config/zshrc-machines/$(uname -n).sh
 test -x "$filename" && "$filename"
