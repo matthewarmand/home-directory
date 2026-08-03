@@ -29,7 +29,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term terminator -p $(grep -q "\[\[$(uname -n)\]\]" ~/.config/terminator/config && echo "$(uname -n)" || echo "default")
+set $term terminator
 # Your preferred application launcher
 set $menu wofi -iGS drun -t $term
 
@@ -277,6 +277,6 @@ bar {
 # Autostart applications
 exec mako
 exec makoctl mode -a $(uname -n)
-exec terminator -l codeworkspace -p $(grep -q "\[\[$(uname -n)\]\]" ~/.config/terminator/config && echo "$(uname -n)" || echo "default")
+exec terminator -l codeworkspace
 
 include /etc/sway/config.d/*
