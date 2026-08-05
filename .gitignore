@@ -17,8 +17,6 @@
 !.config/jellyfin-tui/config.yaml
 !.config/mako/
 !.config/mako/config
-!.config/novelwriter/
-!.config/novelwriter/novelwriter.conf
 !.config/paru/
 !.config/paru/paru.conf
 !.config/qt5ct/
