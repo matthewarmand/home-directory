@@ -34,8 +34,8 @@ set $term terminator
 set $menu wofi -iGS drun -t $term
 
 # Default colors
-set $focused_workspace_border "#4c7899"
-set $focused_workspace_background "#285577"
+set $focused_workspace_border "#000000"
+set $focused_workspace_background "#630509"
 set $focused_workspace_text "#ffffff"
 
 # Any machine-specific config overrides
