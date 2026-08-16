@@ -12,7 +12,7 @@ if ! pgrep swaylock; then
       now_playing="$now_playing $player"
     fi
   done
-  cmd='swaylock -Fei /usr/share/wallpapers/wallpaper.png'
+  cmd='swaylock -Fec 00000000'
   if [ -f "$HOME/.config/swaylock/config-$(uname -n)" ]; then
     cmd="$cmd --config ~/.config/swaylock/config-$(uname -n)"
   fi
