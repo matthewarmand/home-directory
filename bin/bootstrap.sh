@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ "$(id -u)" -eq 0 ]; then
   echo "Don't run this script as root! Exiting"
@@ -23,7 +23,8 @@ git config --global init.defaultBranch main
 git config --global pull.rebase true
 git config --global push.autoSetupRemote true
 
-rbw config set pinentry pinentry-qt
+rbw config set pinentry pinentry-gnome3
+rbw config set lock_timeout 300
 
 if [ ! -d ~/.oh-my-zsh/ ]; then
   mkdir -p ~/.oh-my-zsh/
@@ -31,22 +32,86 @@ if [ ! -d ~/.oh-my-zsh/ ]; then
 fi
 
 if ! command -v paru >/dev/null; then
-  mkdir -p ~/.cache/paru/clone/paru-bin/
-  git clone https://aur.archlinux.org/paru-bin.git ~/.cache/paru/clone/paru-bin/
+  mkdir -p ~/.cache/paru/clone/paru/
+  git clone https://aur.archlinux.org/paru.git ~/.cache/paru/clone/paru/
   (
-    cd ~/.cache/paru/clone/paru-bin/ || exit 1
+    cd ~/.cache/paru/clone/paru/ || exit 1
     makepkg -sric
   )
 fi
 
-# shellcheck disable=SC2046 # quotes break feeding this list of packages into paru
-paru -S --needed -q \
-  $(
-    git --git-dir ~/.git/ ls-files |
-      grep -v '.bootstrap.sh\|.zshenv' |
-      sed 's/^/\/home\/matt\//g' |
-      xargs grep 'required-arch-package ::' |
-      awk -F'::' '{print $2}' |
-      sort -u |
-      tr '\n' ' '
-  )
+base_system=(
+  'arch-audit'
+  'archlinux-contrib'
+  'base'
+  'base-devel'
+  'docker'
+  'docker-compose'
+  'fwupd'
+  'fzf'
+  'git'
+  'networkmanager'
+  'pacman-contrib'
+  'pipewire'
+  'python-black'
+  'rbw'
+  'ruff'
+  'shellcheck'
+  'shfmt'
+  'vim'
+  'vim-ale'
+  'vim-fugitive-git'
+  'vim-gitgutter-git'
+  'yamllint'
+  'zsh'
+)
+gui_environment=(
+  'firefox-developer-edition'
+  'gcr'
+  'grim'
+  'i3status-rust'
+  'jellyfin-tui'
+  'mako'
+  'otf-font-awesome'
+  'pavucontrol'
+  'playerctl'
+  'rofi-rbw'
+  'slurp'
+  'swappy'
+  'sway'
+  'swaybg'
+  'swayidle'
+  'swaylock'
+  'terminator'
+  'tidal-hifi-bin'
+  'wofi'
+  'wtype'
+  'xdg-desktop-portal-wlr'
+)
+work=(
+  'slack-desktop-wayland'
+)
+
+machine_name="$(uname -n)"
+case "$machine_name" in
+  kvasir)
+    packages+=(
+      "${base_system[@]}"
+      "${gui_environment[@]}"
+    )
+    ;;
+  marmand-metametrics)
+    packages+=(
+      "${base_system[@]}"
+      "${gui_environment[@]}"
+      "${work[@]}"
+    )
+    ;;
+  *)
+    echo "Don't recognize machine $machine_name, can't determine package list."
+    exit 1
+    ;;
+esac
+
+# shellcheck disable=SC2048,SC2086 # need to pass packages as unquoted
+paru -S --needed ${packages[*]}

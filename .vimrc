@@ -1,13 +1,3 @@
-" required-arch-package :: docker
-" required-arch-package :: python-black
-" required-arch-package :: ruff
-" required-arch-package :: shellcheck
-" required-arch-package :: shfmt
-" required-arch-package :: vim
-" required-arch-package :: vim-ale
-" required-arch-package :: vim-fugitive-git
-" required-arch-package :: vim-gitgutter-git
-" required-arch-package :: yamllint
 syntax on
 filetype indent plugin on
 

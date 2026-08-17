@@ -3,21 +3,6 @@
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #
 # Read `man 5 sway` for a complete reference.
-# required-arch-package :: grim
-# required-arch-package :: kguiaddons
-# required-arch-package :: kwindowsystem
-# required-arch-package :: mako
-# required-arch-package :: pipewire
-# required-arch-package :: rbw
-# required-arch-package :: rofi-rbw
-# required-arch-package :: slurp
-# required-arch-package :: swappy
-# required-arch-package :: sway
-# required-arch-package :: swaybg
-# required-arch-package :: terminator
-# required-arch-package :: wofi
-# required-arch-package :: wtype
-# required-arch-package :: xdg-desktop-portal-wlr
 
 ### Variables
 #

@@ -1,6 +1,4 @@
 #!/bin/sh -e
-# required-arch-package :: playerctl
-# required-arch-package :: swaylock
 
 pkill swaynag || true
 if ! pgrep swaylock; then

@@ -1,7 +1,3 @@
-# required-arch-package :: arch-audit
-# required-arch-package :: fzf
-# required-arch-package :: pacman-contrib
-# required-arch-package :: zsh
 # If you come from bash you might have to change your $PATH.
 # export PATH=/home/matt/bin:/usr/local/bin:$PATH
 
@@ -184,8 +180,7 @@ init-sway() {
   fi
 
   env XDG_CURRENT_DESKTOP=sway \
-    QT_QPA_PLATFORM=wayland \
-    QT_QPA_PLATFORMTHEME=qt6ct \
+    GDK_BACKEND=wayland \
     /usr/bin/sway
 }
 
