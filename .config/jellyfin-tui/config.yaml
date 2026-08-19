@@ -6,6 +6,7 @@ servers:
     password_file: /home/matt/.config/jellyfin-tui/.axs
 
 swap_play_pause: true
+lyrics: 'auto'
 
 keymap:
   # disable temporary queue functionality
