@@ -23,9 +23,6 @@ git config --global init.defaultBranch main
 git config --global pull.rebase true
 git config --global push.autoSetupRemote true
 
-rbw config set pinentry pinentry-gnome3
-rbw config set lock_timeout 300
-
 if [ ! -d ~/.oh-my-zsh/ ]; then
   mkdir -p ~/.oh-my-zsh/
   git clone git@github.com:ohmyzsh/ohmyzsh.git ~/.oh-my-zsh/
