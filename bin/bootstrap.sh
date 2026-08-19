@@ -66,12 +66,12 @@ base_system=(
   'zsh'
 )
 gui_environment=(
+  'dunst'
   'firefox-developer-edition'
   'gcr'
   'grim'
   'i3status-rust'
   'jellyfin-tui'
-  'mako'
   'otf-font-awesome'
   'pavucontrol'
   'playerctl'

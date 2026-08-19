@@ -11,12 +11,12 @@
 !bin/system-update
 
 !.config/
+!.config/dunst/
+!.config/dunst/dunstrc
 !.config/i3status-rust/
 !.config/i3status-rust/config.toml
 !.config/jellyfin-tui/
 !.config/jellyfin-tui/config.yaml
-!.config/mako/
-!.config/mako/config
 !.config/paru/
 !.config/paru/paru.conf
 !.config/swappy/

@@ -101,17 +101,8 @@ lock = "\uf023"
 lock-open = "\uf3c1"
 
 [[block]]
-block = "toggle"
-format = " $icon "
-command_on = "makoctl mode -a do-not-disturb >/dev/null"
-command_off = "makoctl mode -r do-not-disturb >/dev/null"
-command_state = "makoctl mode | grep do-not-disturb"
-icon_on = "bell-slash"
-icon_off = "bell"
-state_on = "warning"
-[block.icons_overrides]
-bell-slash = "\uf1f6"
-bell = "\uf0f3"
+block = "notify"
+format = " $icon {($notification_count.eng(w:1)) |}"
 
 [[block]]
 block = "time"

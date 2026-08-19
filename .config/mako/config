@@ -1,8 +1,0 @@
-layer=overlay
-
-[mode=marmand-metametrics]
-background-color=#3100FFFF
-border-color=#3A378EFF
-
-[mode=do-not-disturb]
-invisible=1
