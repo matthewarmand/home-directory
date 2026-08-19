@@ -88,6 +88,9 @@ gui_environment=(
   'wtype'
   'xdg-desktop-portal-wlr'
 )
+laptop=(
+  'brightnessctl'
+)
 work=(
   'slack-desktop-wayland'
 )
@@ -104,6 +107,7 @@ case "$machine_name" in
     packages+=(
       "${base_system[@]}"
       "${gui_environment[@]}"
+      "${laptop[@]}"
       "${work[@]}"
     )
     ;;
