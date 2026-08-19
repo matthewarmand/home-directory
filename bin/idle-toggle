@@ -1,4 +1,0 @@
-#!/bin/sh
-
-pkill swayidle || . /home/matt/.config/sway/scripts/idle.sh
-pkill -SIGRTMIN+4 i3status-rs

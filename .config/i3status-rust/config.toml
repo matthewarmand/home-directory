@@ -88,19 +88,6 @@ format = " $icon $name{ $percentage|} "
 disconnected_format = " $available{$icon{ $name|}}| "
 
 [[block]]
-block = "custom"
-json = true
-interval = "once"
-signal = 4
-command = ". /home/matt/.config/sway/scripts/idle-check.sh"
-[[block.click]]
-button = "left"
-cmd = ". /home/matt/bin/idle-toggle"
-[block.icons_overrides]
-lock = "\uf023"
-lock-open = "\uf3c1"
-
-[[block]]
 block = "notify"
 format = " $icon {($notification_count.eng(w:1)) |}"
 
