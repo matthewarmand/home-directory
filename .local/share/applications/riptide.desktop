@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Riptide
+GenericName=Music Player
+Comment=A terminal UI music player for Tidal, built with Rust
+Exec=/usr/bin/kitty riptide
+Categories=Audio;AudioVideo;Player;ConsoleOnly;
+Keywords=streaming;music;riptide;
