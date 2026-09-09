@@ -1,4 +1,5 @@
-#!/usr/bin/sh -e
+#!/usr/bin/sh
+set -e
 
 # Do something like this for mysql dumps etc
 # docker run -it -v $(pwd):/code/`basename $PWD` -w /code/`basename $PWD` mysql:5.6 bash
