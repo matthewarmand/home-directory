@@ -180,6 +180,7 @@ init-sway() {
   fi
 
   env XDG_CURRENT_DESKTOP=sway \
+    GTK_THEME=Adwaita:dark \
     GDK_BACKEND=wayland \
     /usr/bin/sway
 }
