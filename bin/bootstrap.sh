@@ -52,6 +52,7 @@ base_system=(
   'pacman-contrib'
   'pandoc'
   'pipewire'
+  'proton-cli-bin'
   'python-black'
   'rbw'
   'ruff'
