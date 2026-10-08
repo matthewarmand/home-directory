@@ -128,33 +128,20 @@ augroup filetype_tab_settings
       \ tabstop=4
       \ softtabstop=4
       \ shiftwidth=4
-      \ textwidth=79
       \ expandtab
       \ autoindent
       \ fileformat=unix
 augroup END
 
-augroup journal_md_wrap
+augroup md_settings
   autocmd!
-  au BufNewFile,BufRead /home/matt/journal/**/*,/home/matt/writing/**/* setlocal
+  au BufNewFile,BufRead *.md setlocal
       \ wrap
       \ linebreak
-  if expand('%:p') =~# '/home/matt/writing'
-    let g:word_count=wordcount().words
-    function WordCount()
-      if has_key(wordcount(), 'visual_words')
-        let g:word_count=wordcount().visual_words.'/'.wordcount().words
-      else
-        let g:word_count=wordcount().cursor_words.'/'.wordcount().words
-      endif
-      return g:word_count
-    endfunction
-    set statusline+=\ w:%{WordCount()},
-    set laststatus=2
-  endif
+      \ textwidth=80
 augroup END
 
-augroup dockerfile_ms
+augroup dockerfile_settings
   autocmd!
   au BufNewFile,BufRead Dockerfile* setlocal
         \ syntax=dockerfile
