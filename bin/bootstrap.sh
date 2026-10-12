@@ -94,7 +94,7 @@ laptop=(
   'brightnessctl'
 )
 work=(
-  'slack-desktop-wayland'
+  'slack-desktop'
 )
 
 machine_name="$(uname -n)"
