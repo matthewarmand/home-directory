@@ -139,6 +139,9 @@ augroup md_settings
       \ wrap
       \ linebreak
       \ textwidth=80
+      \ tabstop=2
+      \ softtabstop=2
+      \ shiftwidth=2
 augroup END
 
 augroup dockerfile_settings
